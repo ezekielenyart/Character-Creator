@@ -1,8 +1,8 @@
 import React from "react";
-import JumboBtnCard from "./components/JumboBtnCard"
+import HomePageRender from "./components/HomePageRender";
 
 function App() {
-  return <JumboBtnCard />;
+  return <HomePageRender />;
 }
 
 export default App;
