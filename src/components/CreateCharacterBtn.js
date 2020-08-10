@@ -2,8 +2,8 @@ import React from "react";
 
 function CharacterCreateBtn() {
   return (
-    <div>
-        <button type="button" class="loginBtn">Create New Character</button>
+    <div className = "createCharSpot">
+        <button type="button" className="createCharBtn">Create New Character</button>
     </div>
   );
 }
