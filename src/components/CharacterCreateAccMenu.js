@@ -6,8 +6,8 @@ function CharacterCreateAccMenu() {
         <div className="panel-group" id="accordion">
             <div className="panel panel-default">
                 <div className="panel-heading">
-                    <h4 className="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                    <h4 className="panel-title text-center bg-dark">
+                        <a  className="bg-dark"data-toggle="collapse" data-parent="#accordion" href="#collapse1">
                             Race</a>
                     </h4>
                 </div>
