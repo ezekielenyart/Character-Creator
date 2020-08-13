@@ -1,7 +1,38 @@
 body {
-    background-image: url("Webp.net-resizeimage.png");
+    background-image: url("./images/Webp.net-resizeimage.png");
     background-size: cover;
     
+}
+.panel {
+    padding: 0
+}
+.panel-title{
+    margin: auto;
+    padding: 20px;
+    background-color: rgba(56, 43, 43, 0.997);
+    height: 75px;
+    text-align: center;
+    color: antiquewhite;
+    font-weight: bolder;
+    font-size: 35px;
+    font-family: Staatliches, Open Sans, sans-serif;
+}
+.panel-body {
+    background-color: rgba(75, 59, 59, 0.997);
+    color: antiquewhite;
+    font-family: Open Sans, sans-serif;
+    margin: 3px
+}
+.panel-heading{
+    padding: 0;
+    background-color: black;
+    border-width: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.panel-default {
+    border-color: Black;
+    padding: 0;
+    background-color:  rgba(75, 59, 59, 0.997);
 }
 
 .logRegBar {
@@ -46,9 +77,7 @@ body {
     font-size: 25px;
 }
 .viewRosterSpot {
-    position: fixed;
     bottom: 10px; 
-    right: 10px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;

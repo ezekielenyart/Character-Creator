@@ -1,17 +1,16 @@
 import React from "react";
 import LogRegBar from "./LogRegBar"
-import CharacterCreateBtn from "./CreateCharacterBtn"
 import RosterBtn from "./RosterBtn";
-
+import CharacterCreateBtn from "./CreateCharacterBtn"
 
 function HomePageRender() {
   return (
       <div>
     <LogRegBar />
-    <br></br>
-    <CharacterCreateBtn />
-    <br></br>
+    <br></br> 
     <RosterBtn />
+    <br></br>
+    <CharacterCreateBtn />    
     </div>
   );
 }

@@ -13,27 +13,115 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.INTEGER,
         allowNull: false
       },
-      strength: {
+      level: {
         type: DataTypes.INTEGER,
         allowNull: false
       },
-      intelligence: {
+      maxHP: {
         type: DataTypes.INTEGER,
         allowNull: false
       },
-      dexterity: {
+      currentHP: {
         type: DataTypes.INTEGER,
         allowNull: false
       },
-      wisdom: {
+      hitDie: {
         type: DataTypes.INTEGER,
         allowNull: false
       },
-      constitution: {
+      initProf: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false
+      },
+      initMisc: {
         type: DataTypes.INTEGER,
         allowNull: false
       },
-      charisma: {
+      initDoubleProf: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false
+      },
+      armorBonus: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      shieldBonus: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      maxDex: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      initMisc: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      baseSpeed: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      speedMisc: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      strSkillName: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      strProf: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      strMisc: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      intelSkillName: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      intelProf: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      intelMisc: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      dexSkillName: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      dexProf: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      dexMisc: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      wisSkillName: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      wisProf: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      wisMisc: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      charSkillName: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      charProf: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      charMisc: {
         type: DataTypes.INTEGER,
         allowNull: false
       }
