@@ -6,7 +6,9 @@ function CharacterCreateBtn() {
   return (
     <div className="createCharSpot">
 
+
       <button name="" id="" className="btn createBtn">
+
       <Link to="/create" className={location.pathname === "/create" ? "nav-link active" : "nav-link"}>
           Create new Character
         </Link>
