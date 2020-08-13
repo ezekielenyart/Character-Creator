@@ -1,7 +1,55 @@
 body {
     background-image: url("./images/Webp.net-resizeimage.png");
     background-size: cover;
-    
+    font-family: Staatliches, Open Sans, sans-serif;
+}
+.panel {
+    padding: 0
+}
+.rosterContainer{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+.card {
+    margin:20px, 30px;
+    grid-area: 1 / 1 / 2 / 4;
+}
+.card-body {
+   
+}
+.panel-title{
+    margin: auto;
+    padding: 20px;
+    background-color: rgba(56, 43, 43, 0.997);
+    height: 75px;
+    text-align: center;
+    color: antiquewhite;
+    font-weight: bolder;
+    font-size: 35px;
+    font-family: Staatliches, Open Sans, sans-serif;
+}
+.panel-body {
+    background-color: rgba(75, 59, 59, 0.997);
+    color: antiquewhite;
+    font-family: Open Sans, sans-serif;
+    margin: 3px
+}
+.panel-heading{
+    padding: 0;
+    background-color: black;
+    border-width: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.panel-default {
+    border-color: Black;
+    padding: 0;
+    background-color:  rgba(75, 59, 59, 0.997);
+}
+.nav-link {
+    color: white
 }
 .panel {
     padding: 0
@@ -42,20 +90,21 @@ body {
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     height: 30px;
+    margin: 30px;
 }
     
 .loginBtn { 
     grid-area: 1 / 1 / 2 / 2; 
     margin-left: 10px;
     background-color: darkblue;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Staatliches, Open Sans, sans-serif;
     font-size: 18px;
     color: white;
 }
 .registerBtn { 
     grid-area: 1 / 2 / 2 / 3;
     margin-right: 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Staatliches, Open Sans, sans-serif;
     font-size: 18px;
     background-color: darkred;
     color: white;
@@ -68,13 +117,8 @@ body {
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 }
-.createCharBtn { 
-    height: 60px;
-    grid-area: 1 / 2 / 2 / 3;
-    background-color: black;
-    color: white;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 25px;
+.homePageRenderContainer { 
+    margin: auto
 }
 .viewRosterSpot {
     bottom: 10px; 
@@ -84,12 +128,21 @@ body {
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 }
+.rosterBtn {
+    background-color: rgba(53, 41, 41, 0.997);
+    grid-area: 1 / 2 / 2 / 3;
+    color: white
 
-.viewRosterBtn {
+}
+.createBtn {
+    background-color: rgba(53, 41, 41, 0.997);
+    grid-area: 1 / 2 / 2 / 3;
+}
+/* .viewRosterBtn {
     height: 60px;
     grid-area: 1 / 2 / 2 / 3;
     background-color: black;
     color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 25px;
-}
+} */

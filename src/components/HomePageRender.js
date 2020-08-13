@@ -5,7 +5,7 @@ import CharacterCreateBtn from "./CreateCharacterBtn"
 
 function HomePageRender() {
   return (
-      <div>
+      <div className="container homePageRenderContainer">
     <LogRegBar />
     <br></br> 
     <RosterBtn />
