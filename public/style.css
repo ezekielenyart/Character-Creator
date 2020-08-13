@@ -6,7 +6,7 @@ body {
 .panel {
     padding: 0
 }
-.rosterContainer{
+/* .rosterContainer{
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: 1fr;
@@ -16,7 +16,7 @@ body {
 .card {
     margin:20px, 30px;
     grid-area: 1 / 1 / 2 / 4;
-}
+} */
 .card-body {
    color: black;
 }

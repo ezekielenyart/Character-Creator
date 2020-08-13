@@ -4,7 +4,7 @@ function RosterBtn() {
   const location = useLocation();
   return (
     <div className = "viewRosterSpot">
-        <button className="btn rosterBtn">
+        <button className="btn btn-lg rosterBtn">
           
       <Link to="/roster" className={location.pathname === "/roster" ? "nav-link active" : "nav-link"}>
           Go To Roster

@@ -1,5 +1,44 @@
 import React from "react";
 import RaceModal from './RaceModal'
+
+
+const Races = [
+    {
+ 
+        name: "Dwarves",
+        plural: "Dwarven",
+        description: "Bold and hardy, Hill Dwarves are known as skilled warriors, miners, and workers of stone and metal. Though they stand well under 5 feet tall, dwarves are so broad and compact that they can weigh as much as a human standing nearly two feet taller. Their courage and endurance are also easily a match for any of the larger folk.",
+        subraces: [
+            {
+                name: "Hill Dwarf",
+                description: "Mountain Dwarves are nearly identical to the Hill Dwarves aside from their propensity to live deeper underground and fairer skin."
+            },
+            {
+                name: "Mountain Dwarf",
+                description: "Mountain Dwarves are nearly identical to the Hill Dwarves aside from their propensity to live deeper underground and fairer skin."
+            }
+        ]
+    },
+    {
+
+        name: "Elves",
+        plural: "Elven",
+        description: "Generally Assholes.",
+        subraces: [
+            {
+
+                name: "High Elf",
+                description: "Love fighting each other"
+            },
+            {
+
+                name: "Wood Elf",
+                description: "Would rather kiss a tree than another Elf"
+            }
+        ]
+    }
+]
+
 function CharacterCreateAccMenu() {
     return (
         <div className="container mt-5">
@@ -13,14 +52,15 @@ function CharacterCreateAccMenu() {
                         </h4>
                     </div>
                     <div id="collapse1" className="panel-collapse collapse ">
-                        
-                        <RaceModal />
+                           
+                        <RaceModal 
+                            race={(Races[0])} />
+                            
+                        <RaceModal 
+                            race={(Races[1])} />
                         
                         <div className="panel-body">
-                            Elf
-                        </div>
-                        <div className="panel-body">
-                            Dwarves
+                            Human
                         </div>
                         <div className="panel-body">
                             Halfling
@@ -231,5 +271,5 @@ function CharacterCreateAccMenu() {
         </div>
     )
 };
-
+console.log(Races)
 export default CharacterCreateAccMenu
