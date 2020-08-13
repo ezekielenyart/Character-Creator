@@ -1,5 +1,5 @@
 import React from "react";
-import HumanRaceModal from './HumanRaceModal'
+import RaceModal from './RaceModal'
 function CharacterCreateAccMenu() {
     return (
         <div className="container mt-5">
@@ -7,13 +7,15 @@ function CharacterCreateAccMenu() {
                 <div className="panel panel-default">
                     <div className="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
                         <h4 className="panel-title text-center bg-dark">
-                            <a className="bg-dark">
+                            <a className="bg-dark border-white">
                                 Race
                         </a>
                         </h4>
                     </div>
                     <div id="collapse1" className="panel-collapse collapse ">
-                        <HumanRaceModal />
+                        
+                        <RaceModal />
+                        
                         <div className="panel-body">
                             Elf
                         </div>

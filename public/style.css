@@ -18,7 +18,34 @@ body {
     grid-area: 1 / 1 / 2 / 4;
 }
 .card-body {
-   
+   color: black;
+}
+.goToModalBtn{
+    background-color: rgba(75, 59, 59, 0.997);
+    color: white;
+    width: 100%;
+}
+.modal-body{
+
+    background-color:  rgba(75, 59, 59, 0.997);
+}
+.modal-title{
+    background-color: rgba(56, 43, 43, 0.997);
+    font-size: 25px
+}
+.modal-content{
+    background-color: rgba(56, 43, 43, 0.997);
+}
+.modal-header, .modal-footer{
+    border: 0
+}
+.close{
+    font-size: 40px;
+    color: wheat;
+}
+.chooseRaceBtn{
+
+    background-color:  rgba(75, 59, 59, 0.997);
 }
 .panel-title{
     margin: auto;
@@ -33,7 +60,7 @@ body {
 }
 .panel-body {
     background-color: rgba(75, 59, 59, 0.997);
-    color: antiquewhite;
+    /* color: antiquewhite; */
     font-family: Open Sans, sans-serif;
     margin: 3px
 }

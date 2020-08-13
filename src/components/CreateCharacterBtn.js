@@ -5,9 +5,8 @@ function CharacterCreateBtn() {
   const location = useLocation();
   return (
     <div className="createCharSpot">
-      <button type="button" className="createCharBtn">Create New Character</button>
 
-      <button name="" id="" className="btn createBtn" role="button">
+      <button name="" id="" className="btn createBtn">
       <Link to="/create" className={location.pathname === "/create" ? "nav-link active" : "nav-link"}>
           Create new Character
         </Link>
