@@ -70,7 +70,7 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       },
       strProf: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.BOOLEAN,
         allowNull: false
       },
       strMisc: {
@@ -82,7 +82,7 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       },
       intelProf: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.BOOLEAN,
         allowNull: false
       },
       intelMisc: {
@@ -94,7 +94,7 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       },
       dexProf: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.BOOLEAN,
         allowNull: false
       },
       dexMisc: {
@@ -106,7 +106,7 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       },
       wisProf: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.BOOLEAN,
         allowNull: false
       },
       wisMisc: {
@@ -118,7 +118,7 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       },
       charProf: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.BOOLEAN,
         allowNull: false
       },
       charMisc: {
@@ -140,42 +140,7 @@ module.exports = function(sequelize, DataTypes) {
         }
     })
 
-      Character.hasOne(models.HP, {
-        onDelete: "cascade"
-      });
-
-      Character.hasOne(models.Initiative, {
-        onDelete: "cascade"
-      });
-
-      Character.hasOne(models.ArmorClass, {
-        onDelete: "cascade"
-      });
-
-      Character.hasOne(models.StrSkills, {
-        onDelete: "cascade"
-      });
-
-      Character.hasOne(models.IntelSkills, {
-        onDelete: "cascade"
-      });
-
-      Character.hasOne(models.DexSkills, {
-        onDelete: "cascade"
-      });
-
-      Character.hasOne(models.WisSkills, {
-        onDelete: "cascade"
-      });
-
-      Character.hasOne(models.ConsSkills, {
-        onDelete: "cascade"
-      });
-
-      Character.hasOne(models.CharSkill, {
-        onDelete: "cascade"
-      });
-    };
+      
   
     return Character;
-  };
+  }}

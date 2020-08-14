@@ -1,12 +1,9 @@
 import React from "react";
 import HomePageRender from "./components/HomePageRender";
 import CharacterCreateAccMenu from "./components/CharacterCreateAccMenu";
-
-function App() {
-  return <CharacterCreateAccMenu />;
-}
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Roster from './components/Roster'
+
 function App() {
   return (
     <Router>
