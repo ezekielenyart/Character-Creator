@@ -2,29 +2,44 @@ import React from 'react';
 
 const cards = [
     {
-        img: "images/logo192.png",
+        img: "images/download.png",
         alt: "img",
         text: "Short description of the character of this card.Probably utilze props parameters to auto- populate"
     },
     {
-        img: "images/logo192.png",
+        img: "images/download.png",
         alt: "img",
         text: "Short description of the character of this card.Probably utilze props parameters to auto- populate"
     },
     {
-        img: "images/logo192.png",
+        img: "images/download.png",
         alt: "img",
         text: "Short description of the character of this card.Probably utilze props parameters to auto- populate"
     },
     {
-        img: "images/logo192.png",
+        img: "images/download.png",
+        alt: "img",
+        text: "Short description of the character of this card.Probably utilze props parameters to auto- populate"
+    },
+    {
+        img: "images/download.png",
+        alt: "img",
+        text: "Short description of the character of this card.Probably utilze props parameters to auto- populate"
+    },
+    {
+        img: "images/download.png",
         alt: "img",
         text: "Short description of the character of this card.Probably utilze props parameters to auto- populate"
     },
 ]
 
 function Card({ card }) {
-    return 
+    return (
+    <div>
+        <img src={card.img} />
+        <p>{card.text}</p>
+    </div>        
+        )
 }
 
 function Roster() {
@@ -32,7 +47,7 @@ function Roster() {
         <div className="container">
             <div className="row">
                 {
-                    cards.map((card, i) => <div key={i + '-cards'} className="col-12 col-sm-6 col-md-3">
+                    cards.map((card, i) => <div key={i + '-cards'} className="col-xs-6 col-sm-4 col-md-3 text-center">
                         <Card card={card} />
                     </div>)
                 }
