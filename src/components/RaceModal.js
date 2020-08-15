@@ -25,7 +25,7 @@ function RaceModal({ race }) {
               </button>
               <p>{race.description}</p>
             </div>
-
+          
             {
               race.subraces.map((subrace, i) => <div key={i + '-subrace'}>
                 <div className="modal-body">
@@ -36,14 +36,7 @@ function RaceModal({ race }) {
                 <br />
               </div >)
             }
-            {/* <div className="modal-footer">
-            </div>
-            <div className="modal-body">
-              Mountain Dwarves are nearly identical to the Hill Dwarves aside from their propensity to live deeper underground and fairer skin.
-      </div>
-            <div className="modal-footer">
-              <button type="button" className="btn chooseRaceBtn">Choose Mountain Dwarves</button>
-            </div> */}
+
           </div>
         </div>
       </div>

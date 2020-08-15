@@ -27,6 +27,23 @@ body {
     color: antiquewhite;
     width: 100%;
 }
+.abilityScoreDesBtn{
+    width: 150px;
+    background-color: rgba(75, 59, 59, 0.997);
+    color: antiquewhite;
+    text-align: left;
+}
+.abilityScoreInput {
+    width: 75px;
+    background-color: rgba(56, 43, 43, 0.997);
+    float: right;
+    color: antiquewhite
+}
+.abilityScoreNameInput{
+    width: 100%;
+    text-align: center;
+    background-color: rgba(56, 43, 43, 0.997);
+}
 .modal-body{
 
     background-color:  rgba(75, 59, 59, 0.997);
