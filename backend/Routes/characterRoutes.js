@@ -12,6 +12,7 @@ module.exports = function(app) {
         .catch(err => console.log(err))
     });
     
+    
   
     // Get route for returning characters of a specific class (future dev)
     // app.get("/api/characters/class/:class", function(req, res) {

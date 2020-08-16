@@ -1,4 +1,9 @@
 import React from 'react';
+
+function CharacterSheet() {
+    return (
+        <div className="container">
+
 import CharacterChoices from './CharacterCreateAccMenu'
 // Race, Background, Skills, Stats, Class
 function CharacterSheet() {
