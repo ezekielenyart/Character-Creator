@@ -268,6 +268,7 @@ const AbilityScores = [
 
 // THESE ARE THE VARIABLES THAT THE CHOICES CAN BE PUT INTO
 // SHOULD THEY BE THEIR OWN CONTEXT?
+// Yeah they should be part of a "currentCharacter" state or something.
 let raceChoice = ""
 let DNDclassChoice = ""
 let backgroundChoice = ""
@@ -317,13 +318,15 @@ function CharacterCreateAccMenu() {
         <div className="container mt-5  text-center">
             <div className="panel-group" id="accordion">
                 <div className="panel panel-default">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
                     <div className="panel-heading">
                         <h4 className="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                            
                                 Ability Scores
-                        </a>
+                        
                         </h4>
                     </div>
+                    </a>
                     <div id="collapse1" className="panel-collapse collapse">
                         <div className="panel-body">
                             <input type="text" className="abilityScoreNameInput form-control" aria-label="Username" placeholder="Enter Character's Name Here" aria-describedby="basic-addon1"></input>
@@ -349,13 +352,15 @@ function CharacterCreateAccMenu() {
                     </div>
                 </div>
                 <div className="panel panel-default">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
                     <div className="panel-heading">
                         <h4 className="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                            
                                 Class
-                        </a>
+                        
                         </h4>
                     </div>
+                    </a>
                     <div id="collapse3" className="panel-collapse collapse">
                         {DNDClasses.map(DNDclass => (
                             <ClassModal
@@ -366,12 +371,14 @@ function CharacterCreateAccMenu() {
 
 
                 <div className="panel panel-default">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
                     <div className="panel-heading">
                         <h4 className="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
-                                Background</a>
+                            
+                                Background
                         </h4>
                     </div>
+                    </a>
                     <div id="collapse5" className="panel-collapse collapse">
                         {Backgrounds.map(background => (
                             <BackgroundModal background={background} />
