@@ -13,29 +13,38 @@ import DeveloperContext from "./components/utils/DeveloperContext.js";
 function App() {
 
   const [developerState, setDeveloperState] = useState({
-    classList: {class3: "wizard", class2: "dragonborne", class1: "jasonborne"}
+    classList: {
+      class1: "wizard", 
+      class2: "dragonborne", 
+      class3: "jasonborne"
+    }
   });
 
-  useEffect(() => {
-    // For demonstration purposes, we mock an API call.
-      setDeveloperState();
-  }, [])
+
+  // useEffect({
+  //   classList: {
+  //     class1: "wizard",
+  //     class2: "dragonborne",
+  //     class3: "jasonborne"
+  //   }
+  // })
+
 
    return (
     <Router>
       <div>
         <Wrapper>
 
-          <DeveloperContext value={developerState}>
+          <DeveloperContext.Provider value={developerState}>
 
-            <TestAPI />
+            
 
           <Route exact path="/" component={HomePageRender} />
           <Route exact path="/create" component={CharacterCreateAccMenu} />
           <Route exact path="/roster" component={Roster} />
           <Route exact path="/charactersheet" component={CharacterSheet} />
           <Route exact path="/api/test" component={TestAPI} />
-          </DeveloperContext>
+          </DeveloperContext.Provider>
         </Wrapper>
       </div>
     </Router>
