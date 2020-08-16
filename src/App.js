@@ -4,11 +4,15 @@ import CharacterCreateAccMenu from "./components/CharacterCreateAccMenu";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Roster from './components/Roster';
 import Wrapper from './components/Wrapper'
+<<<<<<< HEAD
 import CharacterSheet from './components/CharacterSheet'
 // import DeveloperContext from "./components/utils/DeveloperContext";
 import TestAPI from "./components/APItestcomponent.js"
 import DeveloperContext from "./components/utils/DeveloperContext.js";
 
+=======
+// import CharacterSheet from './components/CharacterSheet'
+>>>>>>> 64712e18d045ffffda3e6f650ecf9a29648648b8
 
 function App() {
 
@@ -42,6 +46,7 @@ function App() {
           <Route exact path="/" component={HomePageRender} />
           <Route exact path="/create" component={CharacterCreateAccMenu} />
           <Route exact path="/roster" component={Roster} />
+<<<<<<< HEAD
           <Route exact path="/charactersheet" component={CharacterSheet} />
           <Route exact path="/api/test" component={TestAPI} />
           </DeveloperContext.Provider>
@@ -50,5 +55,12 @@ function App() {
     </Router>
   )
 }
+=======
+          {/* <Route exact path="/charactersheet" component={CharacterSheet} /> */}
+        </Wrapper>
+      </div>
+    </Router>
+  )}
+>>>>>>> 64712e18d045ffffda3e6f650ecf9a29648648b8
 
 export default App;
