@@ -3,7 +3,7 @@ import React from 'react';
 
 
 
-function ClassModal({ DNDclass }) {
+function ClassModal( {DNDclass} ) {
   
   return (
     <div className="panel-body text-dark">

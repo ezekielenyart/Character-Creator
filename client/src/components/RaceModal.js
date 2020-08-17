@@ -3,9 +3,10 @@ import React from 'react';
 
 
 
+
 function RaceModal({ race }) {
 const subraceFound = () => {
-    if (race.subraces.length = 0) {
+    if (race.subraces.length === 0) {
 
     } else
     return(
