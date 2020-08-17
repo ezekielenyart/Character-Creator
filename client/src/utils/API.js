@@ -9,6 +9,11 @@ export default {
 
     getSpells: function () {
         return axios.get("https://www.dnd5eapi.co/api/spells");
+    },
+
+    getClass: function (className) {
+        return axios.get("https://www.dnd5eapi.co/api/classes/" + className);
     }
+
 
 }
