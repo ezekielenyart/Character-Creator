@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import HomePageRender from "./components/HomePageRender";
-import CharacterCreateAccMenu from "./components/CharacterCreateAccMenu";
+import HomePageRender from "./pages/HomePageRender";
+import CharacterCreateAccMenu from "./pages/CharacterCreateAccMenu";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Roster from './components/Roster';
+import Roster from './pages/Roster';
 import Wrapper from './components/Wrapper'
 
-// import CharacterSheet from './components/CharacterSheet'
+// import CharacterSheet from './pages/CharacterSheet'
 // import DeveloperContext from "./components/utils/DeveloperContext";
 import TestAPI from "./components/APItestcomponent.js"
 import DeveloperContext from "./components/utils/DeveloperContext.js";
