@@ -4,6 +4,7 @@ import RosterBtn from "./RosterBtn";
 import CharacterCreateBtn from "./CreateCharacterBtn"
 
 function HomePageRender() {
+  // Add Description, Take createCharBtn off
   return (
       <div className="container homePageRenderContainer">
     <LogRegBar />
