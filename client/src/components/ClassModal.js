@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import API from '../utils/API'
 
 
 
+function ClassModal( {DNDclass} ) {
 
-function ClassModal({ DNDclass }) {
+  const [classDetails, setClassDetails] = useState({});
+
+  const returnClassDetails = () => {
+    API.getClass(DNDclass.index).then(res => {
+      console.log("onclick clicked!")
+      console.log(res.data)
+      setClassDetails(res.data)
+    })
+  }
   
   return (
     <div className="panel-body text-dark">
       <button type="button"
+        onClick={returnClassDetails}
         className="btn goToModalBtn"
         data-toggle="modal"
         data-target={`#${DNDclass.name}`}>
@@ -23,6 +34,14 @@ function ClassModal({ DNDclass }) {
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
+              <ul>
+                
+
+                {/* classDetails.proficiency_choices.proficiencies.map(score => (
+                  <ModalListItem />
+ */}
+
+              </ul>
               <p>{DNDclass.description}</p>
               <button type="button" className="btn btn-outline-primary chooseClassBtn">Choose {DNDclass.name}</button>
             </div>

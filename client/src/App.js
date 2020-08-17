@@ -8,7 +8,7 @@ import Wrapper from './components/Wrapper'
 import CharacterSheet from './pages/CharacterSheet'
 // import DeveloperContext from "./components/utils/DeveloperContext";
 import TestAPI from "./components/APItestcomponent.js"
-import DeveloperContext from "./components/utils/DeveloperContext.js";
+
 
 
 
@@ -37,15 +37,16 @@ function App() {
       <div>
         <Wrapper>
 
-          <DeveloperContext.Provider value={developerState}>
+          {/* <DeveloperContext.Provider value={developerState}> */}
 
           <Route exact path="/" component={HomePageRender} />
           <Route exact path="/create" component={CharacterCreateAccMenu} />
           <Route exact path="/roster" component={Roster} />
 
-          <Route exact path="/charactersheet" component={CharacterSheet} />
-          <Route exact path="/api/test" component={TestAPI} />
-          </DeveloperContext.Provider>
+          {/* <Route exact path="/charactersheet" component={CharacterSheet} /> */}
+          {/* <Route exact path="/api/test" component={TestAPI} /> */}
+          {/* </DeveloperContext.Provider> */}
+
         </Wrapper>
       </div>
     </Router>

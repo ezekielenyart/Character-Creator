@@ -1,29 +1,29 @@
-import React, { useContext } from 'react'
-// import API from './utils/API'
-import DeveloperContext from "./utils/DeveloperContext.js";
+// import React, { useContext } from 'react'
+// // import API from './utils/API'
+// import DeveloperContext from "./utils/DeveloperContext.js";
 
-function TestAPI() {
+// function TestAPI() {
 
-    // const { classList } = useContext(DeveloperContext);
+//     // const { classList } = useContext(DeveloperContext);
 
-    // console.log(classList)
+//     // console.log(classList)
 
-    const context = useContext(DeveloperContext)
+//     const context = useContext(DeveloperContext)
 
-    console.log(context)
+//     console.log(context)
 
 
-    return (
+//     return (
 
-        <div>
-            <h1>API Testing Grounds</h1>
+//         <div>
+//             <h1>API Testing Grounds</h1>
             
-            <p>{JSON.stringify(context)}</p>
+//             <p>{JSON.stringify(context)}</p>
             
 
-        </div>
+//         </div>
 
-    )
-}
+//     )
+// }
 
-export default TestAPI;
+// export default TestAPI;
