@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import RaceModal from '../components/RaceModal'
 import ClassModal from '../components/ClassModal'
 import BackgroundModal from '../components/BackgroundModal'
 import AbilityScoreModal from '../components/AbilityScoreModal'
-import ChoiceContext from '../utils/ChoiceContext'
+// import ChoiceContext from '../utils/ChoiceContext'
+import API from '../utils/API'
+import ClassContext from '../utils/ClassContext'
+
+
 
 const Races = [
     {
@@ -160,7 +164,7 @@ const Races = [
 ]
 const DNDClasses = [
     {
-        name: "Barbarian",
+        name: "BarbarianTEST",
         description: "People of towns and cities take pride in how their civilized ways set them apart from animals, as if denying one’s own nature was a mark of superiority. To a barbarian, though, civilization is no virtue, but a sign of weakness. The strong embrace their animal nature—keen instincts, primal physicality, and ferocious rage. Barbarians are uncomfortable when hedged in by walls and crowds. They thrive in the wilds of their homelands: the tundra, jungle, or grasslands where their tribes live and hunt. Barbarians come alive in the chaos of combat. They can enter a berserk state where rage takes over, giving them superhuman strength and resilience. A barbarian can draw on this reservoir of fury only a few times without resting, but those few rages are usually sufficient to defeat whatever threats arise."
     },
     {
@@ -317,6 +321,46 @@ const AbilityScores = [
 // SHOULD THEY BE THEIR OWN CONTEXT?
 
 function CharacterCreateAccMenu() {
+
+    const [classes, setClasses] = useState([]);
+
+    useEffect(() => {
+        API.getClasses()
+          .then(res => {
+            setClasses(res.data.results);
+            // console.log("useEffect has fired off")
+            // console.log(res.data.results)
+            // ClassContext.setState({
+            //     classArray: res.data.results
+            // })
+        
+            // console.log(ClassContext.classArray)
+            // setDeveloperState(res.data)
+          })
+          .catch(err => console.log(err));
+    }, [])
+
+
+    // function loadClasses() {
+
+        
+
+    // }
+
+    // const handleFormSubmit = event => {
+        // When the form is submitted, prevent its default behavior, get recipes update the recipes state
+    //     event.preventDefault();
+    //     API.getClasses()
+    //       .then(res => {
+    //         ClassContext.setState({
+    //             classArray: res.data.results
+    //         })
+        
+    //       })
+    //       .catch(err => console.log(err));
+    //   };
+
+
     return (
         <div className="container mt-5  text-center">
             <div className="panel-group" id="accordion">
@@ -357,7 +401,7 @@ function CharacterCreateAccMenu() {
                     </div>
                 </div>
                 <div className="panel panel-default">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                <a data-toggle="collapse" /*onClick={handleFormSubmit}*/ data-parent="#accordion" href="#collapse3">
                     <div className="panel-heading">
                         <h4 className="panel-title">
                             
@@ -367,7 +411,8 @@ function CharacterCreateAccMenu() {
                     </div>
                     </a>
                     <div id="collapse3" className="panel-collapse collapse">
-                        {DNDClasses.map(DNDclass => (
+                        {
+                        classes.map(DNDclass => (
                             <ClassModal
                                 DNDclass={DNDclass} />
                         ))}
