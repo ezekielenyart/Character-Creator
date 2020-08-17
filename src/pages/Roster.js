@@ -1,5 +1,5 @@
 import React from 'react';
-
+import CharacterCreateBtn from '../components/CreateCharacterBtn'
 const cards = [
     {
         img: "images/download.png",
@@ -41,18 +41,23 @@ function Card({ card }) {
     </div>        
         )
 }
-
+// Add the createCharBtn to Roster
 function Roster() {
     return (
+    <div>
+    <div className = "row my-3">
+        <CharacterCreateBtn />
+           </div>
         <div className="container">
             <div className="row">
                 {
-                    cards.map((card, i) => <div key={i + '-cards'} className="col-xs-6 col-sm-4 col-md-3 text-center">
+                    cards.map((card, i) => <div key={i + '-cards'} className="rosterSpot col-xs-12 col-sm-6 col-md-4 text-center">
                         <Card card={card} />
                     </div>)
                 }
             </div>
         </div>
+      </div>
     )
 }
 

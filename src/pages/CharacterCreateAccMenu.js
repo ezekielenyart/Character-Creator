@@ -1,8 +1,8 @@
 import React from "react";
-import RaceModal from './RaceModal'
-import ClassModal from './ClassModal'
-import BackgroundModal from './BackgroundModal'
-import AbilityScoreModal from './AbilityScoreModal'
+import RaceModal from '../components/RaceModal'
+import ClassModal from '../components/ClassModal'
+import BackgroundModal from '../components/BackgroundModal'
+import AbilityScoreModal from '../components/AbilityScoreModal'
 import ChoiceContext from '../utils/ChoiceContext'
 
 const Races = [
