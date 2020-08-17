@@ -227,7 +227,18 @@ text-align: right;
     height: 30px;
     margin: 30px;
 }
-    
+.logRegContainer {
+    margin-top: 275px;
+    width: 40%;
+    background-color:  rgba(75, 59, 59, 0.997);
+    padding: 50px;
+    color: antiquewhite;
+    letter-spacing: 1.5px;
+    font-size: 27px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 4px;
+}
 .loginBtn { 
     grid-area: 1 / 1 / 2 / 2; 
     margin-left: 10px;
@@ -244,6 +255,23 @@ text-align: right;
     background-color: darkred;
     color: white;
 }
+.logRegSubBtn{
+    background-color: rgba(56, 43, 43, 0.997);
+    color: antiquewhite;
+    width: 140px;
+    height: 50px;
+    font-size: 24px;
+    margin-top: 15px;
+}
+.email {
+background-color: rgba(56, 43, 43, 0.997);
+
+}
+.password {
+    background-color: rgba(56, 43, 43, 0.997);
+
+}
+
 
 .createCharSpot {
     display: grid;
