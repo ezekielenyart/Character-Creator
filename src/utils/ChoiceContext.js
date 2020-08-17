@@ -1,4 +1,5 @@
 import React from 'react'
+// import  from 'API.js'
 
 const ChoiceContext = React.createContext({
     name: "",
@@ -7,5 +8,7 @@ const ChoiceContext = React.createContext({
     DNDclassChoice: "",
     backgroundChoice: "",
 })
+
+
 
 export default ChoiceContext

@@ -32,6 +32,7 @@ function AbilityScoreModal({ score }) {
             </div>
 
           </div>
+        
         </div>
       </div>
     </div>

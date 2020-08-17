@@ -4,7 +4,20 @@ import React from 'react';
 
 
 function RaceModal({ race }) {
-  
+const subraceFound = () => {
+    if (race.subraces.length = 0) {
+
+    } else
+    return(
+      race.subraces.map((subrace, i) => <div key={i + '-subrace'}>
+        <div className="modal-body">
+          <h3>{subrace.name}</h3>
+          <p>{subrace.description}</p>
+          <button type="button" className="btn btn-outline-primary chooseRaceBtn">Choose {subrace.name}</button>
+        </div>
+        <br />
+      </div >))
+}
   return (
     <div className="panel-body text-dark">
       <button type="button"
@@ -25,17 +38,10 @@ function RaceModal({ race }) {
               </button>
               <p>{race.description}</p>
             </div>
-          
-            {
-              race.subraces.map((subrace, i) => <div key={i + '-subrace'}>
-                <div className="modal-body">
-                  <h3>{subrace.name}</h3>
-                  <p>{subrace.description}</p>
-                  <button type="button" className="btn btn-outline-primary chooseRaceBtn">Choose {subrace.name}</button>
-                </div>
-                <br />
-              </div >)
-            }
+
+            
+              {subraceFound}
+            
 
           </div>
         </div>

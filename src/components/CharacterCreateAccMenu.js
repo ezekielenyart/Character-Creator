@@ -10,7 +10,7 @@ const Races = [
 
         name: "Dwarves",
         plural: "Dwarven",
-        description: "Bold and hardy, Hill Dwarves are known as skilled warriors, miners, and workers of stone and metal. Though they stand well under 5 feet tall, dwarves are so broad and compact that they can weigh as much as a human standing nearly two feet taller. Their courage and endurance are also easily a match for any of the larger folk.",
+        description: "Bold and hardy, Dwarves are known as skilled warriors, miners, and workers of stone and metal. Though they stand well under 5 feet tall, dwarves are so broad and compact that they can weigh as much as a human standing nearly two feet taller. Their courage and endurance are also easily a match for any of the larger folk.",
         subraces: [
             {
                 name: "Hill Dwarf",
@@ -334,8 +334,10 @@ function CharacterCreateAccMenu() {
                         {AbilityScores.map(score => (
                             <AbilityScoreModal
                                 score={score} />
-                        ))}
-                    </div>
+                        ))} 
+                        <button type="submit">Submit</button>
+                    </div>  
+                   
                 </div>
                 <div className="panel panel-default">
                     <div className="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse2">

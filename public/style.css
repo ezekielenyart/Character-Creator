@@ -96,7 +96,6 @@ body {
     background-color: transparent;
     border-width: 0px;
     font-family: Staatliches, Open Sans, sans-serif;
-    /* margin: 25px */
 }
 .panel-default {
     border-color: Black;
@@ -188,12 +187,17 @@ body {
 .rosterBtn {
     background-color: rgba(53, 41, 41, 0.997);
     grid-area: 1 / 2 / 2 / 3;
-    color: white
+    color: white;
 
+}
+.rosterSpot {
+    padding: 50px
 }
 .createBtn {
     background-color: rgba(53, 41, 41, 0.997);
     grid-area: 1 / 2 / 2 / 3;
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
 /* .viewRosterBtn {
     height: 60px;

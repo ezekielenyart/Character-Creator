@@ -11,6 +11,7 @@ function App() {
     <Router>
       <div>
         <Wrapper>
+          {/* Start with a splash page with LogReg and website description */}
           <Route exact path="/" component={HomePageRender} />
           <Route exact path="/create" component={CharacterCreateAccMenu} />
           <Route exact path="/roster" component={Roster} />
