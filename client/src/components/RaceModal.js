@@ -5,20 +5,8 @@ import React from 'react';
 
 
 function RaceModal({ race }) {
-const subraceFound = () => {
-    if (race.subraces.length === 0) {
 
-    } else
-    return(
-      race.subraces.map((subrace, i) => <div key={i + '-subrace'}>
-        <div className="modal-body">
-          <h3>{subrace.name}</h3>
-          <p>{subrace.description}</p>
-          <button type="button" className="btn btn-outline-primary chooseRaceBtn">Choose {subrace.name}</button>
-        </div>
-        <br />
-      </div >))
-}
+
   return (
     <div className="panel-body text-dark">
       <button type="button"
@@ -39,10 +27,22 @@ const subraceFound = () => {
               </button>
               <p>{race.description}</p>
             </div>
+            {race.subraces ? 
+            (race.subraces.map((subrace, i) => <div key={i + '-subrace'}>
+              <div className="modal-body">
+                <h3>{subrace.name}</h3>
+                <p>{subrace.description}</p>
+                <div className = "subRacerow">
+                <button type="button" className="btn btn-outline-primary chooseSubRaceBtn">Choose {subrace.name}</button>
+                </div>
+              </div>
+              <br />
+            </div >))
+            :
+            (<div className = "raceRow m-3">
+              <button type="button" className="btn btn-outline-primary chooseRaceBtn">Choose {race.name}</button>
+            </div>)}
 
-            
-              {subraceFound}
-            
 
           </div>
         </div>

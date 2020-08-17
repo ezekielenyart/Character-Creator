@@ -1,39 +1,33 @@
 import React from 'react';
-// import CharacterChoices from './CharacterCreateAccMenu'
-// Race, Background, Skills, Stats, Class
-
-// function CharacterSheet() {
-//     return (
-//         <div className="container">
+import CharacterSheetModal from '../components/CharacterSheetModal'
 
 
-//         <div className="container">
-//             <div className="panel-body text-dark">
-//         <button type="button"
-//           className="btn goToModalBtn"
-//           data-toggle="modal"
-//           data-target={`#${race.name}`}>
-//           {race.name}
-//         </button>
-  
-  
-//         <div className="modal fade" id={`${race.name}`} aria-labelledby={`${race.name}Label`} aria-hidden="true">
-//           <div className="modal-dialog">
-//             <div className="modal-content">
-//               <div className="modal-header">
-//                 <span className="modal-title" id={`${race.name}Label`}>{race.plural} Subraces</span>
-//                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-//                   <span aria-hidden="true">&times;</span>
-//                 </button>
-//                 <p>{race.description}</p>
-//               </div>
-//               </div>
-//         </div>
-//         </div>
-//         </div>
-//         </div>
-//         <div></div></div>
-//     )
-// }
+const CharacterChoices = 
+   {
+    name : "Philemon",
+    RaceChoice : "Hill-Dwarves",
+    RCDescription : "Dem Daer Hill Dwarfs",
+    Background : "Acolyte",
+    BackDesc : "One-a-dem Religious Folks",
+    DNDClass : "Paladin",
+    ClassDesc : "A Hammer? And Spells, too! Wot in Tarnation!", 
+    Scores : 0,
+}
 
-// export default CharacterSheet
+
+function CharacterSheet() {
+    return (
+<CharacterSheetModal 
+    name = {CharacterChoices.name}
+    RaceChoice = {CharacterChoices.RaceChoice}
+    RCDescription = {CharacterChoices.RCDescription}
+    Background = {CharacterChoices.Background}
+    BackDesc = {CharacterChoices.BackDesc}
+    DNDClass = {CharacterChoices.DNDClass}
+    ClassDesc = {CharacterChoices.ClassDesc} 
+    Scores = {CharacterChoices.Scores}
+/>
+
+    )}
+
+export default CharacterSheet

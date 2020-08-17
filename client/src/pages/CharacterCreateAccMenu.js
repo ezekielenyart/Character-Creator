@@ -86,16 +86,7 @@ const Races = [
         name: "Tiefling",
         plural: "Tiefling",
         description: "To be greeted with stares and whispers, to suffer violence and insult on the street, to see mistrust and fear in every eye: this is the lot of the tiefling.",
-        subraces: [
-            {
-                name: "Regular Tiefling",
-                description: "Your classic run-of-the-mill Tiefling"
-            },
-            {
-                name: "Variant Tiefling",
-                description: "If your campaign uses the optional feat rules from the Player’s Handbook, your Dungeon Master might allow the variant Tiefling choice. "
-            }
-        ]
+
     },
     {
 
@@ -384,7 +375,7 @@ function CharacterCreateAccMenu() {
                             <AbilityScoreModal
                                 score={score} />
                         ))} 
-                        <button type="submit">Submit</button>
+                        <button type="submit" className = "abScoreSubBtn">Submit</button>
                     </div>  
                    
                 </div>
