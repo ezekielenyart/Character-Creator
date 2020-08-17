@@ -2,9 +2,9 @@ import React from "react";
 
 function LogRegBar() {
   return (
-    <div class="logRegBar">
-      <button type="button" class="loginBtn">Login</button>
-      <button type="button" class="registerBtn">Register</button>
+    <div className="logRegBar">
+      <button type="button" className="loginBtn">Login</button>
+      <button type="button" className="registerBtn">Register</button>
     </div>
   );
 }
