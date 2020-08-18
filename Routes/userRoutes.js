@@ -1,21 +1,15 @@
 // Routes for creating, updating, and deleting users.
-const db = require('../models');
-const passport = require('../config/passport')
+const db = require("../models");
+const passport = require("../config/passport");
 
 module.exports = function (app) {
   app.post("/api/signup", function (req, res) {
-    const user = {
-      email: req.body.email,
-      password: req.body.password
-    }
-    console.log(user)
-
-    db.User.create(user)
+    db.User.create(req.body)
       .then(function () {
-        res.redirect(307, "/api/login");
+        res.sendStatus(200);
       })
       .catch(function (err) {
-        console.log(err)
+        console.log(err.message);
         res.status(401).json(err);
       });
   });
@@ -26,7 +20,7 @@ module.exports = function (app) {
 
   app.get("/logout", (req, res) => {
     req.logout();
-    console.log("You've been logged out")
+    console.log("You've been logged out");
     res.redirect("/");
   });
 
@@ -40,12 +34,10 @@ module.exports = function (app) {
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         username: req.user.username,
-        id: req.user.id
+        id: req.user.id,
       });
     }
   });
-
-
 
   // app.get("/api/user", function(req, res) {
   //   // Here we add an "include" property to our options in our findAll query
