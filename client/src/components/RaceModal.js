@@ -8,7 +8,6 @@ function RaceModal({ race }) {
 
   const [raceSpeed, setSpeed] = useState("");
   const [raceAbilityBonus, setAbilityBonus] = useState([]);
-  const [raceAbilityBonusNum, setAbilityBonusNum] = useState([]);
   const [raceAlignment, setAlignment] = useState();
   const [raceAge, setAge] = useState();
   const [raceLanguage, setLanguage] = useState();
@@ -23,7 +22,6 @@ function RaceModal({ race }) {
       setSpeed(res.data.speed)
       // Used to display a list of ability bonuses.
       setAbilityBonus(res.data.ability_bonuses)
-      setAbilityBonusNum(res.data.ability_bonuses.bonus)
       // Text description of alignment options.
       setAlignment(res.data.alignment)
       // Text description of age.
@@ -67,12 +65,17 @@ function RaceModal({ race }) {
 
               {/* Racial ability bonus list */}
               <div className="col-xs-6">
-                <form><em className="m-2">Ability Bonuses</em>
+                <ul><em className="m-2">Ability Bonuses</em>
                   {raceAbilityBonus.map((race) => (
                     <DoubleListItem
                       name={race.name}
                       bonus={race.bonus} />))}
-                </form>
+                </ul>
+                <ul><em className="m-2">Speed</em>
+                  <li>
+                    {raceSpeed} ft
+                  </li>
+                </ul>
               </div>
 
               {/* Racial alignment details */}
@@ -86,17 +89,25 @@ function RaceModal({ race }) {
               {/* Race Age details */}
               <div className="col-xs-6">
                 {/* This line uses the classProfNum state because the number of starter skills can vary by class */}
-                <form><em className="m-2">Age</em><br></br>
+                <div><em className="m-2">Age</em><br></br>
                   {raceAge}
-                </form>
+                </div>
               </div>
 
               {/* Race Language details */}
               <div className="col-xs-6">
                 {/* This line uses the classProfNum state because the number of starter skills can vary by class */}
-                <form><br></br><em className="m-2">Language Description</em><br></br>
+                <div><br></br><em className="m-2">Language Description</em><br></br>
                   {raceLanguage}
-                </form>
+                </div>
+              </div>
+
+              {/* Race Size details */}
+              <div className="col-xs-6">
+                {/* This line uses the classProfNum state because the number of starter skills can vary by class */}
+                <div><br></br><em className="m-2">Size Description</em><br></br>
+                  {raceSize}
+                </div>
               </div>
 
 
@@ -104,16 +115,18 @@ function RaceModal({ race }) {
               <div className="col-xs-6">
                 {/* This line uses the classProfNum state because the number of starter skills can vary by class */}
                 <form><br></br><em className="m-2">{raceSubrace.length === 0 ? null : "Subraces"}</em><br></br>
-                {raceSubrace.map((subrace) => (
+                  {raceSubrace.map((subrace) => (
                     <RadioButton
                       choice={subrace.name}
-                       />))}
+                    />))}
                 </form>
               </div>
 
 
-              <button type="button" className="btn btn-outline-primary chooseClassBtn">Choose {race.name}</button>
             </div>
+            <div className="row">
+              <button type="button" className="btn btn-outline-primary chooseClassBtn">Choose {race.name}</button>
+              </div>
           </div>
         </div>
       </div>
