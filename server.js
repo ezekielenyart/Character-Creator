@@ -20,8 +20,6 @@ app.use(passport.session());
 
 require("./Routes/userRoutes.js")(app);
 
-app.get("/", (req, res) => res.send("hello world"))
-
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/CCUsers", { useNewUrlParser: true });
 
 app.listen(PORT, () => {

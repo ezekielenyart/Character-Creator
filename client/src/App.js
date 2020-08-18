@@ -18,8 +18,8 @@ function App() {
 
   const [developerState, setDeveloperState] = useState({
     classList: {
-      class1: "wizard", 
-      class2: "dragonborne", 
+      class1: "wizard",
+      class2: "dragonborne",
       class3: "jasonborne"
     }
   });
@@ -34,7 +34,7 @@ function App() {
   // })
 
 
-   return (
+  return (
     <Router>
       <div>
         <Wrapper>
