@@ -74,8 +74,13 @@ function ClassModal({ DNDclass }) {
 
               </div>
 
-              <button type="button" className="btn btn-outline-primary chooseClassBtn">Choose {DNDclass.name}</button>
+             
+              
+
             </div>
+            <div className="text-center row">
+              <button type="button" className="btn btn-outline-primary chooseClassBtn">Choose {DNDclass.name}</button>
+              </div>
           </div>
         </div>
       </div>

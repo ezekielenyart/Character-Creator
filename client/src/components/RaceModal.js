@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import API from '../utils/API'
-// import ModalListItem from './ModalListItem'
+import ModalListItem from './ModalListItem'
 import DoubleListItem from './AbilityBonusListItem'
 import RadioButton from './RadioButton'
 
@@ -121,10 +121,30 @@ function RaceModal({ race }) {
                     />))}
                 </form>
               </div>
+              
+              {/* Race Equipment proficiencies */}
+              <div>
+                    <ul><em className="m-2">{raceEquipProf.length === 0 ? null : "Equipment Proficiencies"}</em>
+                    {raceEquipProf.map((subrace) => (
+                    <ModalListItem
+                      name={subrace.name}
+                    />))}
+                    </ul>
+              </div>
+              
+              {/* Race Traits */}
+              <div>
+                  <ul><em className="m-2">{raceTraits.length === 0 ? null : "Racial Traits"}</em>
+                  {raceTraits.map((traits) => (
+                    <ModalListItem
+                      name={traits.name}
+                    />))}
+                  </ul>
+              </div>
 
 
             </div>
-            <div className="row">
+            <div className="text-center row">
               <button type="button" className="btn btn-outline-primary chooseClassBtn">Choose {race.name}</button>
               </div>
           </div>
