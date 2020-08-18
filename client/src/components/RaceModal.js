@@ -1,49 +1,60 @@
-import React from 'react';
-
-
-
-
+import React, { useState } from 'react';
+import API from '../utils/API'
+// import ModalListItem from './ModalListItem'
+import DoubleListItem from './AbilityBonusListItem'
 
 function RaceModal({ race }) {
 
+  const [raceAbilityBonus, setAbilityBonus] = useState([]);
+  const [raceAbilityBonusNum, setAbilityBonusNum] = useState([]);
+
+  const returnRaceDetails = () => {
+    API.getRace(race.index).then(res => {
+      setAbilityBonus(res.data.ability_bonuses)
+      setAbilityBonusNum(res.data.ability_bonuses.bonus)
+    })
+  }
 
   return (
+
+    // Modal for races that reveals details like size, ability bonuses, languages, speed, etc.
     <div className="panel-body text-dark">
       <button type="button"
+        onClick={returnRaceDetails}
         className="btn goToModalBtn"
         data-toggle="modal"
         data-target={`#${race.name}`}>
         {race.name}
       </button>
 
-
       <div className="modal fade" id={`${race.name}`} aria-labelledby={`${race.name}Label`} aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <span className="modal-title" id={`${race.name}Label`}>{race.plural} Subraces</span>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              <p>{race.description}</p>
-            </div>
-            {race.subraces ? 
-            (race.subraces.map((subrace, i) => <div key={i + '-subrace'}>
-              <div className="modal-body">
-                <h3>{subrace.name}</h3>
-                <p>{subrace.description}</p>
-                <div className = "subRacerow">
-                <button type="button" className="btn btn-outline-primary chooseSubRaceBtn">Choose {subrace.name}</button>
-                </div>
+              <div className="row">
+                <span className="modal-title" id={`${race.name}Label`}>{race.name}</span>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
-              <br />
-            </div >))
-            :
-            (<div className = "raceRow m-3">
-              <button type="button" className="btn btn-outline-primary chooseRaceBtn">Choose {race.name}</button>
-            </div>)}
 
+              {/* Racial ability bonus list */}
+              <div className="col-xs-6">
+                {/* This line uses the classProfNum state because the number of starter skills can vary by class */}
+                <form><em className="m-2">Ability Bonuses</em>
+                  {raceAbilityBonus.map((race) => (
+                    <DoubleListItem
+                      name={race.name}
+                      bonus={race.bonus}/>))}
+                </form>
+              </div>
 
+            
+
+              
+
+              <button type="button" className="btn btn-outline-primary chooseClassBtn">Choose {race.name}</button>
+            </div>
           </div>
         </div>
       </div>

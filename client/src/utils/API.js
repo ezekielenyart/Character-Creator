@@ -13,6 +13,14 @@ export default {
 
     getClass: function (className) {
         return axios.get("https://www.dnd5eapi.co/api/classes/" + className);
+    },
+
+    getRaces: function () {
+        return axios.get("https://www.dnd5eapi.co/api/races/");
+    },
+
+    getRace: function (raceIndex) {
+        return axios.get("https://www.dnd5eapi.co/api/races/" + raceIndex);
     }
 
 
