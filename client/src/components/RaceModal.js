@@ -2,16 +2,43 @@ import React, { useState } from 'react';
 import API from '../utils/API'
 // import ModalListItem from './ModalListItem'
 import DoubleListItem from './AbilityBonusListItem'
+import RadioButton from './RadioButton'
 
 function RaceModal({ race }) {
 
+  const [raceSpeed, setSpeed] = useState("");
   const [raceAbilityBonus, setAbilityBonus] = useState([]);
   const [raceAbilityBonusNum, setAbilityBonusNum] = useState([]);
+  const [raceAlignment, setAlignment] = useState();
+  const [raceAge, setAge] = useState();
+  const [raceLanguage, setLanguage] = useState();
+  const [raceSubrace, setSubrace] = useState([]);
+  const [raceSize, setSize] = useState("");
+  const [raceEquipProf, setEquipProf] = useState([]);
+  const [raceTraits, setTraits] = useState([]);
 
   const returnRaceDetails = () => {
     API.getRace(race.index).then(res => {
+      // Displays the base racial speed.
+      setSpeed(res.data.speed)
+      // Used to display a list of ability bonuses.
       setAbilityBonus(res.data.ability_bonuses)
       setAbilityBonusNum(res.data.ability_bonuses.bonus)
+      // Text description of alignment options.
+      setAlignment(res.data.alignment)
+      // Text description of age.
+      setAge(res.data.age)
+      // Text description of languages known.
+      setLanguage(res.data.language_desc)
+      // Radio button to select a subrace.
+      // Ideally when a button is clicked their bonuses would populate visually for the user to see.
+      setSubrace(res.data.subraces)
+      // Descriptive text identifying a general size of certain races.
+      setSize(res.data.size_description)
+      // A list of racial proficiencies.
+      setEquipProf(res.data.starting_proficiencies)
+      // List of racial traits
+      setTraits(res.data.traits)
     })
   }
 
@@ -40,18 +67,50 @@ function RaceModal({ race }) {
 
               {/* Racial ability bonus list */}
               <div className="col-xs-6">
-                {/* This line uses the classProfNum state because the number of starter skills can vary by class */}
                 <form><em className="m-2">Ability Bonuses</em>
                   {raceAbilityBonus.map((race) => (
                     <DoubleListItem
                       name={race.name}
-                      bonus={race.bonus}/>))}
+                      bonus={race.bonus} />))}
                 </form>
               </div>
 
-            
+              {/* Racial alignment details */}
+              <div className="col-xs-6">
+                {/* This line uses the classProfNum state because the number of starter skills can vary by class */}
+                <form><em className="m-2">Alignment</em><br></br>
+                  {raceAlignment}
+                </form>
+              </div>
 
-              
+              {/* Race Age details */}
+              <div className="col-xs-6">
+                {/* This line uses the classProfNum state because the number of starter skills can vary by class */}
+                <form><em className="m-2">Age</em><br></br>
+                  {raceAge}
+                </form>
+              </div>
+
+              {/* Race Language details */}
+              <div className="col-xs-6">
+                {/* This line uses the classProfNum state because the number of starter skills can vary by class */}
+                <form><br></br><em className="m-2">Language Description</em><br></br>
+                  {raceLanguage}
+                </form>
+              </div>
+
+
+              {/* Race Subrace choice */}
+              <div className="col-xs-6">
+                {/* This line uses the classProfNum state because the number of starter skills can vary by class */}
+                <form><br></br><em className="m-2">{raceSubrace.length === 0 ? null : "Subraces"}</em><br></br>
+                {raceSubrace.map((subrace) => (
+                    <RadioButton
+                      choice={subrace.name}
+                       />))}
+                </form>
+              </div>
+
 
               <button type="button" className="btn btn-outline-primary chooseClassBtn">Choose {race.name}</button>
             </div>
