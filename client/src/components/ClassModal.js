@@ -1,20 +1,27 @@
 import React, { useState } from 'react';
 import API from '../utils/API'
+import ModalListItem from './ModalListItem'
+import ModalCheckbox from './ModalCheckbox'
 
+function ClassModal({ DNDclass }) {
 
+  const [classEquipmentProf, setClassEquipmentProf] = useState([]);
+  const [classSkillProf, setClassSkillProf] = useState([]);
+  const [classProfNum, setClassProfNum] = useState([]);
+  const [classSaveThrows, setClassSaveThrows] = useState([]);
 
-function ClassModal( {DNDclass} ) {
-
-  const [classDetails, setClassDetails] = useState({});
 
   const returnClassDetails = () => {
     API.getClass(DNDclass.index).then(res => {
       console.log("onclick clicked!")
-      console.log(res.data)
-      setClassDetails(res.data)
+      console.log(res.data.proficiencies)
+      setClassEquipmentProf(res.data.proficiencies)
+      setClassSkillProf(res.data.proficiency_choices[0].from)
+      setClassProfNum(res.data.proficiency_choices[0].choose)
+      setClassSaveThrows(res.data.saving_throws)
     })
   }
-  
+
   return (
     <div className="panel-body text-dark">
       <button type="button"
@@ -25,24 +32,48 @@ function ClassModal( {DNDclass} ) {
         {DNDclass.name}
       </button>
 
-
       <div className="modal fade" id={`${DNDclass.name}`} aria-labelledby={`${DNDclass.name}Label`} aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-                <span className="modal-title" id={`${DNDclass.name}Label`}>{DNDclass.name}</span>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+              <div className="row">
+              <span className="modal-title" id={`${DNDclass.name}Label`}>{DNDclass.name}</span>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-              <ul>
-                
+              </div>
 
-                {/* classDetails.proficiency_choices.proficiencies.map(score => (
-                  <ModalListItem />
- */}
+              {/* Class skill list */}
+              <div className="col-xs-6">
+                {/* This line uses the classProfNum state because the number of starter skills can vary by class */}
+                  <form><em className="m-2">Choose {classProfNum} Skills</em>
+                    {classSkillProf.map(name => (
+                      <ModalCheckbox
+                        name={name.name} />))}
+                  </form>
+                </div>
 
-              </ul>
-              <p>{DNDclass.description}</p>
+              {/* Class weapon and armor proficiencies */}
+              <div className="row">
+                <div className="col-xs-6">
+                  <ul><em className="m-2">Weapon and Armor Proficiencies</em>
+                    {classEquipmentProf.map(name => (
+                      <ModalListItem
+                        name={name.name} />))}
+                  </ul>
+
+              {/* Class saving throws */}
+                  <div>
+                  <ul><em className="m-2">Saving Throws</em>
+                    {classSaveThrows.map(name => (
+                      <ModalListItem
+                        name={name.name} />))}
+                  </ul>
+                </div>
+                </div>
+              
+              </div>
+
               <button type="button" className="btn btn-outline-primary chooseClassBtn">Choose {DNDclass.name}</button>
             </div>
           </div>

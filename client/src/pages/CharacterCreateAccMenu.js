@@ -12,7 +12,7 @@ import ClassContext from '../utils/ClassContext'
 const Races = [
     {
 
-        name: "Dwarves",
+        name: "DwarvesTEST",
         plural: "Dwarven",
         description: "Bold and hardy, Dwarves are known as skilled warriors, miners, and workers of stone and metal. Though they stand well under 5 feet tall, dwarves are so broad and compact that they can weigh as much as a human standing nearly two feet taller. Their courage and endurance are also easily a match for any of the larger folk.",
         subraces: [
@@ -320,7 +320,7 @@ function CharacterCreateAccMenu() {
           .then(res => {
             setClasses(res.data.results);
             // console.log("useEffect has fired off")
-            // console.log(res.data.results)
+            // console.log(res.data)
             // ClassContext.setState({
             //     classArray: res.data.results
             // })
@@ -328,6 +328,10 @@ function CharacterCreateAccMenu() {
             // console.log(ClassContext.classArray)
             // setDeveloperState(res.data)
           })
+        // API.getRaces()
+        // .then(res => {
+        //     MediaStreamTrackAudioSourceNode()
+        // })
           .catch(err => console.log(err));
     }, [])
 
