@@ -6,7 +6,7 @@ const ChoiceContext = React.createContext({
     score: 0,
     raceChoice: "",
     DNDclassChoice: "",
-    backgroundChoice: "",
+    backgroundChoice: ""
 })
 
 
