@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import RaceModal from "../components/RaceModal";
 import ClassModal from "../components/ClassModal";
 import BackgroundModal from "../components/BackgroundModal";
@@ -6,6 +6,7 @@ import AbilityScoreModal from "../components/AbilityScoreModal";
 // import ChoiceContext from '../utils/ChoiceContext'
 import API from "../utils/API";
 import ClassContext from "../utils/ClassContext";
+import UserContext from '../utils/UserContext'
 
 const Backgrounds = [
   {
@@ -118,6 +119,9 @@ const AbilityScores = [
 // SHOULD THEY BE THEIR OWN CONTEXT?
 
 function CharacterCreateAccMenu() {
+  const { update, _id } = useContext(UserContext);
+  console.log(_id)
+
   const [classes, setClasses] = useState([]);
   const [races, setRaces] = useState([]);
 
