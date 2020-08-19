@@ -11,12 +11,6 @@ import UserContext from '../utils/UserContext'
 // SHOULD THEY BE THEIR OWN CONTEXT?
 // Yeah they should be part of a "currentCharacter" state or something.
 
-const [state, setstate] = useState({
-  str: "",
-  dex: "",
-  
-})
-
 const AbilityScores = [
   {
     name: "Strength",
@@ -55,6 +49,11 @@ function CharacterCreateAccMenu() {
 
   const [classes, setClasses] = useState([]);
   const [races, setRaces] = useState([]);
+  const [state, setstate] = useState({
+      str: "",
+      dex: "",
+      
+    })
 
   useEffect(() => {
     API.getClasses().then((res) => {
@@ -93,7 +92,7 @@ function CharacterCreateAccMenu() {
   //   };
 
   return (
-    <div className="container mt-5 justify-content-center text-center">
+    <div className="container mt-5 d-flex justify-content-center text-center">
       <div className="panel-group col-md-6" id="accordion">
         <div className="panel panel-default">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
