@@ -1,14 +1,27 @@
-import React from "react";
+import React, {useContext} from "react";
 import { useHistory } from "react-router-dom";
 import RosterBtn from "../components/RosterBtn";
+import { UserContext } from '../utils/UserContext';
+
 
 function Login() {
+
+
+
   const history = useHistory();
   const [state, setState] = React.useState({
     email: "",
     password: "",
+    _id: ""
   });
-
+// THIS IS SETTING THE GLOBAL CONTEXT
+// THIS IS SETTING THE GLOBAL CONTEXT
+// THIS IS SETTING THE GLOBAL CONTEXT
+// THIS IS SETTING THE GLOBAL CONTEXT
+  const userContext = useContext(UserContext)
+  const userState = userContext[0]
+  const setUserState = userContext[1]
+console.log(userContext)
   const handleChange = (e) => {
     setState({
       ...state,
@@ -28,15 +41,19 @@ function Login() {
       });
 
       const user = await response.json();
-
+      
+      console.log(state)
+      // UserContext(React.useContext(user))
       console.log(user);
-      history.push("/")
+      history.push("/roster")
+
     } catch (error) {
       console.warn(error.message);
     }
   };
 
   return (
+    // <UserContext.Provider>
     <div className="container logRegContainer">
       <form onSubmit={login}>
         <div className="form-group">
@@ -77,6 +94,7 @@ function Login() {
         </div>
       </form>
     </div>
+    // </UserContext.Provider>
   );
 }
 

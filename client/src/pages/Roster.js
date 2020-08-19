@@ -1,4 +1,8 @@
 import React from "react";
+import { _id } from '../utils/UserContext'
+
+
+
 import CharacterCreateBtn from "../components/CreateCharacterBtn";
 const cards = [
   {
@@ -50,6 +54,8 @@ function Card({ card }) {
 // Add the createCharBtn to Roster
 function Roster() {
   return (
+    // Deconstruct _id from User(Context/State), use it to run API call (:id)
+    // Local state would have an array of this user's characters(UseEffect with an API call to get associated characters API.getCharactersbyUser)
     <div>
       <div className="row my-3">
         <CharacterCreateBtn />

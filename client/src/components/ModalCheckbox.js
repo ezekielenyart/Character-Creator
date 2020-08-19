@@ -8,7 +8,7 @@ function ModalCheckbox({ name }) {
         <div className="m-2">
 
 
-            <input type="checkbox" id={name} name={name} value={name} />
+            <input className="skillCheck" type="checkbox" id={name} name={name} value={name} /> 
             <label for={name}>  {name}</label>
             <br />
 
