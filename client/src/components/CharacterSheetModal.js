@@ -17,8 +17,9 @@ function CharacterSheetModal({
   Level
 }) {
   return (
-    <div className="container CharSheetContainer">
-      <div className="CharacterNamerow">Hail, {name}!</div>
+    <div className="b-color">
+      <div className="container CharSheetContainer">
+      <div className="CharacterNamerow">{name}, {RaceChoice} {DNDClass}</div>
       <button className="editBtn">
         <span>EDIT</span>
       </button>
@@ -318,6 +319,7 @@ function CharacterSheetModal({
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

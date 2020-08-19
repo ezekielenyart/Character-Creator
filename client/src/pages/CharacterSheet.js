@@ -6,7 +6,7 @@ import UserContext from '../utils/UserContext'
 const CharacterChoices = 
    {
     name : "Philemon",
-    RaceChoice : "Hill-Dwarves",
+    RaceChoice : "Dwarf",
     RCDescription : "Dem Daer Hill Dwarfs",
     Background : "Acolyte",
     BackDesc : "One-a-dem Religious Folks",
