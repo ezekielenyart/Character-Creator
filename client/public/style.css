@@ -1,3 +1,9 @@
+/* TESTING */
+.hidden {
+    display: none;
+}
+
+
 body {
     background-image: url("./images/Webp.net-resizeimage.png");
     background-size: cover;
@@ -8,6 +14,10 @@ body {
     margin: auto;
 }
 
+.creatorText {
+    color: #FAEBD7;
+    font-family: Open Sans, sans-serif;
+}
 
 /* .rosterContainer{
     display: grid;

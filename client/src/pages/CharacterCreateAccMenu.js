@@ -14,29 +14,34 @@ import UserContext from '../utils/UserContext'
 const AbilityScores = [
   {
     name: "Strength",
+    abv: "str",
     description: "The measure of your athletic skill",
+    
   },
   {
     name: "Dexterity",
+    abv: "dex",
     description: "The ability of your body to obey your commands",
   },
   {
     name: "Intelligence",
-    description:
-      "The measure of your ability to use logic, memory, and attention to detail",
+    abv: "int",
+    description: "The measure of your ability to use logic, memory, and attention to detail",
   },
   {
     name: "Constitution",
+    abv: "con",
     description: "The measure of your health and vitality",
   },
   {
     name: "Wisdom",
+    abv: "wis",
     description: "The measure of your awareness of the world around you",
   },
   {
     name: "Charisma",
-    description:
-      "The measure of your command, confidence, and charm in society",
+    abv: "cha",
+    description: "The measure of your command, confidence, and charm in society",
   },
 ];
 
@@ -47,25 +52,50 @@ function CharacterCreateAccMenu() {
   const { update, _id } = useContext(UserContext);
   console.log(_id)
 
+  // Leave these here!
+  // const [scoreDisplay, setScoreDisplay] = useState("");
+  // const [raceDisplay, setRaceDisplay] = useState("");
+  // const [classDisplay, setClassDisplay] = useState("");
+  // const [backgroundDisplay, setBackgroundDisplay] = useState("");
   const [classes, setClasses] = useState([]);
   const [races, setRaces] = useState([]);
-  const [state, setstate] = useState({
-      str: "",
-      dex: "",
+  const [characterState, setCharacterState] = useState({
+      str: 0,
+      dex: 0,
+      int: 0,
+      con: 0,
+      wis: 0,
+      cha: 0,
+      c_name: "",
+      gender: "",
+      race: "",
+      subrace: "",
+      class: "",
+      athletics: false,
+      acrobatics: false,
+      sleight: false,
+      stealth: false,
+      arcana: false,
+      history: false,
+      investigation: false,
+      nature: false,
+      religion: false,
+      animalhandle: false,
+      insight: false,
+      medicine: false,
+      perception: false,
+      survival: false,
+      deception: false,
+      intimidation: false,
+      performance: false,
+      persuasion: false,
+      background: ""
       
     })
 
   useEffect(() => {
     API.getClasses().then((res) => {
       setClasses(res.data.results);
-      // console.log("useEffect has fired off")
-      // console.log(res.data)
-      // ClassContext.setState({
-      //     classArray: res.data.results
-      // })
-
-      // console.log(ClassContext.classArray)
-      // setDeveloperState(res.data)
     });
     API.getRaces()
       .then((res) => {
@@ -74,26 +104,18 @@ function CharacterCreateAccMenu() {
       .catch((err) => console.log(err));
   }, []);
 
-  // function loadClasses() {
 
-  // }
+// function setAbilityState(e, abv){
+//   e.preventDefault();
+//   setCharacterState({...characterState, abv: e.target.value })
+// }
 
-  // const handleFormSubmit = event => {
-  // When the form is submitted, prevent its default behavior, get recipes update the recipes state
-  //     event.preventDefault();
-  //     API.getClasses()
-  //       .then(res => {
-  //         ClassContext.setState({
-  //             classArray: res.data.results
-  //         })
-
-  //       })
-  //       .catch(err => console.log(err));
-  //   };
-
+console.log(characterState)
   return (
-    <div className="container mt-5 d-flex justify-content-center text-center">
-      <div className="panel-group col-md-6" id="accordion">
+    <div className="container mt-5 text-center">
+      <div className="panel-group" id="accordion">
+        {/* leave this here! */}
+        {/* <div className={scoreDisplay}> */}
         <div className="panel panel-default">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
             <div className="panel-heading">
@@ -108,30 +130,32 @@ function CharacterCreateAccMenu() {
                 aria-label="Username"
                 placeholder="Enter Character's Name Here"
                 aria-describedby="basic-addon1"
+                onChange={e => setCharacterState({...characterState, c_name: e.target.value})}
               ></input>
               <button
                 type="button"
                 className="btn abilityScoreDesBtn"
-                data-toggle="modal"
-                data-target={`#`}
               >
                 Gender
               </button>
               <input
                 type="text"
                 className="abilityScoreInput form-control"
-                aria-label="Username"
+                aria-label="gender"
                 aria-describedby="basic-addon1"
+                onChange={e => setCharacterState({...characterState, gender: e.target.value})}
               ></input>
             </div>
-            {AbilityScores.map((score) => (
-              <AbilityScoreModal score={score} />
-            ))}
+            {/* {AbilityScores.map((score) => (
+              <AbilityScoreModal score={score} setAbilityState={setAbilityState(score.abv)} />
+            ))} */}
             <button type="submit" className="abScoreSubBtn">
               Submit
             </button>
           </div>
         </div>
+        {/* leave this here! */}
+        {/* </div> */}
         <div className="panel panel-default">
           <div
             className="panel-heading"
@@ -174,12 +198,12 @@ function CharacterCreateAccMenu() {
           </a>
           <div id="collapse5" className="panel-collapse collapse">
             <form>
-              <label><span>Enter Your Background Info</span></label>
+              <label><span className="creatorText">Enter Your Background Info</span></label>
               <textarea id="background" name="background" rows="16" cols="60">
               
               </textarea>
               <br/>
-              <button>Save</button>
+              <button  >Save</button>
             </form>
           </div>
         </div>

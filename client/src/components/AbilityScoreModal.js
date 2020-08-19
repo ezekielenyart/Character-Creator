@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
-function AbilityScoreModal({ score }) {
+function AbilityScoreModal({ score, setAbilityState }) {
+
+  
   return (
     <div className="panel-body text-dark">
       <button
@@ -16,6 +18,8 @@ function AbilityScoreModal({ score }) {
         className="abilityScoreInput form-control"
         aria-label="Username"
         aria-describedby="basic-addon1"
+        onChange={setAbilityState()}
+        // onChange={e => setCharacterState({...characterState, str: e.target.value})}
       ></input>
 
       <div
