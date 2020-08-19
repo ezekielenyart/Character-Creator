@@ -22,6 +22,7 @@ require("./Routes/userRoutes.js")(app);
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/CCUsers", { useNewUrlParser: true });
 
+
 app.listen(PORT, () => {
   console.log(`App listening on PORT: ${PORT}`)
 });

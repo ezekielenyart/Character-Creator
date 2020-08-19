@@ -1,9 +1,8 @@
-import React from "react";
-import { _id } from '../utils/UserContext'
-
-
-
+import React, {useContext} from "react";
+import UserContext from '../utils/UserContext'
 import CharacterCreateBtn from "../components/CreateCharacterBtn";
+
+
 const cards = [
   {
     img: "images/download.png",
@@ -53,6 +52,9 @@ function Card({ card }) {
 }
 // Add the createCharBtn to Roster
 function Roster() {
+  const { update, _id } = useContext(UserContext);
+  console.log(_id)
+
   return (
     // Deconstruct _id from User(Context/State), use it to run API call (:id)
     // Local state would have an array of this user's characters(UseEffect with an API call to get associated characters API.getCharactersbyUser)
