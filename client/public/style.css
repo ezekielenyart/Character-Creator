@@ -47,13 +47,22 @@ body {
 .ClassModalBtn {
     background-color: rgba(75, 59, 59, 0.997);
     color: antiquewhite;
-    grid-area: 2 / 3 / 3 / 4;
+    grid-area:2 / 3 / 3 / 4;
     height: 75px;
     font-size: 20px;
     position: relative;
     top: 30%;
 }
-.BackgroundModalBtn {
+.ProfModalBtn {
+    background-color: rgba(75, 59, 59, 0.997);
+    color: antiquewhite;
+    grid-area: 4 / 1 / 5 / 2;
+    height: 75px;
+    font-size: 20px;
+    position: relative;
+    top: 30%;
+}
+.SkillsModalBtn {
     background-color: rgba(75, 59, 59, 0.997);
     color: antiquewhite;
     grid-area: 3 / 1 / 4 / 2;
@@ -62,7 +71,7 @@ body {
     position: relative;
     top: 30%;
 }
-.ScoresModalBtn {
+.BackgroundModalBtn {
     background-color: rgba(75, 59, 59, 0.997);
     color: antiquewhite;
     grid-area: 3 / 3 / 4 / 4;
@@ -70,21 +79,73 @@ body {
     font-size: 20px;
     position: relative;
     top: 30%;
+}
+.ScoresModalBtn {
+    background-color: rgba(75, 59, 59, 0.997);
+    color: antiquewhite;
+    grid-area:4 / 3 / 5 / 4;
+    height: 75px;
+    font-size: 20px;
+    position: relative;
+    top: 30%;
 
+}
+.StatsModalBtn {
+    background-color: rgba(75, 59, 59, 0.997);
+    color: antiquewhite;
+    grid-area:3 / 2 / 4 / 3;
+    height: 75px;
+    font-size: 20px;
+    position: relative;
+    top: 30%;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+.levelModalBtn {
+    background-color: rgba(75, 59, 59, 0.997);
+    color: antiquewhite;
+    grid-area:2 / 2 / 3 / 3;
+    height: 75px;
+    font-size: 20px;
+    position: relative;
+    top: 30%;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+.saveBtn {
+    color:white;
+    background-color: rgba(56, 43, 43, 0.997);
+    margin-right: 15px;
+    width: 50px
+}
+.editBtn {
+    color:white;
+    background-color: rgba(56, 43, 43, 0.997);
+    /* margin-right: 15px; */
+    width: 50px;
+    height: 20px;
+    margin-top: 50px;
+    margin-left: 25px
+}
+.modalDesc {
+    margin-left: 20px;
+    font-size: 15px
 }
 .CharSheetContainer {
     background-color: rgba(56, 43, 43, 0.997);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     height: 500px;
-    width: 75%;
+    width: 85%;
     margin-top: 30px
 }
 .CharacterNamerow {
-    grid-area: 1 / 1 / 2 / 4;
+    grid-area: 1 / 2 / 2 / 3;
     text-align: center;
     margin-top: 20px;
     font-size: 45px;
