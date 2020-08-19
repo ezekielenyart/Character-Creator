@@ -1,38 +1,39 @@
 import React, { useState } from "react";
 
-function AbilityScoreModal({ score, setAbilityState }) {
+function AbilityScoreModal({ name, score, setScore }) {
 
-  
+
   return (
+    
     <div className="panel-body text-dark">
       <button
         type="button"
         className="btn abilityScoreDesBtn"
         data-toggle="modal"
-        data-target={`#${score.name}`}
+        data-target={`#${name}`}
       >
-        {score.name}
+        {name}
       </button>
       <input
         type="number"
         className="abilityScoreInput form-control"
+        id={score}
         aria-label="Username"
         aria-describedby="basic-addon1"
-        onChange={setAbilityState()}
-        // onChange={e => setCharacterState({...characterState, str: e.target.value})}
+        onChange={() => { setScore() }}
       ></input>
 
       <div
         className="modal fade"
-        id={`${score.name}`}
-        aria-labelledby={`${score.name}Label`}
+        id={`${name}`}
+        aria-labelledby={`${name}Label`}
         aria-hidden="true"
       >
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <span className="modal-title" id={`${score.name}Label`}>
-                {score.name}
+              <span className="modal-title" id={`${name}Label`}>
+                {name}
               </span>
 
               <button
@@ -43,13 +44,13 @@ function AbilityScoreModal({ score, setAbilityState }) {
               >
                 <span aria-hidden="true">&times;</span>
               </button>
-              <p>{score.description}</p>
+              <p></p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  );
+);
 }
 
 export default AbilityScoreModal;

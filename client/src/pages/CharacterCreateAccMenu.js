@@ -16,7 +16,7 @@ const AbilityScores = [
     name: "Strength",
     abv: "str",
     description: "The measure of your athletic skill",
-    
+
   },
   {
     name: "Dexterity",
@@ -57,41 +57,44 @@ function CharacterCreateAccMenu() {
   // const [raceDisplay, setRaceDisplay] = useState("");
   // const [classDisplay, setClassDisplay] = useState("");
   // const [backgroundDisplay, setBackgroundDisplay] = useState("");
+
+  const [abilityState, setAbilityState] = useState("abilities!")
+
   const [classes, setClasses] = useState([]);
   const [races, setRaces] = useState([]);
+  const [str, setStr] = useState(0);
+  const [dex, setDex] = useState(0);
+  const [con, setCon] = useState(0);
+  const [int, setInt] = useState(0);
+  const [wis, setWis] = useState(0);
+  const [cha, setCha] = useState(0);
   const [characterState, setCharacterState] = useState({
-      str: 0,
-      dex: 0,
-      int: 0,
-      con: 0,
-      wis: 0,
-      cha: 0,
-      c_name: "",
-      gender: "",
-      race: "",
-      subrace: "",
-      class: "",
-      athletics: false,
-      acrobatics: false,
-      sleight: false,
-      stealth: false,
-      arcana: false,
-      history: false,
-      investigation: false,
-      nature: false,
-      religion: false,
-      animalhandle: false,
-      insight: false,
-      medicine: false,
-      perception: false,
-      survival: false,
-      deception: false,
-      intimidation: false,
-      performance: false,
-      persuasion: false,
-      background: ""
-      
-    })
+    c_name: "",
+    gender: "",
+    race: "",
+    subrace: "",
+    class: "",
+    athletics: false,
+    acrobatics: false,
+    sleight: false,
+    stealth: false,
+    arcana: false,
+    history: false,
+    investigation: false,
+    nature: false,
+    religion: false,
+    animalhandle: false,
+    insight: false,
+    medicine: false,
+    perception: false,
+    survival: false,
+    deception: false,
+    intimidation: false,
+    performance: false,
+    persuasion: false,
+    background: ""
+
+  })
 
   useEffect(() => {
     API.getClasses().then((res) => {
@@ -105,12 +108,13 @@ function CharacterCreateAccMenu() {
   }, []);
 
 
-// function setAbilityState(e, abv){
-//   e.preventDefault();
-//   setCharacterState({...characterState, abv: e.target.value })
-// }
+  // function setAbilityState(e, abv){
+  //   e.preventDefault();
+  //   setCharacterState({...characterState, abv: e.target.value })
+  // }
 
-console.log(characterState)
+  console.log(characterState)
+  console.log(str)
   return (
     <div className="container mt-5 text-center">
       <div className="panel-group" id="accordion">
@@ -130,7 +134,7 @@ console.log(characterState)
                 aria-label="Username"
                 placeholder="Enter Character's Name Here"
                 aria-describedby="basic-addon1"
-                onChange={e => setCharacterState({...characterState, c_name: e.target.value})}
+                onChange={e => setCharacterState({ ...characterState, c_name: e.target.value })}
               ></input>
               <button
                 type="button"
@@ -143,12 +147,20 @@ console.log(characterState)
                 className="abilityScoreInput form-control"
                 aria-label="gender"
                 aria-describedby="basic-addon1"
-                onChange={e => setCharacterState({...characterState, gender: e.target.value})}
+                onChange={e => setCharacterState({ ...characterState, gender: e.target.value })}
               ></input>
             </div>
             {/* {AbilityScores.map((score) => (
-              <AbilityScoreModal score={score} setAbilityState={setAbilityState(score.abv)} />
+              <AbilityScoreModal name="Strength" score={str} setScore={setStr}} />
             ))} */}
+
+            <AbilityScoreModal name="Strength" score={str} setScore={setStr} />
+            <AbilityScoreModal name="Dexterity" score={dex} setScore={setDex} />
+            <AbilityScoreModal name="Constitution" score={con} setScore={setCon} />
+            <AbilityScoreModal name="Intelligence" score={int} setScore={setInt} />
+            <AbilityScoreModal name="Wisdom" score={wis} setScore={setWis} />
+            <AbilityScoreModal name="Charisma" score={cha} setScore={setCha} />
+
             <button type="submit" className="abScoreSubBtn">
               Submit
             </button>
@@ -200,9 +212,9 @@ console.log(characterState)
             <form>
               <label><span className="creatorText">Enter Your Background Info</span></label>
               <textarea id="background" name="background" rows="16" cols="60">
-              
+
               </textarea>
-              <br/>
+              <br />
               <button  >Save</button>
             </form>
           </div>
