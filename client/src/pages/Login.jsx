@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import RosterBtn from "../components/RosterBtn";
 import UserContext from "../utils/UserContext";
@@ -15,6 +15,13 @@ function Login() {
   // THIS IS SETTING THE GLOBAL CONTEXT \  /
   // THIS IS SETTING THE GLOBAL CONTEXT  \/
   const { update, _id } = useContext(UserContext);
+
+  useEffect(() => {
+    if (_id){
+      //reroute to home page
+      history.push("/roster");
+      }
+  }, [])
 
   const handleChange = (e) => {
     setState({
@@ -44,6 +51,7 @@ function Login() {
         console.log(error);
       });
   };
+  console.log(_id)
 
   return (
     // <UserContext.Provider>

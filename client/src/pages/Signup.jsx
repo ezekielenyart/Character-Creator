@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import RosterBtn from "../components/RosterBtn";
+import UserContext from '../utils/UserContext'
 
 function Signup() {
+  const { update, _id } = useContext(UserContext);
+console.log(_id)
   const history = useHistory();
   const [state, setState] = React.useState({
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    if (_id){
+      //reroute to home page
+      history.push("/roster");
+      }
+  }, [])
 
   const handleChange = (e) => {
     setState({

@@ -1,6 +1,7 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect} from "react";
 import UserContext from '../utils/UserContext'
 import CharacterCreateBtn from "../components/CreateCharacterBtn";
+import { useHistory } from "react-router-dom";
 
 
 const cards = [
@@ -54,6 +55,18 @@ function Card({ card }) {
 function Roster() {
   const { update, _id } = useContext(UserContext);
   console.log(_id)
+  const history = useHistory()
+
+
+
+  useEffect(() => {
+    if (!_id){
+      //reroute to home page
+      history.push("/");
+    }
+    //else, get users character roster
+
+  }, [])
 
   return (
     // Deconstruct _id from User(Context/State), use it to run API call (:id)
