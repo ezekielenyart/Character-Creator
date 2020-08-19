@@ -37,6 +37,7 @@ function CharacterSheetModal({ name, RaceChoice, RCDescription, DNDClass, ClassD
         <div className="modal-content">
             <div className="modal-header">
                 <span className="modal-title" id={`${RaceChoice}Label`}>{RaceChoice}</span>
+                <button className='saveBtn' type="submit" />
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

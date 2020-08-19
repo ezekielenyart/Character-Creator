@@ -1,9 +1,9 @@
-import React from "react";
-import { _id } from '../utils/UserContext'
-
-
-
+import React, {useContext, useEffect} from "react";
+import UserContext from '../utils/UserContext'
 import CharacterCreateBtn from "../components/CreateCharacterBtn";
+import { useHistory } from "react-router-dom";
+
+
 const cards = [
   {
     img: "images/download.png",
@@ -53,6 +53,21 @@ function Card({ card }) {
 }
 // Add the createCharBtn to Roster
 function Roster() {
+  const { update, _id } = useContext(UserContext);
+  console.log(_id)
+  const history = useHistory()
+
+
+
+  useEffect(() => {
+    if (!_id){
+      //reroute to home page
+      history.push("/");
+    }
+    //else, get users character roster
+
+  }, [])
+
   return (
     // Deconstruct _id from User(Context/State), use it to run API call (:id)
     // Local state would have an array of this user's characters(UseEffect with an API call to get associated characters API.getCharactersbyUser)

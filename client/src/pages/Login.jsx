@@ -1,27 +1,28 @@
-import React, {useContext} from "react";
+import React, { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import RosterBtn from "../components/RosterBtn";
-import { UserContext } from '../utils/UserContext';
-
+import UserContext from "../utils/UserContext";
 
 function Login() {
-
-
-
   const history = useHistory();
   const [state, setState] = React.useState({
     email: "",
     password: "",
-    _id: ""
+    _id: "",
   });
-// THIS IS SETTING THE GLOBAL CONTEXT
-// THIS IS SETTING THE GLOBAL CONTEXT
-// THIS IS SETTING THE GLOBAL CONTEXT
-// THIS IS SETTING THE GLOBAL CONTEXT
-  const userContext = useContext(UserContext)
-  const userState = userContext[0]
-  const setUserState = userContext[1]
-console.log(userContext)
+  // THIS IS SETTING THE GLOBAL CONTEXT  ||
+  // THIS IS SETTING THE GLOBAL CONTEXT _||_
+  // THIS IS SETTING THE GLOBAL CONTEXT \  /
+  // THIS IS SETTING THE GLOBAL CONTEXT  \/
+  const { update, _id } = useContext(UserContext);
+
+  useEffect(() => {
+    if (_id){
+      //reroute to home page
+      history.push("/roster");
+      }
+  }, [])
+
   const handleChange = (e) => {
     setState({
       ...state,
@@ -29,28 +30,28 @@ console.log(userContext)
     });
   };
 
-  const login = async (e) => {
+  const login = (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch("/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(state),
+
+    fetch("/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(state),
+    })
+      .then((response) => response.json())
+      .then((user) => {
+        //  update(user)
+        // UserContext(React.useContext(user))
+        update(user._id);
+        history.push("/roster");
+      })
+      .catch((error) => {
+        console.log(error);
       });
-
-      const user = await response.json();
-      
-      console.log(state)
-      // UserContext(React.useContext(user))
-      console.log(user);
-      history.push("/roster")
-
-    } catch (error) {
-      console.warn(error.message);
-    }
   };
+  console.log(_id)
 
   return (
     // <UserContext.Provider>
