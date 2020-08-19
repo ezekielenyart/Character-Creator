@@ -1,91 +1,22 @@
 import React, { useState, useEffect, useContext } from "react";
 import RaceModal from "../components/RaceModal";
 import ClassModal from "../components/ClassModal";
-import BackgroundModal from "../components/BackgroundModal";
 import AbilityScoreModal from "../components/AbilityScoreModal";
 // import ChoiceContext from '../utils/ChoiceContext'
 import API from "../utils/API";
 import ClassContext from "../utils/ClassContext";
 import UserContext from '../utils/UserContext'
 
-const Backgrounds = [
-  {
-    name: "Acolyte",
-    description:
-      "You have spent your life in the service of a temple to a specific god or pantheon of gods. You act as an intermediary between the realm of the holy and the mortal world, performing sacred rites and offering sacrifices in order to conduct worshipers into the presence of the divine. You are not necessarily a cleric—performing sacred rites is not the same thing as channeling divine power.",
-  },
-  {
-    name: "Acolyte",
-    description:
-      "You have spent your life in the service of a temple to a specific god or pantheon of gods. You act as an intermediary between the realm of the holy and the mortal world, performing sacred rites and offering sacrifices in order to conduct worshipers into the presence of the divine. You are not necessarily a cleric—performing sacred rites is not the same thing as channeling divine power.",
-  },
-  {
-    name: "Acolyte",
-    description:
-      "You have spent your life in the service of a temple to a specific god or pantheon of gods. You act as an intermediary between the realm of the holy and the mortal world, performing sacred rites and offering sacrifices in order to conduct worshipers into the presence of the divine. You are not necessarily a cleric—performing sacred rites is not the same thing as channeling divine power.",
-  },
-  {
-    name: "Acolyte",
-    description:
-      "You have spent your life in the service of a temple to a specific god or pantheon of gods. You act as an intermediary between the realm of the holy and the mortal world, performing sacred rites and offering sacrifices in order to conduct worshipers into the presence of the divine. You are not necessarily a cleric—performing sacred rites is not the same thing as channeling divine power.",
-  },
-  {
-    name: "Acolyte",
-    description:
-      "You have spent your life in the service of a temple to a specific god or pantheon of gods. You act as an intermediary between the realm of the holy and the mortal world, performing sacred rites and offering sacrifices in order to conduct worshipers into the presence of the divine. You are not necessarily a cleric—performing sacred rites is not the same thing as channeling divine power.",
-  },
-  {
-    name: "Acolyte",
-    description:
-      "You have spent your life in the service of a temple to a specific god or pantheon of gods. You act as an intermediary between the realm of the holy and the mortal world, performing sacred rites and offering sacrifices in order to conduct worshipers into the presence of the divine. You are not necessarily a cleric—performing sacred rites is not the same thing as channeling divine power.",
-  },
-];
-
 // THESE ARE THE VARIABLES THAT THE CHOICES CAN BE PUT INTO
 // SHOULD THEY BE THEIR OWN CONTEXT?
 // Yeah they should be part of a "currentCharacter" state or something.
-let raceChoice = "";
-let DNDclassChoice = "";
-let backgroundChoice = "";
-let CharacterChoices = [
-  {
-    name: "Strength",
-    value: 0,
-  },
-  {
-    name: "Dexterity",
-    value: 0,
-  },
-  {
-    name: "Inteilligence",
-    value: 0,
-  },
-  {
-    name: "Wisdom",
-    value: 0,
-  },
-  {
-    name: "Charisma",
-    value: 0,
-  },
-  {
-    name: "Constitution",
-    value: 0,
-  },
 
-  {
-    name: "raceChoice",
-    value: raceChoice,
-  },
-  {
-    name: "DNDclassChoice",
-    value: DNDclassChoice,
-  },
-  {
-    name: "backgroundChoice",
-    value: backgroundChoice,
-  },
-];
+const [state, setstate] = useState({
+  str: "",
+  dex: "",
+  
+})
+
 const AbilityScores = [
   {
     name: "Strength",
@@ -162,8 +93,8 @@ function CharacterCreateAccMenu() {
   //   };
 
   return (
-    <div className="container mt-5  text-center">
-      <div className="panel-group" id="accordion">
+    <div className="container mt-5 justify-content-center text-center">
+      <div className="panel-group col-md-6" id="accordion">
         <div className="panel panel-default">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
             <div className="panel-heading">
@@ -243,9 +174,14 @@ function CharacterCreateAccMenu() {
             </div>
           </a>
           <div id="collapse5" className="panel-collapse collapse">
-            {Backgrounds.map((background) => (
-              <BackgroundModal background={background} />
-            ))}
+            <form>
+              <label><span>Enter Your Background Info</span></label>
+              <textarea id="background" name="background" rows="16" cols="60">
+              
+              </textarea>
+              <br/>
+              <button>Save</button>
+            </form>
           </div>
         </div>
       </div>
