@@ -18,7 +18,7 @@ const CharacterChoices =
     Proficiencies : "Swag",
     ProfDesc : "Gets the girl, Saves the day.  All in a day's work",
     Stats : "Eat an apple a day, keep the witch doctor away",
-    Level : "High Enough to shag your mom, but not high enough to get away with it"
+    Level : 10
 }
 
 

@@ -46,7 +46,7 @@ const cards = [
 function Card({ card }) {
   return (
     <div>
-      <img src={card.img} />
+      <img href ="/roster" src={card.img} />
       <p>{card.text}</p>
     </div>
   );
