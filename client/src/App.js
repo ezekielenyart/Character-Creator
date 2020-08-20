@@ -7,7 +7,7 @@ import Wrapper from './components/Wrapper'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import UserContext from './utils/UserContext'
-import CharacterSheet from './pages/CharacterSheet'
+import BasicCharacterSheet from './pages/BasicCharacterSheet/BasicCharacterSheet'
 // import DeveloperContext from "./components/utils/DeveloperContext";
 import TestAPI from "./components/APItestcomponent.js"
 
@@ -37,7 +37,7 @@ function App() {
           <Route exact path="/" component={HomePageRender} />
           <Route exact path="/create" component={CharacterCreateAccMenu} />
           <Route exact path="/roster" component={Roster} />
-          <Route exact path="/charactersheet" component={CharacterSheet} />
+          <Route exact path="/charactersheet" component={BasicCharacterSheet} />
           <Route exact path="/api/test" component={TestAPI} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
