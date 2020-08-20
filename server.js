@@ -19,6 +19,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require("./Routes/userRoutes.js")(app);
+require("./Routes/characterRoutes")(app);
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/CCUsers", { useNewUrlParser: true });
 

@@ -14,7 +14,14 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+
+    characters: [{
+
+        type: Schema.Types.ObjectId,
+      // this id references the Book model
+        ref: "Character"
+    }]
 
 })
 
