@@ -18,7 +18,9 @@ function CharacterSheetModal({
 }) {
   return (
     <div className="b-color">
+      
       <div className="container CharSheetContainer">
+
       <div className="CharacterNamerow">{name}, {RaceChoice} {DNDClass}</div>
       <button className="editBtn">
         <span>EDIT</span>

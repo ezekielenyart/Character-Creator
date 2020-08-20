@@ -25,7 +25,8 @@ const CharacterChoices =
 function CharacterSheet() {
     const { update, _id } = useContext(UserContext);
 
-    return (
+    return (<div>
+
 <CharacterSheetModal 
     name = {CharacterChoices.name}
     RaceChoice = {CharacterChoices.RaceChoice}
@@ -42,7 +43,7 @@ function CharacterSheet() {
     Stats = {CharacterChoices.Stats}
     Level = {CharacterChoices.Level}
 />
-
+</div>
     )}
 
 export default CharacterSheet
