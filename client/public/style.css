@@ -194,16 +194,23 @@ body {
     margin-top: 8px
 }
 .modal-body{
+    font-family: Staatliches, Open Sans, sans-serif;
 
     background-color:  rgba(75, 59, 59, 0.997);
 }
 .modal-title{
+    font-family: Staatliches, Open Sans, sans-serif;
+
     background-color: rgba(56, 43, 43, 0.997);
     font-size: 25px;
     color: antiquewhite;
     margin: 20px;
 }
 .modal-content{
+    border-style: solid;
+    border-color: antiquewhite;
+    border-width: 2px;
+    border-radius: 25px;
     background-color: rgba(56, 43, 43, 0.997);
     color: antiquewhite;
 }
@@ -231,6 +238,7 @@ text-align: right;
 }
 .chooseClassBtn{
     background-color:  rgba(75, 59, 59, 0.997);
+    margin-bottom : 10px
 }
 .panel-title{
     margin: auto;
