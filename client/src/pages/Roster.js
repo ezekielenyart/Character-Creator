@@ -43,20 +43,27 @@ const cards = [
   },
 ];
 
+//  const history = useHistory()
+function handleClick(e)  {
+
+
+// history.push("/charactersheet")
+}
 function Card({ card }) {
   return (
     <div>
-      <img href ="/roster" src={card.img} />
+      <img  onClick={handleClick} src={card.img}>
+      </img>
       <p>{card.text}</p>
     </div>
   );
 }
+
 // Add the createCharBtn to Roster
-function Roster() {
+function Roster() { 
   const { update, _id } = useContext(UserContext);
   console.log(_id)
   const history = useHistory()
-
 
 
   useEffect(() => {
@@ -69,8 +76,6 @@ function Roster() {
   }, [])
 
   return (
-    // Deconstruct _id from User(Context/State), use it to run API call (:id)
-    // Local state would have an array of this user's characters(UseEffect with an API call to get associated characters API.getCharactersbyUser)
     <div>
       <div className="row my-3">
         <CharacterCreateBtn />
@@ -82,8 +87,10 @@ function Roster() {
               key={i + "-cards"}
               className="rosterSpot col-xs-12 col-sm-6 col-md-4 text-center"
             >
-              <Card card={card} />
+              <Card card={card} onClick="handleClick()"
+              />
             </div>
+             
           ))}
         </div>
       </div>
