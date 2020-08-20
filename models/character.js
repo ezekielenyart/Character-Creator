@@ -7,13 +7,13 @@ const characterSchema = new Schema({
     characterData:{ //Character object is stored as a JSON string. 
       type: String,
       default: "",
-      get: function(data) {
-        try { //JSon.parse does nto seem to work.
-          return JSON.parse(data);
-        } catch(err) { 
-          return data;
-        }
-      },
+      // get: function(data) {
+      //   try { //JSon.parse does nto seem to work.
+      //     return JSON.parse(data);
+      //   } catch(err) { 
+      //     return data;
+      //   }
+      // },
       set: function(data) {
         return JSON.stringify(data);
       }

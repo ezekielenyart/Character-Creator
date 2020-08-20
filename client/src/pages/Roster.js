@@ -2,6 +2,7 @@ import React, {useContext, useEffect} from "react";
 import UserContext from '../utils/UserContext'
 import CharacterCreateBtn from "../components/CreateCharacterBtn";
 import { useHistory } from "react-router-dom";
+import characterAPI from "../utils/characterAPI";
 
 
 const cards = [
@@ -63,6 +64,28 @@ function Roster() {
   console.log(_id)
   const history = useHistory()
 
+ characterAPI.getCharacters(_id)
+  .then(data => {
+    console.log(data)
+    var characters = data.data.characters;
+    
+    characters = characters.map(e =>{
+      return JSON.parse(e.characterData)
+    })
+    console.log(characters)
+    
+  })
+  
+  // var newCharacter = {
+  //   name: "Jack the Butcher",
+  //   race: "Half-Orc",
+  //   class: "ranger"
+  // }
+
+  // characterAPI.createCharacter(_id, newCharacter)
+  // .then(data => {
+  //   console.log(data)
+  // })
 
   useEffect(() => {
     if (!_id){
@@ -70,7 +93,7 @@ function Roster() {
       history.push("/");
     }
     //else, get users character roster
-    
+
   }, [])
 
   return (
@@ -85,7 +108,7 @@ function Roster() {
               key={i + "-cards"}
               className="rosterSpot col-xs-12 col-sm-6 col-md-4 text-center"
             >
-              <Card card={card} onClick="handleClick()"
+              <Card card={card}
               />
             </div>
              
