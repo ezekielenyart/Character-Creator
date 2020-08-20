@@ -73,9 +73,9 @@ function ClassModal(props) {
                       if (skill.name === "Skill: Athletics") {
                         return setAthletics(true)
                       } else if (skill.name === "Skill: Acrobatics") {
-                        return setIntimidation(true)
+                        return setAcrobatics(true)
                       } else if (skill.name === "Skill: Sleight of Hand") {
-                        return setArcana(true)
+                        return setSleight(true)
                       } else if (skill.name === "Skill: Stealth") {
                         return setStealth(true)
                       } else if (skill.name === "Skill: Arcana") {

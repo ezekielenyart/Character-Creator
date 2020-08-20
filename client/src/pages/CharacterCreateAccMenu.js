@@ -4,8 +4,8 @@ import ClassModal from "../components/ClassModal";
 import AbilityScoreModal from "../components/AbilityScoreModal";
 // import ChoiceContext from '../utils/ChoiceContext'
 import API from "../utils/API";
-import ClassContext from "../utils/ClassContext";
 import UserContext from '../utils/UserContext'
+import characterAPI from "../utils/characterAPI"
 
 // THESE ARE THE VARIABLES THAT THE CHOICES CAN BE PUT INTO
 // SHOULD THEY BE THEIR OWN CONTEXT?
@@ -45,10 +45,51 @@ const AbilityScores = [
   },
 ];
 
-// THESE ARE THE VARIABLES THAT THE CHOICES CAN BE PUT INTO
-// SHOULD THEY BE THEIR OWN CONTEXT?
 
 function CharacterCreateAccMenu() {
+  const createCharacterDB = () => {
+    // Object to submit to database
+    const char = {
+      // CHARACTER NAME/GENDER
+      c_name: characterState.c_name,
+      gender: characterState.gender,
+      // CLASS
+      characterClass: characterClass,
+      // ABILITY SCORES
+      str: str,
+      dex: dex,
+      int: int,
+      con: con,
+      wis: wis,
+      cha: cha,
+      // RACE / SUBRACE
+      race: race,
+      subrace: subrace,
+      // SKILLS
+      athletics: athletics,
+      acrobatics: acrobatics,
+      sleight: sleight,
+      stealth: stealth,
+      arcana: arcana,
+      history: history,
+      investigation: investigation,
+      nature: nature,
+      religion: religion,
+      animalhandle: animalhandle,
+      insight: insight,
+      medicine: medicine,
+      perception: perception,
+      survival: survival,
+      deception: deception,
+      intimidation: intimidation,
+      performance: performance,
+      persuasion: persuasion
+    
+      
+    }
+    characterAPI.createCharacter(_id, char)
+  }
+
   const { update, _id } = useContext(UserContext);
 
   // Leave these here!
@@ -68,25 +109,25 @@ function CharacterCreateAccMenu() {
   const [wis, setWis] = useState(0);
   const [cha, setCha] = useState(0);
 
-const[athletics, setAthletics]= useState();
-const[acrobatics, setAcrobatics]= useState();
-const[sleight, setSleight]= useState();
-const[stealth, setStealth]= useState();
-const[arcana, setArcana]= useState();
-const[history, setHistory]= useState();
-const[investigation, setInvestigation]= useState();
-const[nature, setNature]= useState();
-const[religion, setReligion]= useState();
-const[animalhandle, setAnimalHandle]= useState();
-const[insight, setInsight]= useState();
-const[medicine, setMedicine]= useState();
-const[perception, setPerception]= useState();
-const[survival, setSurvival]= useState();
-const[deception, setDeception]= useState();
-const[intimidation, setIntimidation]= useState(null);
-const[performance, setPerformance]= useState();
-const[persuasion, setPersuasion]= useState();
-const[backgroundState, setBackgroundState] = useState();
+  const [athletics, setAthletics] = useState(false);
+  const [acrobatics, setAcrobatics] = useState(false);
+  const [sleight, setSleight] = useState(false);
+  const [stealth, setStealth] = useState(false);
+  const [arcana, setArcana] = useState(false);
+  const [history, setHistory] = useState(false);
+  const [investigation, setInvestigation] = useState(false);
+  const [nature, setNature] = useState(false);
+  const [religion, setReligion] = useState(false);
+  const [animalhandle, setAnimalHandle] = useState(false);
+  const [insight, setInsight] = useState(false);
+  const [medicine, setMedicine] = useState(false);
+  const [perception, setPerception] = useState(false);
+  const [survival, setSurvival] = useState(false);
+  const [deception, setDeception] = useState(false);
+  const [intimidation, setIntimidation] = useState(false);
+  const [performance, setPerformance] = useState(false);
+  const [persuasion, setPersuasion] = useState(false);
+  const [backgroundState, setBackgroundState] = useState("");
 
   const [race, setCharacterRace] = useState();
   const [characterClass, setCharacterClass] = useState();
@@ -94,7 +135,6 @@ const[backgroundState, setBackgroundState] = useState();
   const [characterState, setCharacterState] = useState({
     c_name: "",
     gender: "",
-    class: "",
   })
 
   useEffect(() => {
@@ -247,13 +287,19 @@ const[backgroundState, setBackgroundState] = useState();
           <div id="collapse5" className="panel-collapse collapse">
             <form>
               <label><span className="creatorText">Enter Your Background Info</span></label>
-              <textarea id="background" name="background" rows="16" cols="60" onChange={(e) => {
-                setBackgroundState(e.target.value)}}
-                >
+              <textarea
+                id="background"
+                name="background"
+                rows="16"
+                cols="60"
+                onChange={(e) => {
+                  setBackgroundState(e.target.value)
+                }}
+              >
 
               </textarea>
               <br />
-              <button  >Save</button>
+              <button onClick={createCharacterDB}>Save</button>
             </form>
           </div>
         </div>
