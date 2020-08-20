@@ -1,9 +1,8 @@
-import React, {useContext, useEffect} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import UserContext from '../utils/UserContext'
 import CharacterCreateBtn from "../components/CreateCharacterBtn";
 import { useHistory } from "react-router-dom";
 import characterAPI from "../utils/characterAPI";
-
 
 const cards = [
   {
@@ -45,37 +44,41 @@ const cards = [
 ];
 
 
-function Card({ card }) {
+function Card({ character }) {
   const history = useHistory()
+  console.log(character)
   
+
+
   return (
-    <div onClick={() => {
-        history.push("/charactersheet")}}>
-      <img   src={card.img}>
+    <div data-id={character._id} onClick={() => {
+      history.push("/charactersheet")
+    }}>
+      <img src={"images/download.png"}>
       </img>
-      <p>{card.text}</p>
+      {/* <p>{character.c_name}</p> */}
     </div>
   );
 }
 
 // Add the createCharBtn to Roster
-function Roster() { 
+function Roster() {
   const { update, _id } = useContext(UserContext);
   console.log(_id)
   const history = useHistory()
 
- characterAPI.getCharacters(_id)
-  .then(data => {
-    console.log(data)
-    var characters = data.data.characters;
-    
-    characters = characters.map(e =>{
-      return JSON.parse(e.characterData)
+  characterAPI.getCharacters(_id)
+    .then(data => {
+      console.log(data)
+      var characters = data.data.characters;
+
+      characters = characters.map(e => {
+        return JSON.parse(e.characterData)
+      })
+      console.log(characters)
+
     })
-    console.log(characters)
-    
-  })
-  
+
   // var newCharacter = {
   //   name: "Jack the Butcher",
   //   race: "Half-Orc",
@@ -86,15 +89,23 @@ function Roster() {
   // .then(data => {
   //   console.log(data)
   // })
-
+  const [charList, setCharList] = useState([])
   useEffect(() => {
-    if (!_id){
+    if (!_id) {
       //reroute to home page
       history.push("/");
     }
     //else, get users character roster
 
+
+      characterAPI.getCharacters(_id)
+        .then(res => {
+          setCharList(res.data.characters)
+        })
+    
   }, [])
+
+  console.log(charList)
 
   return (
     <div>
@@ -103,15 +114,12 @@ function Roster() {
       </div>
       <div className="container">
         <div className="row">
-          {cards.map((card, i) => (
-            <div
-              key={i + "-cards"}
-              className="rosterSpot col-xs-12 col-sm-6 col-md-4 text-center"
-            >
-              <Card card={card}
+          {charList.map((char) => (
+            <div className="rosterSpot col-xs-12 col-sm-6 col-md-4 text-center">            
+              <Card character={char}
               />
             </div>
-             
+
           ))}
         </div>
       </div>
