@@ -4,7 +4,8 @@ import ModalListItem from "./ModalListItem";
 import DoubleListItem from "./AbilityBonusListItem";
 import RadioButton from "./RadioButton";
 
-function RaceModal({ race }) {
+function RaceModal({ race, setCharacterRace, setRaceSubrace }) {
+
   const [raceSpeed, setSpeed] = useState("");
   const [raceAbilityBonus, setAbilityBonus] = useState([]);
   const [raceAlignment, setAlignment] = useState();
@@ -39,15 +40,22 @@ function RaceModal({ race }) {
     });
   };
 
+  const returnSetRace = (e) => {
+    returnRaceDetails();
+    setCharacterRace(e.target.value);
+  }
+
   return (
     // Modal for races that reveals details like size, ability bonuses, languages, speed, etc.
     <div className="panel-body text-dark">
       <button
         type="button"
-        onClick={returnRaceDetails}
+        onClick={returnSetRace}
         className="btn goToModalBtn"
         data-toggle="modal"
+        value={race.name}
         data-target={`#${race.name}`}
+      // onClick={(e) => { setCharacterRace(e.target.value) }}
       >
         {race.name}
       </button>
@@ -107,19 +115,19 @@ function RaceModal({ race }) {
                       <br></br>
                       {raceAge}
                     </div>
-                  </div> 
                   </div>
-                  <div className="container col-xs-6">
-                    {/* Race Language details */}
+                </div>
+                <div className="container col-xs-6">
+                  {/* Race Language details */}
 
-                    {/* This line uses the classProfNum state because the number of starter skills can vary by class */}
-                    <div>
-                      <br></br>
-                      <em className="raceDescSpot">Language Description</em>
-                      <br></br>
-                      {raceLanguage}
-                    </div>
-                 
+                  {/* This line uses the classProfNum state because the number of starter skills can vary by class */}
+                  <div>
+                    <br></br>
+                    <em className="raceDescSpot">Language Description</em>
+                    <br></br>
+                    {raceLanguage}
+                  </div>
+
 
                   {/* Race Size details */}
 
@@ -140,8 +148,16 @@ function RaceModal({ race }) {
                         {raceSubrace.length === 0 ? null : "Subraces"}
                       </em>
                       <br></br>
+
+                      {/* RADIO BUTTON */}
+
                       {raceSubrace.map((subrace) => (
-                        <RadioButton choice={subrace.name} />
+                        <RadioButton
+                          value={subrace.name}
+                          choice={subrace.name}
+                          name="subrace"
+                          onChange={setRaceSubrace(subrace.name)}
+                        />
                       ))}
                     </form>
                   </div>
@@ -176,6 +192,8 @@ function RaceModal({ race }) {
               <button
                 type="button"
                 className="btn btn-outline-primary chooseClassBtn"
+                aria-label="Close"
+                data-dismiss="modal"
               >
                 Choose {race.name}
               </button>

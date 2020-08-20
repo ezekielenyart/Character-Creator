@@ -3,7 +3,7 @@ import API from '../utils/API'
 import ModalListItem from './ModalListItem'
 import ModalCheckbox from './ModalCheckbox'
 
-function ClassModal({ DNDclass }) {
+function ClassModal({ DNDclass, setCharacterClass, setAthletics, setIntimidation }) {
 
   // Setup states to store information from the api calls.
   const [classEquipmentProf, setClassEquipmentProf] = useState([]);
@@ -20,14 +20,43 @@ function ClassModal({ DNDclass }) {
     })
   }
 
+  const selectSkillFunction = () => {
+    // console.log(classSkillProf)
+    var skillsArray = []
+    for (let skill = 0; skill < classSkillProf.length; skill++) {
+      skillsArray.push(classSkillProf[skill].name)
+      }
+      for (let i = 0; i < skillsArray.length; i++) {
+
+        if (skillsArray[i] === "Skill: Athletics") {
+          setAthletics(true)
+        } else if (skillsArray[i] === "Skill: Intimidation") {
+          setIntimidation(true)
+        } 
+    }
+    // console.log(skillsArray)
+
+    // var skillName = DNDclass.proficiency_choices[0].from.name
+    // console.log(skillName)
+
+  }
+
+
+  const returnSetClass = (e) => {
+    returnClassDetails();
+    setCharacterClass(e.target.value);
+  }
+
+
   return (
 
     // Modal for classes that reveals weapon & armor proficiencies, saving throws, and skill selection menu.
     <div className="panel-body text-dark">
       <button type="button"
-        onClick={returnClassDetails}
+        onClick={returnSetClass}
         className="btn goToModalBtn"
         data-toggle="modal"
+        value={DNDclass.name}
         data-target={`#${DNDclass.name}`}>
         {DNDclass.name}
       </button>
@@ -49,7 +78,9 @@ function ClassModal({ DNDclass }) {
                 <form><em className="m-2">Choose {classProfNum} Skills</em>
                   {classSkillProf.map(name => (
                     <ModalCheckbox
-                      name={name.name} />))}
+                      name={name.name}
+                      onClick={selectSkillFunction()}
+                    />))}
                 </form>
               </div>
 
@@ -71,16 +102,19 @@ function ClassModal({ DNDclass }) {
                     </ul>
                   </div>
                 </div>
-
               </div>
-
-             
-              
-
             </div>
+
+            {/* Button to choose a class */}
             <div className="text-center row">
-              <button type="button" className="btn btn-outline-primary chooseClassBtn">Choose {DNDclass.name}</button>
-              </div>
+              <button
+                type="button"
+                className="btn btn-outline-primary chooseClassBtn"
+                onClick=""
+                aria-label="Close"
+                data-dismiss="modal"
+              >Choose {DNDclass.name}</button>
+            </div>
           </div>
         </div>
       </div>

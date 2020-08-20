@@ -20,7 +20,8 @@ function AbilityScoreModal({ name, score, setScore }) {
         id={score}
         aria-label="Username"
         aria-describedby="basic-addon1"
-        onChange={() => { setScore() }}
+        onChange={(e) => { setScore(e.target.value) }}
+
       ></input>
 
       <div

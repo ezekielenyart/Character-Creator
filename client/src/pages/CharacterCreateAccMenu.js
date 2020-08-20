@@ -50,7 +50,6 @@ const AbilityScores = [
 
 function CharacterCreateAccMenu() {
   const { update, _id } = useContext(UserContext);
-  console.log(_id)
 
   // Leave these here!
   // const [scoreDisplay, setScoreDisplay] = useState("");
@@ -68,30 +67,33 @@ function CharacterCreateAccMenu() {
   const [int, setInt] = useState(0);
   const [wis, setWis] = useState(0);
   const [cha, setCha] = useState(0);
+
+const[athletics, setAthletics]= useState(null);
+const[acrobatics, setAcrobatics]= useState();
+const[sleight, setSleight]= useState();
+const[stealth, setStealth]= useState();
+const[arcana, setArcana]= useState();
+const[history, setHistory]= useState();
+const[investigation, setInvestigation]= useState();
+const[nature, setNature]= useState();
+const[religion, setReligion]= useState();
+const[animalhandle, setAnimalHandle]= useState();
+const[insight, setInsight]= useState();
+const[medicine, setMedicine]= useState();
+const[perception, setPerception]= useState();
+const[survival, setSurvival]= useState();
+const[deception, setDeception]= useState();
+const[intimidation, setIntimidation]= useState(null);
+const[performance, setPerformance]= useState();
+const[persuasion, setPersuasion]= useState();
+
+  const [race, setCharacterRace] = useState();
+  const [characterClass, setCharacterClass] = useState();
+  const [subrace, setRaceSubrace] = useState();
   const [characterState, setCharacterState] = useState({
     c_name: "",
     gender: "",
-    race: "",
-    subrace: "",
     class: "",
-    athletics: false,
-    acrobatics: false,
-    sleight: false,
-    stealth: false,
-    arcana: false,
-    history: false,
-    investigation: false,
-    nature: false,
-    religion: false,
-    animalhandle: false,
-    insight: false,
-    medicine: false,
-    perception: false,
-    survival: false,
-    deception: false,
-    intimidation: false,
-    performance: false,
-    persuasion: false,
     background: ""
 
   })
@@ -113,8 +115,9 @@ function CharacterCreateAccMenu() {
   //   setCharacterState({...characterState, abv: e.target.value })
   // }
 
-  console.log(characterState)
-  console.log(str)
+  console.log(`Character Class: ${characterClass}`)
+  console.log(`Athletics skill chosen: ${athletics}`)
+  console.log(`intimidation skill chosen: ${intimidation}`)
   return (
     <div className="container mt-5 text-center">
       <div className="panel-group" id="accordion">
@@ -181,7 +184,11 @@ function CharacterCreateAccMenu() {
           </div>
           <div id="collapse2" className="panel-collapse collapse ">
             {races.map((race) => (
-              <RaceModal race={race} />
+              <RaceModal race={race} setCharacterRace={setCharacterRace} setRaceSubrace={setRaceSubrace} />
+              // is it working?, we arent getting 
+              // character details showing up
+              // Like in the modal? yeah, it must be something with the setRace
+              // SO I FIXED THAT! the problem was the line 52 in racemodal
             ))}
           </div>
         </div>
@@ -197,7 +204,29 @@ function CharacterCreateAccMenu() {
           </a>
           <div id="collapse3" className="panel-collapse collapse">
             {classes.map((DNDclass) => (
-              <ClassModal DNDclass={DNDclass} />
+              <ClassModal
+                DNDclass={DNDclass}
+                characterClass={DNDclass}
+                setCharacterClass={setCharacterClass}
+                setAthletics={setAthletics}
+                setAcrobatics={setAcrobatics}
+                setSleight={setSleight}
+                setStealth={setStealth}
+                setArcana={setArcana}
+                setHistory={setHistory}
+                setInvestigation={setInvestigation}
+                setInsight={setInsight}
+                setNature={setNature}
+                setReligion={setReligion}
+                setAnimalHandle={setAnimalHandle}
+                setMedicine={setMedicine}
+                setPerception={setPerception}
+                setSurvival={setSurvival}
+                setDeception={setDeception}
+                setIntimidation={setIntimidation}
+                setPerformance={setPerformance}
+                setPersuasion={setPersuasion}
+              />
             ))}
           </div>
         </div>
