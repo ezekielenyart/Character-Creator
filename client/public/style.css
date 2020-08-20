@@ -130,15 +130,8 @@ body {
     margin-right: 15px;
     width: 50px
 }
-.editBtn {
-    color:white;
-    background-color: rgba(56, 43, 43, 0.997);
-    /* margin-right: 15px; */
-    width: 50px;
-    height: 20px;
-    margin-top: 50px;
-    margin-left: 25px
-}
+
+
 .modalDesc {
     margin-left: 20px;
     font-size: 15px

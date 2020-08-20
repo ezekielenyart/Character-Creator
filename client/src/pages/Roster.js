@@ -70,7 +70,7 @@ function Roster() {
       history.push("/");
     }
     //else, get users character roster
-    
+
   }, [])
 
   return (
@@ -85,7 +85,7 @@ function Roster() {
               key={i + "-cards"}
               className="rosterSpot col-xs-12 col-sm-6 col-md-4 text-center"
             >
-              <Card card={card} onClick="handleClick()"
+              <Card card={card}
               />
             </div>
              
