@@ -10,8 +10,8 @@ module.exports = function(app) {
     db.Character.findById(req.params._id)
       .then(function(data) {
         console.log(data)
-        //console.log(JSON.parse(data.characterData))
-        //data.characterData= JSON.stringify(data.characterData)
+        console.log(JSON.parse(data.characterData))
+        data.characterData= JSON.parse(data.characterData)
         res.json(data)
 
       })
