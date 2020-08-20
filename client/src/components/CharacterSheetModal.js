@@ -85,7 +85,7 @@ function CharacterSheetModal({
         data-toggle="modal"
         data-target={`#level`}
       >
-        Level
+        Level:   {Level}
       </button>
       <div
         className="modal fade"
