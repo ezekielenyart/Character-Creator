@@ -68,7 +68,7 @@ function CharacterCreateAccMenu() {
   const [wis, setWis] = useState(0);
   const [cha, setCha] = useState(0);
 
-const[athletics, setAthletics]= useState(null);
+const[athletics, setAthletics]= useState();
 const[acrobatics, setAcrobatics]= useState();
 const[sleight, setSleight]= useState();
 const[stealth, setStealth]= useState();
@@ -86,6 +86,7 @@ const[deception, setDeception]= useState();
 const[intimidation, setIntimidation]= useState(null);
 const[performance, setPerformance]= useState();
 const[persuasion, setPersuasion]= useState();
+const[backgroundState, setBackgroundState] = useState();
 
   const [race, setCharacterRace] = useState();
   const [characterClass, setCharacterClass] = useState();
@@ -94,8 +95,6 @@ const[persuasion, setPersuasion]= useState();
     c_name: "",
     gender: "",
     class: "",
-    background: ""
-
   })
 
   useEffect(() => {
@@ -115,9 +114,17 @@ const[persuasion, setPersuasion]= useState();
   //   setCharacterState({...characterState, abv: e.target.value })
   // }
 
-  console.log(`Character Class: ${characterClass}`)
-  console.log(`Athletics skill chosen: ${athletics}`)
-  console.log(`intimidation skill chosen: ${intimidation}`)
+  // console.log(`Character Class: ${characterClass}`)
+  // console.log("Athletics: ", athletics)
+  // console.log(`intimidation skill chosen: ${intimidation}`)
+  // console.log("Acrobatics: ", acrobatics)
+  // console.log("Arcana: ", arcana)
+  // console.log("History: ", history)
+  // console.log("Medicine: ", medicine)
+
+  console.log(backgroundState)
+  // console.log(`performance skill chosen: ${performance}`)
+
   return (
     <div className="container mt-5 text-center">
       <div className="panel-group" id="accordion">
@@ -240,7 +247,9 @@ const[persuasion, setPersuasion]= useState();
           <div id="collapse5" className="panel-collapse collapse">
             <form>
               <label><span className="creatorText">Enter Your Background Info</span></label>
-              <textarea id="background" name="background" rows="16" cols="60">
+              <textarea id="background" name="background" rows="16" cols="60" onChange={(e) => {
+                setBackgroundState(e.target.value)}}
+                >
 
               </textarea>
               <br />

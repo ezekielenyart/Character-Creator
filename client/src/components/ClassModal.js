@@ -3,8 +3,9 @@ import API from '../utils/API'
 import ModalListItem from './ModalListItem'
 import ModalCheckbox from './ModalCheckbox'
 
-function ClassModal({ DNDclass, setCharacterClass, setAthletics, setIntimidation }) {
-
+function ClassModal(props) {
+  
+  const { DNDclass, setCharacterClass, setAthletics, setAcrobatics, setSleight, setStealth, setArcana, setHistory, setInvestigation, setNature, setReligion, setAnimalHandle, setInsight, setMedicine, setSurvival, setDeception, setIntimidation, setPerception, setPersuasion, setPerformance } = props
   // Setup states to store information from the api calls.
   const [classEquipmentProf, setClassEquipmentProf] = useState([]);
   const [classSkillProf, setClassSkillProf] = useState([]);
@@ -20,33 +21,13 @@ function ClassModal({ DNDclass, setCharacterClass, setAthletics, setIntimidation
     })
   }
 
-  const selectSkillFunction = () => {
-    // console.log(classSkillProf)
-    var skillsArray = []
-    for (let skill = 0; skill < classSkillProf.length; skill++) {
-      skillsArray.push(classSkillProf[skill].name)
-      }
-      for (let i = 0; i < skillsArray.length; i++) {
 
-        if (skillsArray[i] === "Skill: Athletics") {
-          setAthletics(true)
-        } else if (skillsArray[i] === "Skill: Intimidation") {
-          setIntimidation(true)
-        } 
-    }
-    // console.log(skillsArray)
-
-    // var skillName = DNDclass.proficiency_choices[0].from.name
-    // console.log(skillName)
-
-  }
 
 
   const returnSetClass = (e) => {
     returnClassDetails();
     setCharacterClass(e.target.value);
   }
-
 
   return (
 
@@ -76,11 +57,76 @@ function ClassModal({ DNDclass, setCharacterClass, setAthletics, setIntimidation
               <div className="col-xs-6">
                 {/* This line uses the classProfNum state because the number of starter skills can vary by class */}
                 <form><em className="m-2">Choose {classProfNum} Skills</em>
-                  {classSkillProf.map(name => (
-                    <ModalCheckbox
-                      name={name.name}
-                      onClick={selectSkillFunction()}
-                    />))}
+                  {classSkillProf.map(skill => {
+
+
+                    // console.log(classSkillProf)
+                    //   var skillsArray = []
+                    // for (let skill = 0; skill < classSkillProf.length; skill++) {
+
+                    //     skillsArray.push(classSkillProf[skill].name)
+
+                    //   }
+                    //   for (let i = 0; i < skillsArray.length; i++) {
+                    const setSkillSetFunction = () => {
+                      // console.log("setskillsetfunction fired off")
+                      if (skill.name === "Skill: Athletics") {
+                        return setAthletics(true)
+                      } else if (skill.name === "Skill: Acrobatics") {
+                        return setIntimidation(true)
+                      } else if (skill.name === "Skill: Sleight of Hand") {
+                        return setArcana(true)
+                      } else if (skill.name === "Skill: Stealth") {
+                        return setStealth(true)
+                      } else if (skill.name === "Skill: Arcana") {
+                        return setArcana(true)
+                      } else if (skill.name === "Skill: History") {
+                        return setHistory(true)
+                      } else if (skill.name === "Skill: Investigation") {
+                        return setInvestigation(true)
+                      } else if (skill.name === "Skill: Nature") {
+                        return setNature(true)
+                      } else if (skill.name === "Skill: Religion") {
+                        return setReligion(true)
+                      } else if (skill.name === "Skill: Animal Handling") {
+                        return setAnimalHandle(true)
+                      } else if (skill.name === "Skill: Insight") {
+                        return setInsight(true)
+                      } else if (skill.name === "Skill: Medicine") {
+                        return setMedicine(true)
+                      } else if (skill.name === "Skill: Perception") {
+                        return setPerception(true)
+                      } else if (skill.name === "Skill: Survival") {
+                        return setSurvival(true)
+                      } else if (skill.name === "Skill: Deception") {
+                        return setDeception(true)
+                      } else if (skill.name === "Skill: Intimidation") {
+                        return setIntimidation(true)
+                      } else if (skill.name === "Skill: Performance") {
+                        return setPerformance(true)
+                      } else if (skill.name === "Skill: Persuasion") {
+                        return setPersuasion(true)
+                      }
+                      // console.log(skill.name)
+                    }
+
+
+
+                    // "Skill: Athletics"
+                    // // we want to make something that says setAthletics
+                    // // then say props[setAthletics]
+                    // var skillName = skill.name.split(": ")
+                    // var skillSetter = (`set${skillName[1]}`)
+                    // console.log(props[skillSetter])
+                    // // "setAthletics" /= setAthletics
+                    // // console.log(props)
+
+                    return (
+                      <ModalCheckbox
+                        name={skill.name}
+                        onClick={setSkillSetFunction}
+                      />)
+                  })}
                 </form>
               </div>
 
@@ -110,7 +156,7 @@ function ClassModal({ DNDclass, setCharacterClass, setAthletics, setIntimidation
               <button
                 type="button"
                 className="btn btn-outline-primary chooseClassBtn"
-                onClick=""
+                // onClick={}
                 aria-label="Close"
                 data-dismiss="modal"
               >Choose {DNDclass.name}</button>

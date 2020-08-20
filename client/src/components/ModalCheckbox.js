@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ModalCheckbox({ name }) {
+function ModalCheckbox({ name, onClick }) {
 
     return (
 
@@ -8,7 +8,7 @@ function ModalCheckbox({ name }) {
         <div className="m-2">
 
 
-            <input className="skillCheck" type="checkbox" id={name} name={name} value={name} />
+            <input onClick={onClick} className="skillCheck" type="checkbox" id={name} name="skills" value={name} />
             <label for={name}>  {name}</label>
             <br />
 
