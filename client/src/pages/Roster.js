@@ -43,16 +43,14 @@ const cards = [
   },
 ];
 
-//  const history = useHistory()
-function handleClick(e)  {
 
-
-// history.push("/charactersheet")
-}
 function Card({ card }) {
+  const history = useHistory()
+  
   return (
-    <div>
-      <img  onClick={handleClick} src={card.img}>
+    <div onClick={() => {
+        history.push("/charactersheet")}}>
+      <img   src={card.img}>
       </img>
       <p>{card.text}</p>
     </div>
@@ -72,7 +70,7 @@ function Roster() {
       history.push("/");
     }
     //else, get users character roster
-
+    
   }, [])
 
   return (
