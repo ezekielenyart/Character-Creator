@@ -1,5 +1,6 @@
 import React from "react";
 import "./basicSheet.css";
+import CharacterContext from '../../utils/CharacterContext'
 
 function BasicCharacterSheet() {
   return (

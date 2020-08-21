@@ -133,7 +133,7 @@ function CharacterCreateAccMenu() {
   const [characterClass, setCharacterClass] = useState();
   const [subrace, setRaceSubrace] = useState();
   const [characterState, setCharacterState] = useState({
-    c_name: "",
+    c_name: "Zane",
     gender: "",
   })
 
