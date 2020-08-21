@@ -4,7 +4,8 @@ import React, { useState } from 'react'
 const UserContext = React.createContext({
     // isAuthenticated: false,
     _id : "", 
-    update: () => null
+    update: () => null,
+
 })
 
   // const UserProvider = (props) => {

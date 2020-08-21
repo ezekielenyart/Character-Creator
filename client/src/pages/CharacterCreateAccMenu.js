@@ -7,6 +7,9 @@ import API from "../utils/API";
 import { useHistory } from "react-router-dom"
 import UserContext from '../utils/UserContext'
 import characterAPI from "../utils/characterAPI"
+import RosterBtn from "../components/RosterBtn"
+import Roster from "./Roster";
+import Logout from '../components/LogoutBtn'
 
 // THESE ARE THE VARIABLES THAT THE CHOICES CAN BE PUT INTO
 // SHOULD THEY BE THEIR OWN CONTEXT?
@@ -52,6 +55,7 @@ function CharacterCreateAccMenu() {
   const pageHistory = useHistory()
 
   const createCharacterDB = () => {
+
     // Object to submit to database
     const char = {
       // CHARACTER NAME/GENDER
@@ -172,7 +176,12 @@ function CharacterCreateAccMenu() {
   }, []);
 
   return (
+
     <div className="container mt-5 text-center wiz">
+      <div className="accMenuTopBar">
+      <RosterBtn className="accMenuRosterBtn" />
+      </div>
+
       <div className="panel-group" id="accordion">
 
         {/* BEGINNING OF SCORE SECTION */}
@@ -289,6 +298,9 @@ function CharacterCreateAccMenu() {
             </div>
           </div>
         </div>
+
+
+
 
         {/* BEGINNING OF BACKGROUND DISPLAY */}
         <div className={backgroundDisplay}>

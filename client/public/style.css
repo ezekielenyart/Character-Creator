@@ -178,6 +178,7 @@ body {
     text-align: center;
     background-color: rgba(56, 43, 43, 0.997);
     margin-bottom: 10px;
+    color: antiquewhite
 
 }
 .abilityScoreDesBtn{
@@ -369,46 +370,77 @@ text-align: right;
 }
 .email {
 background-color: rgba(56, 43, 43, 0.997);
+color: antiquewhite
 
 }
 .password {
     background-color: rgba(56, 43, 43, 0.997);
+    color: antiquewhite
 
 }
 .skillCheck {
     letter-spacing: 4px;
 }
+.backDescInput {
+    background-color: rgba(75, 59, 59, 0.997);
+    color: antiquewhite;
 
-.createCharSpot {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
 }
 .viewRosterSpot {
-    bottom: 10px; 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 }
 .rosterBtn {
     background-color: rgba(53, 41, 41, 0.997);
-    grid-area: 1 / 2 / 2 / 3;
-    color: white;
-    
+    grid-area: 1 / 1 / 2 / 3;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    padding: 10px;
+    color: antiquewhite;
+
 }
 .rosterSpot {
     padding: 50px
 }
+.createCharSpot {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
 .createBtn {
     background-color: rgba(53, 41, 41, 0.997);
-    grid-area: 1 / 2 / 2 / 3;
+    grid-area: 1 / 1 / 2 / 3;
     margin-top: 30px;
     margin-bottom: 10px;
+    margin-left: 20px;
+    padding: 10px;
+    color: antiquewhite;
+
 }
+.logoutBtnSpot{
+
+    
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 22px;
+}
+.logoutBtn{
+    grid-area: 1 / 4 / 2 / 5;
+        background-color: rgba(53, 41, 41, 0.997);
+        color: antiquewhite;
+        border-radius: 15px;
+        padding: 10px;
+        margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left:60px;
+}
+
 .homePageRenderContainer { 
     margin: auto;
     text-align:center;
