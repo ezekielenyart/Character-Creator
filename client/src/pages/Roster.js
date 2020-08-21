@@ -6,10 +6,10 @@ import characterAPI from "../utils/characterAPI";
 import CharacterContext from '../utils/CharacterContext'
 
 function Card({ character, onClick }) {
-  
+
   const history = useHistory()
   const parsedChars = JSON.parse(character.characterData)
-  
+
   return (
     <div>
       <img
@@ -27,52 +27,53 @@ function Card({ character, onClick }) {
 
 // Add the createCharBtn to Roster
 function Roster() {
-  const [charState, setCharState] = useState({char: "Single Char"})
-  
-  const [charList, setCharList] = useState([])
 
+  const [charList, setCharList] = useState([])
+  const charState = useContext(CharacterContext)
 
   const getThatCharacter = (e) => {
-  
-  // const CharacterContext = useContext(CharacterContext)
-  
+
+
+
     console.log("FUNCTION FIRED")
     console.log(e.target.value) // _id
 
     let desiredChar = charList.find(character => character._id === e.target.value)
     // console.log(desiredChar);
     // characterAPI.getCharacter(e.target.value)
-      // .then(res => {
-      //   console.log(res)
-       
+    // .then(res => {
+    //   console.log(res)
 
-        // var parsedDesiredChar = JSON.parse(desiredChar)
 
-        // console.log(parsedDesiredChar)
+    // var parsedDesiredChar = JSON.parse(desiredChar)
 
-        setCharState(desiredChar)
-        
-        
-        
+    // console.log(parsedDesiredChar)
 
-        // const parsedChar = JSON.parse(res.data.characterData)
-        // console.log(parsedChar)
-  
-  
-  
-        // history.push("/charactersheet")
-      
+    // setCharState(desiredChar)
+    charState.update(desiredChar)
+    
+
+
+
+
+    // const parsedChar = JSON.parse(res.data.characterData)
+    // console.log(parsedChar)
+
+
+  history.push("/charactersheet")
+
+    
   }
-
+  
   const { update, _id } = useContext(UserContext);
   // console.log(_id)
   const history = useHistory()
-  
+
   // characterAPI.getCharacters(_id)
   //   .then(data => {
-    //     console.log(data)
-    //     var characters = data.data.characters;
-    
+  //     console.log(data)
+  //     var characters = data.data.characters;
+
   //     characters = characters.map(e => {
   //       return JSON.parse(e.characterData)
   //     })
@@ -93,17 +94,15 @@ function Roster() {
     }
     //else, get users character roster
     characterAPI.getCharacters(_id)
-    .then(res => {
-      console.log(res.data.characters)
-      setCharList(res.data.characters)
-    }) 
-
-    
+      .then(res => {
+        console.log(res.data.characters)
+        setCharList(res.data.characters)
+      })
 
   }, [])
 
 
-console.log(charState)
+  console.log(charState)
   return (
     <div>
       <div className="row my-3">
