@@ -4,7 +4,7 @@ import ModalListItem from "./ModalListItem";
 import DoubleListItem from "./AbilityBonusListItem";
 import RadioButton from "./RadioButton";
 
-function RaceModal({ race, setCharacterRace, setRaceSubrace }) {
+function RaceModal({ race, setCharacterRace, setRaceSubrace, handleWizView }) {
 
   const [raceSpeed, setSpeed] = useState("");
   const [raceAbilityBonus, setAbilityBonus] = useState([]);
@@ -190,6 +190,7 @@ function RaceModal({ race, setCharacterRace, setRaceSubrace }) {
             </div>
             <div className="text-center row">
               <button
+                onClick={handleWizView}
                 type="button"
                 className="btn btn-outline-primary chooseClassBtn"
                 aria-label="Close"

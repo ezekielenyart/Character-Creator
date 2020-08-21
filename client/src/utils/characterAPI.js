@@ -23,6 +23,10 @@ export default {
             characterData: data
         })
 
+    },
+
+    deleteCharacter: function(id){
+        return axios.delete("/api/deleteCharacter/"+id)
     }
 
 }

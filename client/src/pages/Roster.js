@@ -34,9 +34,12 @@ function Roster() {
     console.log("FUNCTION FIRED");
     console.log(e.target.value); // _id
 
-    let desiredChar = charList.find(
-      (character) => character._id === e.target.value
-    );
+
+    console.log("FUNCTION FIRED")
+    console.log(e.target.value)
+
+    let desiredChar = charList.find(character => character._id === e.target.value)
+
     // console.log(desiredChar);
     // characterAPI.getCharacter(e.target.value)
     // .then(res => {

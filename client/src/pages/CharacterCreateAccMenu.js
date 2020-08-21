@@ -4,6 +4,7 @@ import ClassModal from "../components/ClassModal";
 import AbilityScoreModal from "../components/AbilityScoreModal";
 // import ChoiceContext from '../utils/ChoiceContext'
 import API from "../utils/API";
+import { useHistory } from "react-router-dom"
 import UserContext from '../utils/UserContext'
 import characterAPI from "../utils/characterAPI"
 import RosterBtn from "../components/RosterBtn"
@@ -50,8 +51,11 @@ const AbilityScores = [
 
 
 function CharacterCreateAccMenu() {
-  const createCharacterDB = (e) => {
-    e.preventDefault()
+
+  const pageHistory = useHistory()
+
+  const createCharacterDB = () => {
+
     // Object to submit to database
     const char = {
       // CHARACTER NAME/GENDER
@@ -88,8 +92,8 @@ function CharacterCreateAccMenu() {
       intimidation: intimidation,
       performance: performance,
       persuasion: persuasion
-    
-      
+
+
     }
     characterAPI.createCharacter(_id, char)
   }
@@ -97,12 +101,31 @@ function CharacterCreateAccMenu() {
   const { update, _id } = useContext(UserContext);
 
   // Leave these here!
-  // const [scoreDisplay, setScoreDisplay] = useState("");
-  // const [raceDisplay, setRaceDisplay] = useState("");
-  // const [classDisplay, setClassDisplay] = useState("");
-  // const [backgroundDisplay, setBackgroundDisplay] = useState("");
+  const [scoreDisplay, setScoreDisplay] = useState("anim");
+  const [raceDisplay, setRaceDisplay] = useState("hidden");
+  const [classDisplay, setClassDisplay] = useState("hidden");
+  const [backgroundDisplay, setBackgroundDisplay] = useState("hidden");
 
-  const [abilityState, setAbilityState] = useState("abilities!")
+  const handleWizView = () => {
+    if (scoreDisplay === "anim") {
+      setScoreDisplay("hidden");
+      setRaceDisplay("anim");
+      return
+    } else if (raceDisplay === "anim") {
+      setRaceDisplay("hidden");
+      setClassDisplay("anim");
+      return
+    } else if (classDisplay === "anim") {
+      setClassDisplay("hidden");
+      setBackgroundDisplay("anim");
+      return
+    } else if (backgroundDisplay === "anim") {
+      createCharacterDB()
+      pageHistory.push("/roster")
+      return
+    }
+  }
+
 
   const [classes, setClasses] = useState([]);
   const [races, setRaces] = useState([]);
@@ -152,163 +175,159 @@ function CharacterCreateAccMenu() {
       .catch((err) => console.log(err));
   }, []);
 
-
-  // function setAbilityState(e, abv){
-  //   e.preventDefault();
-  //   setCharacterState({...characterState, abv: e.target.value })
-  // }
-
-  // console.log(`Character Class: ${characterClass}`)
-  // console.log("Athletics: ", athletics)
-  // console.log(`intimidation skill chosen: ${intimidation}`)
-  // console.log("Acrobatics: ", acrobatics)
-  // console.log("Arcana: ", arcana)
-  // console.log("History: ", history)
-  // console.log("Medicine: ", medicine)
-
-  console.log(backgroundState)
-  // console.log(`performance skill chosen: ${performance}`)
-
   return (
-    <div className="container mt-5 text-center">
+
+    <div className="container mt-5 text-center wiz">
       <div className="accMenuTopBar">
       <RosterBtn className="accMenuRosterBtn" />
       </div>
+
       <div className="panel-group" id="accordion">
-        {/* leave this here! */}
-        {/* <div className={scoreDisplay}> */}
-        <div className="panel panel-default">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-            <div className="panel-heading">
-              <h4 className="panel-title">Ability Scores</h4>
-            </div>
-          </a>
-          <div id="collapse1" className="panel-collapse collapse">
-            <div className="panel-body">
-              <input
-                type="text"
-                className="abilityScoreNameInput form-control"
-                aria-label="Username"
-                placeholder="Enter Character's Name Here"
-                aria-describedby="basic-addon1"
-                onChange={e => setCharacterState({ ...characterState, c_name: e.target.value })}
-              ></input>
-              <button
-                type="button"
-                className="btn abilityScoreDesBtn"
-              >
-                Gender
+
+        {/* BEGINNING OF SCORE SECTION */}
+        <div className={scoreDisplay}>
+          <div className="panel panel-default">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+              <div className="panel-heading">
+                <h4 className="panel-title">Ability Scores</h4>
+              </div>
+            </a>
+            <div id="collapse1" className="panel-collapse collapse">
+              <div className="panel-body">
+                <input
+                  type="text"
+                  className="abilityScoreNameInput form-control"
+                  aria-label="Username"
+                  placeholder="Enter Character's Name Here"
+                  aria-describedby="basic-addon1"
+                  onChange={e => setCharacterState({ ...characterState, c_name: e.target.value })}
+                ></input>
+                <button
+                  type="button"
+                  className="btn abilityScoreDesBtn"
+                >
+                  Gender
               </button>
-              <input
-                type="text"
-                className="abilityScoreInput form-control"
-                aria-label="gender"
-                aria-describedby="basic-addon1"
-                onChange={e => setCharacterState({ ...characterState, gender: e.target.value })}
-              ></input>
-            </div>
-            {/* {AbilityScores.map((score) => (
-              <AbilityScoreModal name="Strength" score={str} setScore={setStr}} />
-            ))} */}
+                <input
+                  type="text"
+                  className="abilityScoreInput form-control"
+                  aria-label="gender"
+                  aria-describedby="basic-addon1"
+                  onChange={e => setCharacterState({ ...characterState, gender: e.target.value })}
+                ></input>
+              </div>
 
-            <AbilityScoreModal name="Strength" score={str} setScore={setStr} />
-            <AbilityScoreModal name="Dexterity" score={dex} setScore={setDex} />
-            <AbilityScoreModal name="Constitution" score={con} setScore={setCon} />
-            <AbilityScoreModal name="Intelligence" score={int} setScore={setInt} />
-            <AbilityScoreModal name="Wisdom" score={wis} setScore={setWis} />
-            <AbilityScoreModal name="Charisma" score={cha} setScore={setCha} />
+              <AbilityScoreModal name="Strength" score={str} setScore={setStr} />
+              <AbilityScoreModal name="Dexterity" score={dex} setScore={setDex} />
+              <AbilityScoreModal name="Constitution" score={con} setScore={setCon} />
+              <AbilityScoreModal name="Intelligence" score={int} setScore={setInt} />
+              <AbilityScoreModal name="Wisdom" score={wis} setScore={setWis} />
+              <AbilityScoreModal name="Charisma" score={cha} setScore={setCha} />
 
-            <button type="submit" className="abScoreSubBtn">
-              Submit
+              <button data-toggle="collapse" onClick={handleWizView} href="#collapse1" data-parent="#accordion" type="submit" className="abScoreSubBtn">
+                Save
             </button>
-          </div>
-        </div>
-        {/* leave this here! */}
-        {/* </div> */}
-        <div className="panel panel-default">
-          <div
-            className="panel-heading"
-            data-toggle="collapse"
-            data-parent="#accordion"
-            href="#collapse2"
-          >
-            <h4 className="panel-title text-center bg-dark">
-              <a className="bg-dark border-white">Race</a>
-            </h4>
-          </div>
-          <div id="collapse2" className="panel-collapse collapse ">
-            {races.map((race) => (
-              <RaceModal race={race} setCharacterRace={setCharacterRace} setRaceSubrace={setRaceSubrace} />
-              // is it working?, we arent getting 
-              // character details showing up
-              // Like in the modal? yeah, it must be something with the setRace
-              // SO I FIXED THAT! the problem was the line 52 in racemodal
-            ))}
-          </div>
-        </div>
-        <div className="panel panel-default">
-          <a
-            data-toggle="collapse"
-            /*onClick={handleFormSubmit}*/ data-parent="#accordion"
-            href="#collapse3"
-          >
-            <div className="panel-heading">
-              <h4 className="panel-title">Class</h4>
             </div>
-          </a>
-          <div id="collapse3" className="panel-collapse collapse">
-            {classes.map((DNDclass) => (
-              <ClassModal
-                DNDclass={DNDclass}
-                characterClass={DNDclass}
-                setCharacterClass={setCharacterClass}
-                setAthletics={setAthletics}
-                setAcrobatics={setAcrobatics}
-                setSleight={setSleight}
-                setStealth={setStealth}
-                setArcana={setArcana}
-                setHistory={setHistory}
-                setInvestigation={setInvestigation}
-                setInsight={setInsight}
-                setNature={setNature}
-                setReligion={setReligion}
-                setAnimalHandle={setAnimalHandle}
-                setMedicine={setMedicine}
-                setPerception={setPerception}
-                setSurvival={setSurvival}
-                setDeception={setDeception}
-                setIntimidation={setIntimidation}
-                setPerformance={setPerformance}
-                setPersuasion={setPersuasion}
-              />
-            ))}
           </div>
         </div>
 
-        <div className="panel panel-default">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
-            <div className="panel-heading">
-              <h4 className="panel-title">Background</h4>
+        {/* BEGINNING OF RACE SECTION */}
+        <div className={raceDisplay}>
+          <div className="panel panel-default">
+            <div
+              className="panel-heading"
+              data-toggle="collapse"
+              data-parent="#accordion"
+              href="#collapse2"
+            >
+              <h4 className="panel-title text-center bg-dark">
+                <a className="bg-dark border-white">Race</a>
+              </h4>
             </div>
-          </a>
-          <div id="collapse5" className="panel-collapse collapse">
-            <form>
-              
-              <textarea
-                className="backDescInput"
-                id="background"
-                name="background"
-                rows="16"
-                cols="60"
-                onChange={(e) => {
-                  setBackgroundState(e.target.value)
-                }}
-              >
+            <div id="collapse2" className="panel-collapse collapse ">
+              {races.map((race) => (
+                <RaceModal
+                  handleWizView={handleWizView}
+                  race={race}
+                  setCharacterRace={setCharacterRace}
+                  setRaceSubrace={setRaceSubrace} />
+              ))}
+            </div>
+          </div>
+        </div>
 
-              </textarea><p className="creatorText">Enter Your Background Info</p>
-              
-              <button onClick={createCharacterDB}>Save</button>
-            </form>
+        {/* BEGINNING OF CLASS SECTION */}
+        <div className={classDisplay}>
+          <div className="panel panel-default">
+            <a
+              data-toggle="collapse"
+              data-parent="#accordion"
+              href="#collapse3"
+            >
+              <div className="panel-heading">
+                <h4 className="panel-title">Class</h4>
+              </div>
+            </a>
+            <div id="collapse3" className="panel-collapse collapse">
+              {classes.map((DNDclass) => (
+                <ClassModal
+                  handleWizView={handleWizView}
+                  DNDclass={DNDclass}
+                  characterClass={DNDclass}
+                  setCharacterClass={setCharacterClass}
+                  setAthletics={setAthletics}
+                  setAcrobatics={setAcrobatics}
+                  setSleight={setSleight}
+                  setStealth={setStealth}
+                  setArcana={setArcana}
+                  setHistory={setHistory}
+                  setInvestigation={setInvestigation}
+                  setInsight={setInsight}
+                  setNature={setNature}
+                  setReligion={setReligion}
+                  setAnimalHandle={setAnimalHandle}
+                  setMedicine={setMedicine}
+                  setPerception={setPerception}
+                  setSurvival={setSurvival}
+                  setDeception={setDeception}
+                  setIntimidation={setIntimidation}
+                  setPerformance={setPerformance}
+                  setPersuasion={setPersuasion}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+
+
+
+        {/* BEGINNING OF BACKGROUND DISPLAY */}
+        <div className={backgroundDisplay}>
+          <div className="panel panel-default">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+              <div className="panel-heading">
+                <h4 className="panel-title">Background</h4>
+              </div>
+            </a>
+            <div id="collapse5" className="panel-collapse collapse">
+              <form>
+                <label><span className="creatorText">Enter Your Background Info</span></label>
+                <textarea
+                  id="background"
+                  name="background"
+                  rows="16"
+                  cols="60"
+                  onChange={(e) => {
+                    setBackgroundState(e.target.value)
+                  }}
+                >
+
+                </textarea>
+                <br />
+                <button onClick={handleWizView}>Save Character</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
