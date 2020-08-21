@@ -48,6 +48,13 @@ module.exports = function(app) {
 
   })
 
+  app.delete("/api/deleteCharacter/:id", function(req, res) {
+    db.Character.findByIdAndDelete(req.params.id)
+    .then(data => {
+      res.json(data)
+    })
+  })
+
     // // GET route for getting all of the characters
     // app.get("/api/characters/", function(req, res) {
     //   db.Character.findAll({})
