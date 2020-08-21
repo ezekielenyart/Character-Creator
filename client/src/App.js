@@ -9,24 +9,42 @@ import Signup from './pages/Signup'
 import UserContext from './utils/UserContext'
 import BasicCharacterSheet from './pages/BasicCharacterSheet/BasicCharacterSheet'
 // import DeveloperContext from "./components/utils/DeveloperContext";
-import TestAPI from "./components/APItestcomponent.js"
+import characterAPI from "./utils/characterAPI"
+import CharacterContext from "./utils/CharacterContext";
+
 
 function App() {
 
-  const [developerState, setDeveloperState] = useState({
-    classList: {
-      class1: "wizard",
-      class2: "dragonborne",
-      class3: "jasonborne"
-    }
-  });
+  // const [charList, setCharList] = useState([])
+  const [charState, setCharState] = useState({char: "Single Char"})
   const [userState, setUserState] = useState({
-      _id: "",
-      update: (_id) => {
-        console.log(_id)
-        setUserState({...userState, _id})
-      }
+    _id: "",
+    update: (_id) => {
+      console.log(_id)
+      setUserState({ ...userState, _id })
+    }
   })
+
+
+ 
+    // characterAPI.getCharacters(userState._id)
+    // .then(res => {
+    //   console.log(res.data.characters)
+    //   setCharList(res.data.characters)
+    // }) 
+  
+   
+  
+
+  // const getThatCharacter = (e) => {
+  
+  //     console.log("FUNCTION FIRED")
+  //     console.log(e.target.value) 
+  
+  //     let desiredChar = charList.find(character => character._id === e.target.value)
+  //         setCharState(desiredChar)
+        
+  //   }
 
 
   return (
@@ -34,13 +52,15 @@ function App() {
       <div>
         <Wrapper>
           <UserContext.Provider value={userState}>
-          <Route exact path="/" component={HomePageRender} />
-          <Route exact path="/create" component={CharacterCreateAccMenu} />
-          <Route exact path="/roster" component={Roster} />
-          <Route exact path="/charactersheet" component={BasicCharacterSheet} />
-          <Route exact path="/api/test" component={TestAPI} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={Signup} />
+            <CharacterContext.Provider value={charState}>
+              <Route exact path="/" component={HomePageRender} />
+              <Route exact path="/create" component={CharacterCreateAccMenu} />
+              <Route exact path="/roster" component={Roster} />
+              <Route exact path="/charactersheet" component={BasicCharacterSheet} />
+              {/* <Route exact path="/api/test" component={TestAPI} /> */}
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={Signup} />
+              </CharacterContext.Provider>
           </UserContext.Provider>
         </Wrapper>
       </div>
