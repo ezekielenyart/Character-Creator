@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./basicSheet.css";
 import CharacterContext from '../../utils/CharacterContext'
 
 function BasicCharacterSheet() {
+
+const ChosenCharacter = useContext(CharacterContext)
+
+console.log(ChosenCharacter)
+
   return (
     <div>
       <div className="container charSheetContainer">

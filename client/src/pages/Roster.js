@@ -5,32 +5,11 @@ import { useHistory } from "react-router-dom";
 import characterAPI from "../utils/characterAPI";
 import CharacterContext from '../utils/CharacterContext'
 
-
-const getThatCharacter = (e) => {
-// const characterContext = useContext(CharacterContext)
-  console.log("FUNCTION FIRED")
-  console.log(e.target)
-  characterAPI.getCharacter(e.target.value)
-    .then(res => {
-      console.log(res)
-
-      const parsedChar = JSON.parse(res.data.characterData)
-      console.log(parsedChar)
-
-
-
-      // history.push("/charactersheet")
-    })
-}
-
-
 function Card({ character, onClick }) {
-
-
-
+  
   const history = useHistory()
   const parsedChars = JSON.parse(character.characterData)
-
+  
   return (
     <div>
       <img
@@ -48,18 +27,52 @@ function Card({ character, onClick }) {
 
 // Add the createCharBtn to Roster
 function Roster() {
+  const [charState, setCharState] = useState({char: "Single Char"})
+  
+  const [charList, setCharList] = useState([])
 
 
+  const getThatCharacter = (e) => {
+  
+  // const CharacterContext = useContext(CharacterContext)
+  
+    console.log("FUNCTION FIRED")
+    console.log(e.target.value) // _id
+
+    let desiredChar = charList.find(character => character._id === e.target.value)
+    // console.log(desiredChar);
+    // characterAPI.getCharacter(e.target.value)
+      // .then(res => {
+      //   console.log(res)
+       
+
+        // var parsedDesiredChar = JSON.parse(desiredChar)
+
+        // console.log(parsedDesiredChar)
+
+        setCharState(desiredChar)
+        
+        
+        
+
+        // const parsedChar = JSON.parse(res.data.characterData)
+        // console.log(parsedChar)
+  
+  
+  
+        // history.push("/charactersheet")
+      
+  }
 
   const { update, _id } = useContext(UserContext);
   // console.log(_id)
   const history = useHistory()
-
+  
   // characterAPI.getCharacters(_id)
   //   .then(data => {
-  //     console.log(data)
-  //     var characters = data.data.characters;
-
+    //     console.log(data)
+    //     var characters = data.data.characters;
+    
   //     characters = characters.map(e => {
   //       return JSON.parse(e.characterData)
   //     })
@@ -67,26 +80,30 @@ function Roster() {
 
   //   })
 
+
   // characterAPI.createCharacter(_id, newCharacter)
   // .then(data => {
   //   console.log(data)
   // })
-  const [charList, setCharList] = useState([])
+  // const [charList, setCharList] = useState([])
   useEffect(() => {
     if (!_id) {
       //reroute to home page
       history.push("/");
     }
     //else, get users character roster
-
-
     characterAPI.getCharacters(_id)
-      .then(res => {
-        setCharList(res.data.characters)
-      })
+    .then(res => {
+      console.log(res.data.characters)
+      setCharList(res.data.characters)
+    }) 
+
+    
 
   }, [])
 
+
+console.log(charState)
   return (
     <div>
       <div className="row my-3">
