@@ -16,7 +16,12 @@ import CharacterContext from "./utils/CharacterContext";
 function App() {
 
   // const [charList, setCharList] = useState([])
-  const [charState, setCharState] = useState({char: "Single Char"})
+  const [charState, setCharState] = useState({
+    char: "Single Char",
+    update: (char) => {
+      setCharState({...charState, char})
+    }
+  })
   const [userState, setUserState] = useState({
     _id: "",
     update: (_id) => {
