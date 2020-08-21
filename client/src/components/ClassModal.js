@@ -5,7 +5,7 @@ import ModalCheckbox from './ModalCheckbox'
 
 function ClassModal(props) {
   
-  const { DNDclass, setCharacterClass, setAthletics, setAcrobatics, setSleight, setStealth, setArcana, setHistory, setInvestigation, setNature, setReligion, setAnimalHandle, setInsight, setMedicine, setSurvival, setDeception, setIntimidation, setPerception, setPersuasion, setPerformance } = props
+  const { handleWizView, DNDclass, setCharacterClass, setAthletics, setAcrobatics, setSleight, setStealth, setArcana, setHistory, setInvestigation, setNature, setReligion, setAnimalHandle, setInsight, setMedicine, setSurvival, setDeception, setIntimidation, setPerception, setPersuasion, setPerformance } = props
   // Setup states to store information from the api calls.
   const [classEquipmentProf, setClassEquipmentProf] = useState([]);
   const [classSkillProf, setClassSkillProf] = useState([]);
@@ -156,7 +156,7 @@ function ClassModal(props) {
               <button
                 type="button"
                 className="btn btn-outline-primary chooseClassBtn"
-                // onClick={}
+                onClick={handleWizView}
                 aria-label="Close"
                 data-dismiss="modal"
               >Choose {DNDclass.name}</button>

@@ -33,10 +33,8 @@ function Roster() {
 
   const getThatCharacter = (e) => {
 
-
-
     console.log("FUNCTION FIRED")
-    console.log(e.target.value) // _id
+    console.log(e.target.value)
 
     let desiredChar = charList.find(character => character._id === e.target.value)
     // console.log(desiredChar);

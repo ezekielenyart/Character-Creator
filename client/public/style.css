@@ -1,6 +1,26 @@
-/* TESTING */
 .hidden {
     display: none;
+}
+
+.anim {
+    opacity: 100%;
+    position: relative;
+    top: 0px;
+    animation-name: anim;
+    animation-duration: .6s;
+}
+@keyframes anim {
+    0% {
+        opacity: 0%;
+        top: -40px;
+    }
+    60% {
+        top: 10px
+    }
+    100% {
+        opacity: 100%;
+        top: 0px;
+    }
 }
 
 
