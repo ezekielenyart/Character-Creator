@@ -6,7 +6,17 @@ function BasicCharacterSheet() {
 
 const ChosenCharacter = useContext(CharacterContext)
 
-console.log(ChosenCharacter)
+console.log(ChosenCharacter.char)
+
+var unparsedChar = ChosenCharacter.char.characterData
+
+console.log(unparsedChar)
+
+let parsedChar = JSON.parse(unparsedChar)
+
+console.log(parsedChar)
+
+
 
   return (
     <div>
@@ -34,8 +44,8 @@ console.log(ChosenCharacter)
           </li>
         </ul>
         <div className="greeting">
-          Hail, Philemon
-          <p>Dwarf Paladin</p>
+          
+  <h2>Hail {parsedChar.c_name}, the {parsedChar.race} {parsedChar.characterClass}!</h2>
           
         </div>
         <button onClick={() => {
@@ -70,27 +80,27 @@ console.log(ChosenCharacter)
         <div className="scoresGroup">
           <button type="button" data-toggle="modal" data-target='#' className="btn strBox">
             Str
-            <p>6</p>
+            <p>{parsedChar.str}</p>
           </button>
           <button type="button" data-toggle="modal" data-target='#' className="btn intBox">
             Int
-            <p>6</p>
+            <p>{parsedChar.int}</p>
           </button>
           <button type="button" data-toggle="modal" data-target='#' className="btn dexBox">
             Dex
-            <p>6</p>
+            <p>{parsedChar.dex}</p>
           </button>
           <button type="button" data-toggle="modal" data-target='#' className="btn conBox">
             Con
-            <p>6</p>
+            <p>{parsedChar.con}</p>
           </button>
           <button type="button" data-toggle="modal" data-target='#' className="btn wisBox">
             Wis
-            <p>6</p>
+            <p>{parsedChar.wis}</p>
           </button>
           <button type="button" data-toggle="modal" data-target='#' className="btn charBox">
             Char
-            <p>6</p>
+            <p>{parsedChar.cha}</p>
           </button>
         </div>
         <div
