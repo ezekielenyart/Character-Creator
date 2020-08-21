@@ -1,73 +1,63 @@
 import React, { useContext, useEffect, useState } from "react";
-import UserContext from '../utils/UserContext'
+import UserContext from "../utils/UserContext";
 import CharacterCreateBtn from "../components/CreateCharacterBtn";
 import { useHistory } from "react-router-dom";
 import characterAPI from "../utils/characterAPI";
-import CharacterContext from '../utils/CharacterContext'
+import CharacterContext from "../utils/CharacterContext";
+import Logout from "../components/LogoutBtn";
 
 function Card({ character, onClick }) {
-
-  const history = useHistory()
-  const parsedChars = JSON.parse(character.characterData)
+  const history = useHistory();
+  const parsedChars = JSON.parse(character.characterData);
 
   return (
     <div>
-      <img
+      <img value={character._id} src={"images/download.png"}></img>
+      <button
+        className="btn-primary rosterCharBtn"
         value={character._id}
-        src={"images/download.png"}>
-      </img>
-      <button className="btn-primary rosterCharBtn" value={character._id} onClick={onClick}>
-        {parsedChars.c_name}, the {parsedChars.race} {parsedChars.characterClass}
-
+        onClick={onClick}
+      >
+        {parsedChars.c_name}, the {parsedChars.race}{" "}
+        {parsedChars.characterClass}
       </button>
     </div>
   );
 }
 
-
 // Add the createCharBtn to Roster
 function Roster() {
-
-  const [charList, setCharList] = useState([])
-  const charState = useContext(CharacterContext)
+  const [charList, setCharList] = useState([]);
+  const charState = useContext(CharacterContext);
 
   const getThatCharacter = (e) => {
+    console.log("FUNCTION FIRED");
+    console.log(e.target.value); // _id
 
-
-
-    console.log("FUNCTION FIRED")
-    console.log(e.target.value) // _id
-
-    let desiredChar = charList.find(character => character._id === e.target.value)
+    let desiredChar = charList.find(
+      (character) => character._id === e.target.value
+    );
     // console.log(desiredChar);
     // characterAPI.getCharacter(e.target.value)
     // .then(res => {
     //   console.log(res)
-
 
     // var parsedDesiredChar = JSON.parse(desiredChar)
 
     // console.log(parsedDesiredChar)
 
     // setCharState(desiredChar)
-    charState.update(desiredChar)
-    
-
-
-
+    charState.update(desiredChar);
 
     // const parsedChar = JSON.parse(res.data.characterData)
     // console.log(parsedChar)
 
+    history.push("/charactersheet");
+  };
 
-  history.push("/charactersheet")
-
-    
-  }
-  
   const { update, _id } = useContext(UserContext);
   // console.log(_id)
-  const history = useHistory()
+  const history = useHistory();
 
   // characterAPI.getCharacters(_id)
   //   .then(data => {
@@ -81,7 +71,6 @@ function Roster() {
 
   //   })
 
-
   // characterAPI.createCharacter(_id, newCharacter)
   // .then(data => {
   //   console.log(data)
@@ -93,16 +82,13 @@ function Roster() {
       history.push("/");
     }
     //else, get users character roster
-    characterAPI.getCharacters(_id)
-      .then(res => {
-        console.log(res.data.characters)
-        setCharList(res.data.characters)
-      })
+    characterAPI.getCharacters(_id).then((res) => {
+      console.log(res.data.characters);
+      setCharList(res.data.characters);
+    });
+  }, []);
 
-  }, [])
-
-
-  console.log(charState)
+  console.log(charState);
   return (
     <div>
       <div className="row my-3">
@@ -112,12 +98,8 @@ function Roster() {
         <div className="row">
           {charList.map((char) => (
             <div className="rosterSpot col-xs-12 col-sm-6 col-md-4 text-center">
-              <Card
-                character={char}
-                onClick={getThatCharacter}
-              />
+              <Card character={char} onClick={getThatCharacter} />
             </div>
-
           ))}
         </div>
       </div>

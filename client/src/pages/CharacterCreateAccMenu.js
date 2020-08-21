@@ -6,6 +6,9 @@ import AbilityScoreModal from "../components/AbilityScoreModal";
 import API from "../utils/API";
 import UserContext from '../utils/UserContext'
 import characterAPI from "../utils/characterAPI"
+import RosterBtn from "../components/RosterBtn"
+import Roster from "./Roster";
+import Logout from '../components/LogoutBtn'
 
 // THESE ARE THE VARIABLES THAT THE CHOICES CAN BE PUT INTO
 // SHOULD THEY BE THEIR OWN CONTEXT?
@@ -47,7 +50,8 @@ const AbilityScores = [
 
 
 function CharacterCreateAccMenu() {
-  const createCharacterDB = () => {
+  const createCharacterDB = (e) => {
+    e.preventDefault()
     // Object to submit to database
     const char = {
       // CHARACTER NAME/GENDER
@@ -167,6 +171,9 @@ function CharacterCreateAccMenu() {
 
   return (
     <div className="container mt-5 text-center">
+      <div className="accMenuTopBar">
+      <RosterBtn className="accMenuRosterBtn" />
+      </div>
       <div className="panel-group" id="accordion">
         {/* leave this here! */}
         {/* <div className={scoreDisplay}> */}
@@ -286,8 +293,9 @@ function CharacterCreateAccMenu() {
           </a>
           <div id="collapse5" className="panel-collapse collapse">
             <form>
-              <label><span className="creatorText">Enter Your Background Info</span></label>
+              
               <textarea
+                className="backDescInput"
                 id="background"
                 name="background"
                 rows="16"
@@ -297,8 +305,8 @@ function CharacterCreateAccMenu() {
                 }}
               >
 
-              </textarea>
-              <br />
+              </textarea><p className="creatorText">Enter Your Background Info</p>
+              
               <button onClick={createCharacterDB}>Save</button>
             </form>
           </div>
