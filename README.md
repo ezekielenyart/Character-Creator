@@ -6,11 +6,15 @@
   Application can be found at http://murmuring-cove-64228.herokuapp.com/
 
   This project was co-created by:
-
-  <div style="width:50%; float:left"><hr>GitHub Username: ezekielenyart <br>Github Profile: <a href='https://github.com/ezekielenyart'>https://github.com/ezekielenyart</a><hr></div><div style="width:50%; float:left"><hr>GitHub Username: Techno-mage <br>Github Profile: <a href='https://github.com/Techno-mage'>https://github.com/Techno-mage</a><hr></div>
-  
-  <div style="width:50%; float:left">GitHub Username: AndrewCodesDontYaKnow <br>Github Profile: <a href='https://github.com/AndrewCodesDontYaKnow'>https://github.com/AndrewCodesDontYaKnow</a><hr></div><div style="width:50%; float:left">GitHub Username: NathanSzu <br>Github Profile: <a href='https://github.com/NathanSzu'>https://github.com/NathanSzu</a><hr></div>
-
+  <hr>
+  GitHub Username: ezekielenyart <br>Github Profile: <a href='https://github.com/ezekielenyart'>https://github.com/ezekielenyart</a>
+  <hr>
+  GitHub Username: Techno-mage <br>Github Profile: <a href='https://github.com/Techno-mage'>https://github.com/Techno-mage</a>
+  <hr>
+  GitHub Username: AndrewCodesDontYaKnow <br>Github Profile: <a href='https://github.com/AndrewCodesDontYaKnow'>https://github.com/AndrewCodesDontYaKnow</a>
+  <hr>
+  GitHub Username: NathanSzu <br>Github Profile: <a href='https://github.com/NathanSzu'>https://github.com/NathanSzu</a>
+  <hr>
   ## Table of Contents
 
   <a href='#Installation'>Installation</a>
