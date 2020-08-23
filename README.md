@@ -15,6 +15,7 @@
   <hr>
   GitHub Username: NathanSzu <br>Github Profile: <a href='https://github.com/NathanSzu'>https://github.com/NathanSzu</a>
   <hr>
+  
   ## Table of Contents
 
   <a href='#Installation'>Installation</a>
