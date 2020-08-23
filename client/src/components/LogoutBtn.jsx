@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import UserContext from "../utils/UserContext";
 
 function Logout() {
-  const { update, _id } = useContext(UserContext);
+  const { update } = useContext(UserContext);
   const history = useHistory();
   const logout = (e) => {
     update("");

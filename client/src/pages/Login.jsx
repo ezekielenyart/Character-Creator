@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import RosterBtn from "../components/RosterBtn";
 import UserContext from "../utils/UserContext";
 
 function Login() {
@@ -21,7 +20,7 @@ function Login() {
       //reroute to home page
       history.push("/roster");
       }
-  }, [])
+  })
 
   const handleChange = (e) => {
     setState({
@@ -58,7 +57,7 @@ function Login() {
     <div className="container logRegContainer">
       <form onSubmit={login}>
         <div className="form-group">
-          <label for="exampleInputEmail1">Email address</label>
+          <label htmlFor="exampleInputEmail1">Email address</label>
           <input
             required
             type="email"
@@ -75,7 +74,7 @@ function Login() {
           </small>
         </div>
         <div className="form-group">
-          <label for="exampleInputPassword1">Password</label>
+          <label htmlFor="exampleInputPassword1">Password</label>
           <input
             required
             type="password"
