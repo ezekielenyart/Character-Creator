@@ -1,5 +1,3 @@
-
-
 .charSheetContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -208,8 +206,4 @@ margin-bottom: 10px;
     background-color: rgb(95, 4, 4);
     border-radius: 25px;
     line-height: 30px;
-}
-
-.charSheetNum:hover, a:hover, button:hover {
-  color: #FBC000; 
 }
