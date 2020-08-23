@@ -1,13 +1,7 @@
-import React, { useEffect, useContext} from "react";
+import React from "react";
 import LogRegBar from "../components/LogRegBar"
-import RosterBtn from "../components/RosterBtn";
-import CharacterCreateBtn from "../components/CreateCharacterBtn"
-import UserContext from '../utils/UserContext'
 
 function HomePageRender() {
-  // Add Description, Take createCharBtn off
-  const { update, _id } = useContext(UserContext);
-  console.log(_id)
 
   return (
       <div className="container homePageRenderContainer ">

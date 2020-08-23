@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 // import  from 'API.js'
 // Re render characters associated with the users unique ID
 const UserContext = React.createContext({

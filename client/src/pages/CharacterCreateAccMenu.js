@@ -2,53 +2,11 @@ import React, { useState, useEffect, useContext } from "react";
 import RaceModal from "../components/RaceModal";
 import ClassModal from "../components/ClassModal";
 import AbilityScoreModal from "../components/AbilityScoreModal";
-// import ChoiceContext from '../utils/ChoiceContext'
 import API from "../utils/API";
 import { useHistory } from "react-router-dom"
 import UserContext from '../utils/UserContext'
 import characterAPI from "../utils/characterAPI"
 import RosterBtn from "../components/RosterBtn"
-import Roster from "./Roster";
-import Logout from '../components/LogoutBtn'
-
-// THESE ARE THE VARIABLES THAT THE CHOICES CAN BE PUT INTO
-// SHOULD THEY BE THEIR OWN CONTEXT?
-// Yeah they should be part of a "currentCharacter" state or something.
-
-const AbilityScores = [
-  {
-    name: "Strength",
-    abv: "str",
-    description: "The measure of your athletic skill",
-
-  },
-  {
-    name: "Dexterity",
-    abv: "dex",
-    description: "The ability of your body to obey your commands",
-  },
-  {
-    name: "Intelligence",
-    abv: "int",
-    description: "The measure of your ability to use logic, memory, and attention to detail",
-  },
-  {
-    name: "Constitution",
-    abv: "con",
-    description: "The measure of your health and vitality",
-  },
-  {
-    name: "Wisdom",
-    abv: "wis",
-    description: "The measure of your awareness of the world around you",
-  },
-  {
-    name: "Charisma",
-    abv: "cha",
-    description: "The measure of your command, confidence, and charm in society",
-  },
-];
-
 
 function CharacterCreateAccMenu() {
 
@@ -98,7 +56,7 @@ function CharacterCreateAccMenu() {
     characterAPI.createCharacter(_id, char)
   }
 
-  const { update, _id } = useContext(UserContext);
+  const { _id } = useContext(UserContext);
 
   // Leave these here!
   const [scoreDisplay, setScoreDisplay] = useState("anim");
@@ -250,7 +208,9 @@ function CharacterCreateAccMenu() {
                   handleWizView={handleWizView}
                   race={race}
                   setCharacterRace={setCharacterRace}
-                  setRaceSubrace={setRaceSubrace} />
+                  setRaceSubrace={setRaceSubrace}
+                  key={`${race.index}ID`}
+                  />
               ))}
             </div>
           </div>
@@ -271,6 +231,7 @@ function CharacterCreateAccMenu() {
             <div id="collapse3" className="panel-collapse collapse">
               {classes.map((DNDclass) => (
                 <ClassModal
+                  key={`${DNDclass.index}ID`}
                   handleWizView={handleWizView}
                   DNDclass={DNDclass}
                   characterClass={DNDclass}
