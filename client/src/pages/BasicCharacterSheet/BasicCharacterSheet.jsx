@@ -1,8 +1,11 @@
 import React, { useContext } from "react";
 import "./basicSheet.css";
 import CharacterContext from '../../utils/CharacterContext'
+import { useHistory } from "react-router-dom";
 
 function BasicCharacterSheet() {
+
+  const history = useHistory();
 
   const ChosenCharacter = useContext(CharacterContext)
 
@@ -24,47 +27,47 @@ function BasicCharacterSheet() {
   let chaNum = parsedChar.cha
 
 
-const setAbilityMod = (abilityScore) => {
+  const setAbilityMod = (abilityScore) => {
 
     console.log(`setAbilityMod fired off with the abilityScore of ${abilityScore}`)
 
-  if (abilityScore == 1) {
-    return -5
-  } else if (abilityScore == 2 || abilityScore ==3) {
-    return -4
-  } else if (abilityScore == 4 || abilityScore == 5) {
-    return -3
-  } else if (abilityScore == 6 || abilityScore == 7) {
-    return -2
-  } else if (abilityScore == 8 || abilityScore == 9) {
-    return -1
-  } else if (abilityScore == 10 || abilityScore == 11) {
-    return 0
-  } else if (abilityScore == 12 || abilityScore == 13) {
-    return 1
-  } else if (abilityScore == 14 || abilityScore == 15) {
-    return 2
-  } else if (abilityScore == 16 || abilityScore == 17) {
-    return 3
-  } else if (abilityScore == 18 || abilityScore == 19) {
-    return 4
-  } else if (abilityScore == 20 || abilityScore == 21) {
-    return 5
-  } else if (abilityScore == 22 || abilityScore == 23) {
-    return 6
-  } else if (abilityScore == 24 || abilityScore == 25) {
-    return 7
-  } else if (abilityScore == 26 || abilityScore == 27) {
-    return 8
-  } else if (abilityScore == 28 || abilityScore == 29) {
-    return 9
-  } else if (abilityScore == 30) {
-    return 10
-  } else {
-    return "You must add your ability score."
-  }
+    if (abilityScore == 1) {
+      return -5
+    } else if (abilityScore == 2 || abilityScore == 3) {
+      return -4
+    } else if (abilityScore == 4 || abilityScore == 5) {
+      return -3
+    } else if (abilityScore == 6 || abilityScore == 7) {
+      return -2
+    } else if (abilityScore == 8 || abilityScore == 9) {
+      return -1
+    } else if (abilityScore == 10 || abilityScore == 11) {
+      return 0
+    } else if (abilityScore == 12 || abilityScore == 13) {
+      return 1
+    } else if (abilityScore == 14 || abilityScore == 15) {
+      return 2
+    } else if (abilityScore == 16 || abilityScore == 17) {
+      return 3
+    } else if (abilityScore == 18 || abilityScore == 19) {
+      return 4
+    } else if (abilityScore == 20 || abilityScore == 21) {
+      return 5
+    } else if (abilityScore == 22 || abilityScore == 23) {
+      return 6
+    } else if (abilityScore == 24 || abilityScore == 25) {
+      return 7
+    } else if (abilityScore == 26 || abilityScore == 27) {
+      return 8
+    } else if (abilityScore == 28 || abilityScore == 29) {
+      return 9
+    } else if (abilityScore == 30) {
+      return 10
+    } else {
+      return "You must add your ability score."
+    }
 
-}
+  }
 
 
 
@@ -101,9 +104,11 @@ const setAbilityMod = (abilityScore) => {
           <h2>Hail {parsedChar.c_name}, the {parsedChar.race} {parsedChar.characterClass}!</h2>
 
         </div>
-        <button onClick={() => {
 
+        {/* EDIT CHARACTER BUTTON */}
+        <button onClick={() => {
         }} className="editBtn">EDIT</button>
+
         <button type="button" data-toggle="modal" data-target='#init' className="btn initBox">
 
           <p className='charSheetNum'>Init<br />6</p>
@@ -112,37 +117,78 @@ const setAbilityMod = (abilityScore) => {
           <p className='charSheetNum'>HP<br />12</p>
         </button>
         <button type="button" data-toggle="modal" data-target='#sp' className="btn speedBox">
-          <p className='charSheetNum'>Sp<br />16</p>
+          <p className='charSheetNum'>Speed<br />16</p>
         </button>
         <div className="combatGroup">
           <button type="button" data-toggle="modal" data-target='#dice' className="btn diceBox">
             <p className='charSheetNum'>Dice<br />20</p>
           </button>
           <button type="button" data-toggle="modal" data-target='#' className="btn armorBox">
-            <p className='charSheetNum'>Arm<br />15</p>
+            <p className='charSheetNum'>AC<br />15</p>
           </button>
           <button type="button" data-toggle="modal" data-target='#' className="btn profBox">
             <p className='charSheetNum'>Prof<br />12</p>
           </button>
         </div>
         <div className="scoresGroup">
+          {/* Strength Score */}
           <button type="button" data-toggle="modal" data-target='#' className="btn strBox">
-            <p className='charSheetNum'>Str<br />{parsedChar.str}<br />Mod: {setAbilityMod(strNum)}</p>
+            <div className="ability-box">
+              <p className='charSheetNum'>Str<br />{parsedChar.str}</p>
+            </div>
+            <div className="ability-box ability-box-right">
+              <p className='charSheetNum'>Mod<br /> +{setAbilityMod(strNum)}</p>
+            </div>
           </button>
+
+          {/* Intelligence Score */}
           <button type="button" data-toggle="modal" data-target='#' className="btn intBox">
-            <p className='charSheetNum'>Int<br />{parsedChar.int}<br />Mod: {setAbilityMod(intNum)}</p>
+            <div className="ability-box">
+              <p className='charSheetNum'>Int<br />{parsedChar.int}</p>
+            </div>
+            <div className="ability-box ability-box-right">
+              <p className='charSheetNum'>Mod<br /> +{setAbilityMod(intNum)}</p>
+            </div>
           </button>
+
+          {/* Dexterity Score */}
           <button type="button" data-toggle="modal" data-target='#' className="btn dexBox">
-            <p className='charSheetNum'>Dex<br />{parsedChar.dex}<br />Mod: {setAbilityMod(dexNum)}</p>
+            <div className="ability-box">
+              <p className='charSheetNum'>Dex<br />{parsedChar.dex}</p>
+            </div>
+            <div className="ability-box ability-box-right">
+              <p className='charSheetNum'>Mod<br /> +{setAbilityMod(dexNum)}</p>
+            </div>
           </button>
+
+          {/* Constitution Score */}
           <button type="button" data-toggle="modal" data-target='#' className="btn conBox">
-            <p className='charSheetNum'>Con<br />{parsedChar.con}<br />Mod: {setAbilityMod(conNum)}</p>
+            <div className="ability-box">
+              <p className='charSheetNum'>Con<br />{parsedChar.con}</p>
+            </div>
+            <div className="ability-box ability-box-right">
+              <p className='charSheetNum'>Mod<br /> +{setAbilityMod(conNum)}</p>
+            </div>
           </button>
+
+          {/* Wisdom Score */}
           <button type="button" data-toggle="modal" data-target='#' className="btn wisBox">
-            <p className='charSheetNum'>Wis<br />{parsedChar.wis}<br />Mod: {setAbilityMod(wisNum)}</p>
+            <div className="ability-box">
+              <p className='charSheetNum'>Wis<br />{parsedChar.wis}</p>
+            </div>
+            <div className="ability-box ability-box-right">
+              <p className='charSheetNum'>Mod<br /> +{setAbilityMod(wisNum)}</p>
+            </div>
           </button>
+
+          {/* Charisma Score */}
           <button type="button" data-toggle="modal" data-target='#' className="btn charBox">
-            <p className='charSheetNum'>Char<br />{parsedChar.cha}<br />Mod: {setAbilityMod(chaNum)}</p>
+            <div className="ability-box">
+              <p className='charSheetNum'>Cha<br />{parsedChar.cha}</p>
+            </div>
+            <div className="ability-box ability-box-right">
+              <p className='charSheetNum'>Mod<br /> +{setAbilityMod(chaNum)}</p>
+            </div>
           </button>
         </div>
         <div
@@ -289,7 +335,17 @@ const setAbilityMod = (abilityScore) => {
 
         </div>
       </div>
-    </div>
+      <div className="container">
+        {/* BACK TO ROSTER BUTTON */}
+        <button onClick={() => {
+          history.push("/roster");
+        }} className="rosterButton">Roster</button>
+
+        {/* DELETE CHARACTER BUTTON */}
+        <button onClick={() => {
+        }} className="deleteBtn">Delete</button>
+      </div>
+    </div >
   );
 }
 

@@ -1,3 +1,17 @@
+.ability-box {
+  width: 50%;
+  float: left;
+}
+
+.ability-box-right {
+  border-left-style: solid;
+  border-left-width: 1px;
+}
+
+.charSheetNum {
+  font-size: 24px;
+}
+
 .charSheetContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -14,6 +28,36 @@
   border-width: 5px;
   border-radius: 25px;
 }
+
+
+.rosterButton {
+  grid-area: 2 / 3 / 3 / 4;
+  height: 40px;
+  font-size: 20px;
+  width: 100px;
+  margin: auto;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 20px;
+  background-color: darkslategrey;
+  color: antiquewhite;
+  margin-top: 5px
+}
+
+.deleteBtn {
+  grid-area: 2 / 3 / 3 / 4;
+  height: 40px;
+  font-size: 20px;
+  width: 80px;
+  margin: auto;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 20px;
+  background-color:#c12806;
+  color:black;
+  margin-top: 5px
+}
+
 .editBtn {
   grid-area: 2 / 3 / 3 / 4;
   height: 40px;
@@ -26,6 +70,7 @@
   background-color:black;
   color: antiquewhite
 }
+
 .nav-tabs {
   grid-area: 1 / 1 / 2 / 4;
   font-size: 15px;
@@ -206,4 +251,8 @@ margin-bottom: 10px;
     background-color: rgb(95, 4, 4);
     border-radius: 25px;
     line-height: 30px;
+}
+
+.charSheetNum:hover, .charSheetNum:focus, a:hover, button:hover {
+  color: #FBC000; 
 }
