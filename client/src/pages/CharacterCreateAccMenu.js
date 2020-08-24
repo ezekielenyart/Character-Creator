@@ -51,7 +51,9 @@ function CharacterCreateAccMenu() {
       performance: performance,
       persuasion: persuasion
 
+,
 
+      lvl: lvl
     }
     characterAPI.createCharacter(_id, char)
   }
@@ -87,12 +89,12 @@ function CharacterCreateAccMenu() {
 
   const [classes, setClasses] = useState([]);
   const [races, setRaces] = useState([]);
-  const [str, setStr] = useState(0);
-  const [dex, setDex] = useState(0);
-  const [con, setCon] = useState(0);
-  const [int, setInt] = useState(0);
-  const [wis, setWis] = useState(0);
-  const [cha, setCha] = useState(0);
+  const [str, setStr] = useState(1);
+  const [dex, setDex] = useState(1);
+  const [con, setCon] = useState(1);
+  const [int, setInt] = useState(1);
+  const [wis, setWis] = useState(1);
+  const [cha, setCha] = useState(1);
 
   const [athletics, setAthletics] = useState(false);
   const [acrobatics, setAcrobatics] = useState(false);
@@ -121,6 +123,7 @@ function CharacterCreateAccMenu() {
     c_name: "Zane",
     gender: "",
   })
+  const [lvl, setLvl] = useState(1);
 
   useEffect(() => {
     API.getClasses().then((res) => {
