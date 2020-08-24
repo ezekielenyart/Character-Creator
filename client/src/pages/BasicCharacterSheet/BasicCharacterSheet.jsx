@@ -61,7 +61,7 @@ const setAbilityMod = (abilityScore) => {
   } else if (abilityScore == 30) {
     return 10
   } else {
-    return "Fuck you motha"
+    return "You must add your ability score."
   }
 
 }
