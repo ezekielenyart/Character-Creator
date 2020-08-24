@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "./basicSheet.css";
 import CharacterContext from '../../utils/CharacterContext'
 import { useHistory } from "react-router-dom";
+import characterAPI from "../../utils/characterAPI";
 
 function BasicCharacterSheet() {
 
@@ -19,6 +20,8 @@ function BasicCharacterSheet() {
 
   console.log(parsedChar)
 
+  console.log(ChosenCharacter.char._id)
+
   let strNum = parsedChar.str
   let intNum = parsedChar.int
   let dexNum = parsedChar.dex
@@ -26,6 +29,11 @@ function BasicCharacterSheet() {
   let wisNum = parsedChar.wis
   let chaNum = parsedChar.cha
 
+  const deleteCharacter = () => {
+    characterAPI.deleteCharacter(ChosenCharacter.char._id);
+    history.push("/roster");
+  }
+  
 
   const setAbilityMod = (abilityScore) => {
 
@@ -343,7 +351,7 @@ function BasicCharacterSheet() {
 
         {/* DELETE CHARACTER BUTTON */}
         <button onClick={() => {
-        }} className="deleteBtn">Delete</button>
+        }} className="deleteBtn" onClick={deleteCharacter}>Delete</button>
       </div>
     </div >
   );
