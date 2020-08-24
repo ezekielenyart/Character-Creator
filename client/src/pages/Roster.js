@@ -57,14 +57,14 @@ function Roster() {
     // Function to parse indices of the returned character array for easier use.
     characterAPI.getCharacters(_id).then((res) => {
       console.log(res.data.characters);
-      var characters = res.data.characters;
-      var parsedChars =[];
-      for (let i = 0; i < characters.length; i++) {
-        parsedChars.push(JSON.parse(characters[i].characterData))
-      }
-      setCharList(parsedChars);
-      console.log(res.data.characters)
-      console.log(parsedChars)
+      // var characters = res.data.characters;
+      // var parsedChars =[];
+      // for (let i = 0; i < characters.length; i++) {
+      //   parsedChars.push(JSON.parse(characters[i].characterData))
+      // }
+      setCharList(res.data.characters);
+      // console.log(res.data.characters);
+      // console.log(parsedChars);
     });
   }, []);
 
