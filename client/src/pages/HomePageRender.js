@@ -1,13 +1,18 @@
 import React from "react";
 import LogRegBar from "../components/LogRegBar"
+import "./BasicCharacterSheet/basicSheet.css";
 
 function HomePageRender() {
 
   return (
-      <div className="container homePageRenderContainer ">
-    <br></br> 
-    <LogRegBar />
-    <p className="welcomeMessage text-center">Welcome to <strong>Create-a-Campaigner</strong>, where you can take away your pen and paper troubles out of creating characters for campaign.  With <strong>Create-a-Campaigner</strong>, you can just sit back, relax, and let us do the hard work for you!</p>
+    <div className="container homePageRenderContainer">
+
+      <br></br>
+      {/* <h1 className="display-1 titleText">HeroCraft</h1> */}
+ 
+      <p className="welcomeMessage text-center">Welcome to<br /><strong id="bigText">HeroCraft</strong><br /><br /> Do away with your pen and paper, bid farewell to the follies of creating D&D characters the olde way. With <strong>HeroCraft</strong>, your character creation process will be a breeze, freeing you up to get adventuring sooner!
+      <LogRegBar />
+      </p>
     </div>
   );
 }

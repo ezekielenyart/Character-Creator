@@ -256,3 +256,17 @@ margin-bottom: 10px;
 .charSheetNum:hover, .charSheetNum:focus, a:hover, button:hover {
   color: #FBC000; 
 }
+
+.welcomeMessage {
+  color: #FBC000; 
+}
+
+.titleText {
+  text-shadow: 2px 2px 5px #FBC000;
+  border-style: outset;
+  padding: 10px;
+}
+
+#bigText {
+  font-size: 50px;
+}

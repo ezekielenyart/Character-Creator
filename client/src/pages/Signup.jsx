@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import UserContext from '../utils/UserContext'
 
+
 function Signup() {
   const { _id } = useContext(UserContext);
 console.log(_id)

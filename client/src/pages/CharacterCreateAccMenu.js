@@ -79,7 +79,7 @@ function CharacterCreateAccMenu() {
       return
     } else if (backgroundDisplay === "anim") {
       createCharacterDB()
-      eHistory.push("/roster")
+      pageHistory.push("/roster")
       return
     }
   }
