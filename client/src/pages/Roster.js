@@ -9,8 +9,8 @@ function Card({ character, onClick }) {
   const parsedChars = JSON.parse(character.characterData);
 
   return (
-    <div>
-      <img value={character._id} src={"images/download.png"} alt="Character"></img>
+    <div className="anim">
+      <img value={character._id} className="roster-img" src={"images/download.png"} alt="Character"></img>
       <button
         className="btn-primary rosterCharBtn"
         value={character._id}
