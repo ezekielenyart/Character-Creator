@@ -10,17 +10,9 @@ function BasicCharacterSheet() {
 
   const ChosenCharacter = useContext(CharacterContext)
 
-  console.log(ChosenCharacter.char)
-
   var unparsedChar = ChosenCharacter.char.characterData
 
-  console.log(unparsedChar)
-
   let parsedChar = JSON.parse(unparsedChar)
-
-  console.log(parsedChar)
-
-  console.log(ChosenCharacter.char._id)
 
   let strNum = parsedChar.str
   let intNum = parsedChar.int
@@ -28,16 +20,16 @@ function BasicCharacterSheet() {
   let conNum = parsedChar.con
   let wisNum = parsedChar.wis
   let chaNum = parsedChar.cha
+  let maxHp = parsedChar.maxHp
+  let currentHp = parsedChar.currentHp
 
   const deleteCharacter = () => {
     characterAPI.deleteCharacter(ChosenCharacter.char._id);
     history.push("/roster");
   }
-  
+
 
   const setAbilityMod = (abilityScore) => {
-
-    console.log(`setAbilityMod fired off with the abilityScore of ${abilityScore}`)
 
     if (abilityScore == 1) {
       return -5
@@ -76,11 +68,6 @@ function BasicCharacterSheet() {
     }
 
   }
-
-
-
-
-  // console.log(async setAbilityMod => (await strengthNum))
 
   return (
     <div>
@@ -122,7 +109,7 @@ function BasicCharacterSheet() {
           <p className='charSheetNum'>Init<br />6</p>
         </button>
         <button type="button" data-toggle="modal" data-target='#hp' className="btn hpBox">
-          <p className='charSheetNum'>HP<br />12</p>
+          <p className='charSheetNum'>HP<br />{currentHp}</p>
         </button>
         <button type="button" data-toggle="modal" data-target='#sp' className="btn speedBox">
           <p className='charSheetNum'>Speed<br />16</p>
@@ -145,7 +132,7 @@ function BasicCharacterSheet() {
               <p className='charSheetNum'>Str<br />{parsedChar.str}</p>
             </div>
             <div className="ability-box ability-box-right">
-              <p className='charSheetNum'>Mod<br /> +{setAbilityMod(strNum)}</p>
+              <p className='charSheetNum'>Mod<br /> {setAbilityMod(strNum)}</p>
             </div>
           </button>
 
@@ -155,7 +142,7 @@ function BasicCharacterSheet() {
               <p className='charSheetNum'>Int<br />{parsedChar.int}</p>
             </div>
             <div className="ability-box ability-box-right">
-              <p className='charSheetNum'>Mod<br /> +{setAbilityMod(intNum)}</p>
+              <p className='charSheetNum'>Mod<br /> {setAbilityMod(intNum)}</p>
             </div>
           </button>
 
@@ -165,7 +152,7 @@ function BasicCharacterSheet() {
               <p className='charSheetNum'>Dex<br />{parsedChar.dex}</p>
             </div>
             <div className="ability-box ability-box-right">
-              <p className='charSheetNum'>Mod<br /> +{setAbilityMod(dexNum)}</p>
+              <p className='charSheetNum'>Mod<br /> {setAbilityMod(dexNum)}</p>
             </div>
           </button>
 
@@ -175,7 +162,7 @@ function BasicCharacterSheet() {
               <p className='charSheetNum'>Con<br />{parsedChar.con}</p>
             </div>
             <div className="ability-box ability-box-right">
-              <p className='charSheetNum'>Mod<br /> +{setAbilityMod(conNum)}</p>
+              <p className='charSheetNum'>Mod<br /> {setAbilityMod(conNum)}</p>
             </div>
           </button>
 
@@ -185,7 +172,7 @@ function BasicCharacterSheet() {
               <p className='charSheetNum'>Wis<br />{parsedChar.wis}</p>
             </div>
             <div className="ability-box ability-box-right">
-              <p className='charSheetNum'>Mod<br /> +{setAbilityMod(wisNum)}</p>
+              <p className='charSheetNum'>Mod<br /> {setAbilityMod(wisNum)}</p>
             </div>
           </button>
 
@@ -195,7 +182,7 @@ function BasicCharacterSheet() {
               <p className='charSheetNum'>Cha<br />{parsedChar.cha}</p>
             </div>
             <div className="ability-box ability-box-right">
-              <p className='charSheetNum'>Mod<br /> +{setAbilityMod(chaNum)}</p>
+              <p className='charSheetNum'>Mod<br /> {setAbilityMod(chaNum)}</p>
             </div>
           </button>
         </div>
@@ -221,11 +208,11 @@ function BasicCharacterSheet() {
                   <span aria-hidden="true">&times;</span>
                 </button>
                 <p className="modalDesc">Add or Remove HP</p>
-                <input type="number" className="AddHPInput form-control" id="hpInput" aria-label="addHP" placeholder="Add HP" >
+                <input type="number" className="AddHPInput form-control" id="maxHp" aria-label="addHP" value={maxHp} >
                   {/* onChange={(e) => { setScore(e.target.value) }} */}
 
                 </input>
-                <input type="number" className="RmHPInput form-control" id="hpInput" aria-label="addHP" placeholder="Remove HP" >
+                <input type="number" className="RmHPInput form-control" id="currentHp" aria-label="addHP" value={currentHp} >
                   {/* onChange={(e) => { setScore(e.target.value) }} */}
 
                 </input>

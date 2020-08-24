@@ -5,7 +5,7 @@ import ModalCheckbox from './ModalCheckbox'
 
 function ClassModal(props) {
   
-  const { handleWizView, DNDclass, setCharacterClass, setAthletics, setAcrobatics, setSleight, setStealth, setArcana, setHistory, setInvestigation, setNature, setReligion, setAnimalHandle, setInsight, setMedicine, setSurvival, setDeception, setIntimidation, setPerception, setPersuasion, setPerformance } = props
+  const { con, setCurrentHp, setMaxHp, handleWizView, DNDclass, setCharacterClass, setAthletics, setAcrobatics, setSleight, setStealth, setArcana, setHistory, setInvestigation, setNature, setReligion, setAnimalHandle, setInsight, setMedicine, setSurvival, setDeception, setIntimidation, setPerception, setPersuasion, setPerformance } = props
   // Setup states to store information from the api calls.
   const [classEquipmentProf, setClassEquipmentProf] = useState([]);
   const [classSkillProf, setClassSkillProf] = useState([]);
@@ -18,6 +18,8 @@ function ClassModal(props) {
       setClassSkillProf(res.data.proficiency_choices[0].from)
       setClassProfNum(res.data.proficiency_choices[0].choose)
       setClassSaveThrows(res.data.saving_throws)
+      setMaxHp(res.data.hit_die)
+      setCurrentHp(res.data.hit_die)
     })
   }
 

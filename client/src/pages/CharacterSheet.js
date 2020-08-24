@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import CharacterSheetModal from '../components/CharacterSheetModal'
-import UserContext from '../utils/UserContext'
+// import UserContext from '../utils/UserContext'
 
 
 const CharacterChoices = 
@@ -23,7 +23,7 @@ const CharacterChoices =
 
 
 function CharacterSheet() {
-    const { update, _id } = useContext(UserContext);
+    // const { update, _id } = useContext(UserContext);
 
     return (<div>
 
