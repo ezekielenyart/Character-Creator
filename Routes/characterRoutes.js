@@ -31,7 +31,7 @@ module.exports = function(app) {
     //get userId and push character id to user's character array
     .then(({_id}) => 
       //console.log(data)
-      db.User.findOneAndUpdate(req.body.userId, { $push: { characters: _id } }, { new: true })
+      db.User.findByIdAndUpdate(req.body.userId, { $push: { characters: _id } }, { new: true })
     )
     .then(data => {
       res.json(data)
