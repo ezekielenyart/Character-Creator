@@ -1,10 +1,9 @@
 import React, { useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import RosterBtn from "../components/RosterBtn";
 import UserContext from '../utils/UserContext'
 
 function Signup() {
-  const { update, _id } = useContext(UserContext);
+  const { _id } = useContext(UserContext);
 console.log(_id)
   const history = useHistory();
   const [state, setState] = React.useState({
@@ -49,7 +48,7 @@ console.log(_id)
     <div className="container logRegContainer">
       <form onSubmit={signup}>
         <div className="form-group">
-          <label for="exampleInputEmail1">Email address</label>
+          <label htmlFor="exampleInputEmail1">Email address</label>
           <input
             type="email"
             name="email"
@@ -66,7 +65,7 @@ console.log(_id)
           </small>
         </div>
         <div className="form-group">
-          <label for="exampleInputPassword1">Password</label>
+          <label htmlFor="exampleInputPassword1">Password</label>
           <input
             type="password"
             name="password"

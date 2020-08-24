@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import HomePageRender from "./pages/HomePageRender";
 import CharacterCreateAccMenu from "./pages/CharacterCreateAccMenu";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -8,14 +8,11 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import UserContext from './utils/UserContext'
 import BasicCharacterSheet from './pages/BasicCharacterSheet/BasicCharacterSheet'
-// import DeveloperContext from "./components/utils/DeveloperContext";
-import characterAPI from "./utils/characterAPI"
 import CharacterContext from "./utils/CharacterContext";
 
 
 function App() {
 
-  // const [charList, setCharList] = useState([])
   const [charState, setCharState] = useState({
     char: "Single Char",
     update: (char) => {
@@ -29,28 +26,6 @@ function App() {
       setUserState({ ...userState, _id })
     }
   })
-
-
- 
-    // characterAPI.getCharacters(userState._id)
-    // .then(res => {
-    //   console.log(res.data.characters)
-    //   setCharList(res.data.characters)
-    // }) 
-  
-   
-  
-
-  // const getThatCharacter = (e) => {
-  
-  //     console.log("FUNCTION FIRED")
-  //     console.log(e.target.value) 
-  
-  //     let desiredChar = charList.find(character => character._id === e.target.value)
-  //         setCharState(desiredChar)
-        
-  //   }
-
 
   return (
     <Router>

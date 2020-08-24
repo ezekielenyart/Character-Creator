@@ -4,24 +4,19 @@ import CharacterContext from '../../utils/CharacterContext'
 
 function BasicCharacterSheet() {
 
-  const ChosenCharacter = useContext(CharacterContext)
+const ChosenCharacter = useContext(CharacterContext)
 
-  console.log(ChosenCharacter.char)
+console.log(ChosenCharacter.char)
 
-  var unparsedChar = ChosenCharacter.char.characterData
+var unparsedChar = ChosenCharacter.char.characterData
 
-  console.log(unparsedChar)
+console.log(unparsedChar)
 
-  let parsedChar = JSON.parse(unparsedChar)
+let parsedChar = JSON.parse(unparsedChar)
 
-  console.log(parsedChar)
+console.log(parsedChar)
 
-  let strNum = parsedChar.str
-  let intNum = parsedChar.int
-  let dexNum = parsedChar.dex
-  let conNum = parsedChar.con
-  let wisNum = parsedChar.wis
-  let chaNum = parsedChar.cha
+
 
 
 const setAbilityMod = (abilityScore) => {
@@ -71,6 +66,7 @@ const setAbilityMod = (abilityScore) => {
 
   // console.log(async setAbilityMod => (await strengthNum))
 
+
   return (
     <div>
       <div className="container charSheetContainer">
@@ -97,197 +93,208 @@ const setAbilityMod = (abilityScore) => {
           </li>
         </ul>
         <div className="greeting">
-
-          <h2>Hail {parsedChar.c_name}, the {parsedChar.race} {parsedChar.characterClass}!</h2>
-
+          
+  <h2>Hail {parsedChar.c_name}, the {parsedChar.race} {parsedChar.characterClass}!</h2>
+          
         </div>
         <button onClick={() => {
 
         }} className="editBtn">EDIT</button>
         <button type="button" data-toggle="modal" data-target='#init' className="btn initBox">
-
-          <p className='charSheetNum'>Init<br />6</p>
+          Init
+          <p>6</p>
         </button>
         <button type="button" data-toggle="modal" data-target='#hp' className="btn hpBox">
-          <p className='charSheetNum'>HP<br />12</p>
+          HP
+          <p>6</p>
         </button>
         <button type="button" data-toggle="modal" data-target='#sp' className="btn speedBox">
-          <p className='charSheetNum'>Sp<br />16</p>
+          Sp
+          <p>6</p>
         </button>
         <div className="combatGroup">
           <button type="button" data-toggle="modal" data-target='#dice' className="btn diceBox">
-            <p className='charSheetNum'>Dice<br />20</p>
+            Dice
+            <p>6</p>
           </button>
           <button type="button" data-toggle="modal" data-target='#' className="btn armorBox">
-            <p className='charSheetNum'>Arm<br />15</p>
+            Arm
+            <p>6</p>
           </button>
           <button type="button" data-toggle="modal" data-target='#' className="btn profBox">
-            <p className='charSheetNum'>Prof<br />12</p>
+            Prof
+            <p>6</p>
           </button>
         </div>
         <div className="scoresGroup">
           <button type="button" data-toggle="modal" data-target='#' className="btn strBox">
-            <p className='charSheetNum'>Str<br />{parsedChar.str}<br />Mod: {setAbilityMod(strNum)}</p>
+            Str
+            <p>{parsedChar.str}</p>
           </button>
           <button type="button" data-toggle="modal" data-target='#' className="btn intBox">
-            <p className='charSheetNum'>Int<br />{parsedChar.int}<br />Mod: {setAbilityMod(intNum)}</p>
+            Int
+            <p>{parsedChar.int}</p>
           </button>
           <button type="button" data-toggle="modal" data-target='#' className="btn dexBox">
-            <p className='charSheetNum'>Dex<br />{parsedChar.dex}<br />Mod: {setAbilityMod(dexNum)}</p>
+            Dex
+            <p>{parsedChar.dex}</p>
           </button>
           <button type="button" data-toggle="modal" data-target='#' className="btn conBox">
-            <p className='charSheetNum'>Con<br />{parsedChar.con}<br />Mod: {setAbilityMod(conNum)}</p>
+            Con
+            <p>{parsedChar.con}</p>
           </button>
           <button type="button" data-toggle="modal" data-target='#' className="btn wisBox">
-            <p className='charSheetNum'>Wis<br />{parsedChar.wis}<br />Mod: {setAbilityMod(wisNum)}</p>
+            Wis
+            <p>{parsedChar.wis}</p>
           </button>
           <button type="button" data-toggle="modal" data-target='#' className="btn charBox">
-            <p className='charSheetNum'>Char<br />{parsedChar.cha}<br />Mod: {setAbilityMod(chaNum)}</p>
+            Char
+            <p>{parsedChar.cha}</p>
           </button>
         </div>
         <div
-          className="modal fade"
-          id="hp"
-          aria-labelledby="hp"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <span className="modal-title" id='hpLabel'>
-                  HP
+    className="modal fade"
+    id= "hp"
+    aria-labelledby= "hp"
+    aria-hidden="true"
+  >
+    <div className="modal-dialog">
+      <div className="modal-content">
+        <div className="modal-header">
+          <span className="modal-title" id='hpLabel'>
+            HP
           </span>
 
-                <button
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <p className="modalDesc">Add or Remove HP</p>
-                <input type="number" className="AddHPInput form-control" id="hpInput" aria-label="addHP" placeholder="Add HP" >
-                  {/* onChange={(e) => { setScore(e.target.value) }} */}
+          <button
+            type="button"
+            className="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <p className="modalDesc">Add or Remove HP</p>
+          <input type="number" className="AddHPInput form-control" id="hpInput" aria-label="addHP" placeholder="Add HP" >
+          {/* onChange={(e) => { setScore(e.target.value) }} */}
+              
+          </input>
+          <input type="number" className="RmHPInput form-control" id="hpInput" aria-label="addHP" placeholder="Remove HP" >
+          {/* onChange={(e) => { setScore(e.target.value) }} */}
+              
+          </input>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <div
+    className="modal fade"
+    id= "init"
+    aria-labelledby= "init"
+    aria-hidden="true"
+  >
+    <div className="modal-dialog">
+      <div className="modal-content">
+        <div className="modal-header">
+          <span className="modal-title" id='initLabel'>
+            Initiative
+          </span>
 
-                </input>
-                <input type="number" className="RmHPInput form-control" id="hpInput" aria-label="addHP" placeholder="Remove HP" >
-                  {/* onChange={(e) => { setScore(e.target.value) }} */}
+          <button
+            type="button"
+            className="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <p className="modalDesc">Add or Remove init</p>
+          <input type="number" className="AddinitInput form-control" id="initInput" aria-label="addinit" placeholder="Add init" >
+          {/* onChange={(e) => { setScore(e.target.value) }} */}
+              
+          </input>
+          <input type="number" className="RminitInput form-control" id="initInput" aria-label="addinit" placeholder="Remove init" >
+          {/* onChange={(e) => { setScore(e.target.value) }} */}
+              
+          </input>
+        </div>
+      </div>
+    </div>
+    
+  </div> <div
+    className="modal fade"
+    id= "sp"
+    aria-labelledby= "sp"
+    aria-hidden="true"
+  >
+    <div className="modal-dialog">
+      <div className="modal-content">
+        <div className="modal-header">
+          <span className="modal-title" id='spLabel'>
+            Speed
+          </span>
 
-                </input>
-              </div>
-            </div>
-          </div>
+          <button
+            type="button"
+            className="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <p className="modalDesc">Add or Remove sp</p>
+          <input type="number" className="AddspInput form-control" id="spInput" aria-label="addsp" placeholder="Add sp" >
+          {/* onChange={(e) => { setScore(e.target.value) }} */}
+              
+          </input>
+          <input type="number" className="RmspInput form-control" id="spInput" aria-label="addsp" placeholder="Remove sp" >
+          {/* onChange={(e) => { setScore(e.target.value) }} */}
+              
+          </input>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <div
+    className="modal fade"
+    id= "dice"
+    aria-labelledby= "dice"
+    aria-hidden="true"
+  >
+    <div className="modal-dialog">
+      <div className="modal-content">
+        <div className="modal-header">
+          <span className="modal-title" id='diceLabel'>
+            Dice
+          </span>
+
+          <button
+            type="button"
+            className="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <p className="modalDesc">Change dice</p>
+          <select type="number" className="changediceInput form-control" id="diceInput" aria-label="changedice" placeholder="Change dice" >
+          {/* onChange={(e) => { setScore(e.target.value) }} */}
+              <option>d6</option>
+              <option>d8</option>
+              <option>d10</option>
+              <option>d12</option>
+          </select>
+          <label for="diceCount1">1</label>
+          <input className="diceCountCheck1"type="checkbox" id="diceCountCheck1" name="diceCount1" value="1"></input>
+          <label for="diceCount2">2</label>
+          <input className="diceCountCheck2" type="checkbox" id="diceCountCheck2" name="diceCount2" value="1"></input>
 
         </div>
-        <div
-          className="modal fade"
-          id="init"
-          aria-labelledby="init"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <span className="modal-title" id='initLabel'>
-                  Initiative
-          </span>
-
-                <button
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <p className="modalDesc">Add or Remove init</p>
-                <input type="number" className="AddinitInput form-control" id="initInput" aria-label="addinit" placeholder="Add init" >
-                  {/* onChange={(e) => { setScore(e.target.value) }} */}
-
-                </input>
-                <input type="number" className="RminitInput form-control" id="initInput" aria-label="addinit" placeholder="Remove init" >
-                  {/* onChange={(e) => { setScore(e.target.value) }} */}
-
-                </input>
-              </div>
-            </div>
-          </div>
-
-        </div> <div
-          className="modal fade"
-          id="sp"
-          aria-labelledby="sp"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <span className="modal-title" id='spLabel'>
-                  Speed
-          </span>
-
-                <button
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <p className="modalDesc">Add or Remove sp</p>
-                <input type="number" className="AddspInput form-control" id="spInput" aria-label="addsp" placeholder="Add sp" >
-                  {/* onChange={(e) => { setScore(e.target.value) }} */}
-
-                </input>
-                <input type="number" className="RmspInput form-control" id="spInput" aria-label="addsp" placeholder="Remove sp" >
-                  {/* onChange={(e) => { setScore(e.target.value) }} */}
-
-                </input>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <div
-          className="modal fade"
-          id="dice"
-          aria-labelledby="dice"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <span className="modal-title" id='diceLabel'>
-                  Dice
-          </span>
-
-                <button
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <p className="modalDesc">Change dice</p>
-                <select type="number" className="changediceInput form-control" id="diceInput" aria-label="changedice" placeholder="Change dice" >
-                  {/* onChange={(e) => { setScore(e.target.value) }} */}
-                  <option>d6</option>
-                  <option>d8</option>
-                  <option>d10</option>
-                  <option>d12</option>
-                </select>
-                <label for="diceCount1">1</label>
-                <input className="diceCountCheck1" type="checkbox" id="diceCountCheck1" name="diceCount1" value="1"></input>
-                <label for="diceCount2">2</label>
-                <input className="diceCountCheck2" type="checkbox" id="diceCountCheck2" name="diceCount2" value="1"></input>
-
-              </div>
-            </div>
-          </div>
-
-        </div>
+      </div>
+    </div>
+    
+  </div>
       </div>
     </div>
   );
