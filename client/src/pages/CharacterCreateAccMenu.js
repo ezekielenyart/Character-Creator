@@ -49,10 +49,10 @@ function CharacterCreateAccMenu() {
       deception: deception,
       intimidation: intimidation,
       performance: performance,
-      persuasion: persuasion
+      persuasion: persuasion,
 
-,
-
+      maxHp: maxHp,
+      currentHp: currentHp,
       lvl: lvl
     }
     characterAPI.createCharacter(_id, char)
@@ -80,8 +80,8 @@ function CharacterCreateAccMenu() {
       setBackgroundDisplay("anim");
       return
     } else if (backgroundDisplay === "anim") {
-      createCharacterDB()
-      pageHistory.push("/roster")
+      pageHistory.push("/roster");
+      createCharacterDB();
       return
     }
   }
@@ -124,6 +124,8 @@ function CharacterCreateAccMenu() {
     gender: "",
   })
   const [lvl, setLvl] = useState(1);
+  const [maxHp, setMaxHp] = useState(1);
+  const [currentHp, setCurrentHp] = useState(1);
 
   useEffect(() => {
     API.getClasses().then((res) => {
@@ -180,7 +182,7 @@ function CharacterCreateAccMenu() {
 
               <AbilityScoreModal name="Strength" score={str} setScore={setStr} />
               <AbilityScoreModal name="Dexterity" score={dex} setScore={setDex} />
-              <AbilityScoreModal name="Constitution" score={con} setScore={setCon} />
+              <AbilityScoreModal name="Constitution" score={con} setScore={setCon}/>
               <AbilityScoreModal name="Intelligence" score={int} setScore={setInt} />
               <AbilityScoreModal name="Wisdom" score={wis} setScore={setWis} />
               <AbilityScoreModal name="Charisma" score={cha} setScore={setCha} />
@@ -235,6 +237,9 @@ function CharacterCreateAccMenu() {
               {classes.map((DNDclass) => (
                 <ClassModal
                   key={`${DNDclass.index}ID`}
+                  con={con}
+                  setMaxHp={setMaxHp}
+                  setCurrentHp={setCurrentHp}
                   handleWizView={handleWizView}
                   DNDclass={DNDclass}
                   characterClass={DNDclass}
