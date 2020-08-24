@@ -51,7 +51,9 @@ function CharacterCreateAccMenu() {
       performance: performance,
       persuasion: persuasion
 
+,
 
+      lvl: lvl
     }
     characterAPI.createCharacter(_id, char)
   }
@@ -121,6 +123,7 @@ function CharacterCreateAccMenu() {
     c_name: "Zane",
     gender: "",
   })
+  const [lvl, setLvl] = useState(1);
 
   useEffect(() => {
     API.getClasses().then((res) => {
