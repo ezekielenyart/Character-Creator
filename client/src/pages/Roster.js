@@ -6,7 +6,7 @@ import characterAPI from "../utils/characterAPI";
 import CharacterContext from "../utils/CharacterContext";
 
 function Card({ character, onClick }) {
-  // const parsedChars = JSON.parse(character.characterData);
+  const parsedChars = JSON.parse(character.characterData);
 
   return (
     <div>
@@ -16,8 +16,8 @@ function Card({ character, onClick }) {
         value={character._id}
         onClick={onClick}
       >
-        {character.c_name}, the {character.race}{" "}
-        {character.characterClass}
+        {parsedChars.c_name}, the {parsedChars.race}{" "}
+        {parsedChars.characterClass}
       </button>
     </div>
   );
