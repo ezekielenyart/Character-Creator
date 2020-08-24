@@ -72,7 +72,7 @@ function BasicCharacterSheet() {
     } else if (abilityScore == 30) {
       return 10
     } else {
-      return "You must add your ability score."
+      return "N/A"
     }
 
   }
