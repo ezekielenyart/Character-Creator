@@ -342,23 +342,30 @@ text-align: right;
 }
 .loginBtn { 
 
-    margin-left: 30px;
-    margin-right: 30px;
+    /* margin-left: 30px;
+    margin-right: 30px; */
+    margin: auto;
     background-color: darkblue;
     font-family: Staatliches, Open Sans, sans-serif;
     font-size: 18px;
-    color: white;
-    width:25%;
+    color: antiquewhite;
+    /* width:25%; */
+    padding: 5px 30px 5px;
+    width: fit-content;
+
 }
 .registerBtn { 
 
-    margin-right: 30px;
-    margin-left: 30px;
+    /* margin-right: 30px;
+    margin-left: 30px; */
+    margin: auto;
     font-family: Staatliches, Open Sans, sans-serif;
     font-size: 18px;
     background-color: darkred;
-    color: white;
-    width: 25%;
+    color: antiquewhite;
+    /* width: 25%; */
+    padding: 5px 30px 5px;
+    width: fit-content;
 }
 .logRegSubBtn{
     background-color: rgba(56, 43, 43, 0.997);
