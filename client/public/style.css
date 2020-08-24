@@ -2,6 +2,23 @@
     display: none;
 }
 
+.rosterCharBtn {
+    background-color: rgba(75, 59, 59, 0.997);
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    border-color: black;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.roster-img{
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
 .anim {
     opacity: 100%;
     position: relative;
