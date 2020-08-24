@@ -51,6 +51,7 @@ function CharacterCreateAccMenu() {
       performance: performance,
       persuasion: persuasion,
 
+      hitDie: hitDie,
       maxHp: maxHp,
       currentHp: currentHp,
       lvl: lvl
@@ -95,6 +96,8 @@ function CharacterCreateAccMenu() {
   const [int, setInt] = useState(1);
   const [wis, setWis] = useState(1);
   const [cha, setCha] = useState(1);
+
+  const [hitDie, setHitDie] = useState(6);
 
   const [athletics, setAthletics] = useState(false);
   const [acrobatics, setAcrobatics] = useState(false);
@@ -238,6 +241,7 @@ function CharacterCreateAccMenu() {
                 <ClassModal
                   key={`${DNDclass.index}ID`}
                   con={con}
+                  setHitDie={setHitDie}
                   setMaxHp={setMaxHp}
                   setCurrentHp={setCurrentHp}
                   handleWizView={handleWizView}

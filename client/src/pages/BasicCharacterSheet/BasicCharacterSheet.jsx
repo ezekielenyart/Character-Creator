@@ -22,12 +22,27 @@ function BasicCharacterSheet() {
   let chaNum = parsedChar.cha
   let maxHp = parsedChar.maxHp
   let currentHp = parsedChar.currentHp
+  let lvl = parsedChar.lvl
+  let hitDie = parsedChar.hitDie
 
   const deleteCharacter = () => {
     characterAPI.deleteCharacter(ChosenCharacter.char._id);
     history.push("/roster");
   }
 
+  const setProfBonus = (lvl) => {
+    if (lvl <= 4) {
+      return 2
+    } else if (lvl > 4 && lvl <= 8) {
+      return 3
+    } else if (lvl > 8 && lvl <= 12) {
+      return 4
+    } else if (lvl > 12 && lvl <= 16) {
+      return 5
+    } else if (lvl > 16 && lvl <= 20) {
+      return 6
+    }
+  }
 
   const setAbilityMod = (abilityScore) => {
 
@@ -106,23 +121,23 @@ function BasicCharacterSheet() {
 
         <button type="button" data-toggle="modal" data-target='#init' className="btn initBox">
 
-          <p className='charSheetNum'>Init<br />6</p>
+          <p className='charSheetNum'>Init<br />{setAbilityMod(dexNum)}</p>
         </button>
         <button type="button" data-toggle="modal" data-target='#hp' className="btn hpBox">
           <p className='charSheetNum'>HP<br />{currentHp}</p>
         </button>
         <button type="button" data-toggle="modal" data-target='#sp' className="btn speedBox">
-          <p className='charSheetNum'>Speed<br />16</p>
+          <p className='charSheetNum'>Speed<br />30</p>
         </button>
         <div className="combatGroup">
           <button type="button" data-toggle="modal" data-target='#dice' className="btn diceBox">
-            <p className='charSheetNum'>Dice<br />20</p>
+      <p className='charSheetNum'>HD<br />{lvl} D{hitDie}</p>
           </button>
           <button type="button" data-toggle="modal" data-target='#' className="btn armorBox">
             <p className='charSheetNum'>AC<br />15</p>
           </button>
           <button type="button" data-toggle="modal" data-target='#' className="btn profBox">
-            <p className='charSheetNum'>Prof<br />12</p>
+            <p className='charSheetNum'>Prof<br />+{setProfBonus(lvl)}</p>
           </button>
         </div>
         <div className="scoresGroup">
