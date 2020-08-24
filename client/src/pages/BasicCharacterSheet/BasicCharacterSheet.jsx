@@ -112,37 +112,78 @@ const setAbilityMod = (abilityScore) => {
           <p className='charSheetNum'>HP<br />12</p>
         </button>
         <button type="button" data-toggle="modal" data-target='#sp' className="btn speedBox">
-          <p className='charSheetNum'>Sp<br />16</p>
+          <p className='charSheetNum'>Speed<br />16</p>
         </button>
         <div className="combatGroup">
           <button type="button" data-toggle="modal" data-target='#dice' className="btn diceBox">
             <p className='charSheetNum'>Dice<br />20</p>
           </button>
           <button type="button" data-toggle="modal" data-target='#' className="btn armorBox">
-            <p className='charSheetNum'>Arm<br />15</p>
+            <p className='charSheetNum'>AC<br />15</p>
           </button>
           <button type="button" data-toggle="modal" data-target='#' className="btn profBox">
             <p className='charSheetNum'>Prof<br />12</p>
           </button>
         </div>
         <div className="scoresGroup">
+          {/* Strength Score */}
           <button type="button" data-toggle="modal" data-target='#' className="btn strBox">
-            <p className='charSheetNum'>Str<br />{parsedChar.str}<br />Mod: {setAbilityMod(strNum)}</p>
+            <div className="ability-box">
+            <p className='charSheetNum'>Str<br />{parsedChar.str}</p>
+            </div>
+            <div className="ability-box ability-box-right">
+            <p className='charSheetNum'>Mod<br /> +{setAbilityMod(strNum)}</p>
+            </div>
           </button>
+
+          {/* Intelligence Score */}
           <button type="button" data-toggle="modal" data-target='#' className="btn intBox">
-            <p className='charSheetNum'>Int<br />{parsedChar.int}<br />Mod: {setAbilityMod(intNum)}</p>
+          <div className="ability-box">
+            <p className='charSheetNum'>Int<br />{parsedChar.int}</p>
+            </div>
+            <div className="ability-box ability-box-right">
+            <p className='charSheetNum'>Mod<br /> +{setAbilityMod(intNum)}</p>
+            </div>
           </button>
+
+          {/* Dexterity Score */}
           <button type="button" data-toggle="modal" data-target='#' className="btn dexBox">
-            <p className='charSheetNum'>Dex<br />{parsedChar.dex}<br />Mod: {setAbilityMod(dexNum)}</p>
+          <div className="ability-box">
+            <p className='charSheetNum'>Dex<br />{parsedChar.dex}</p>
+            </div>
+            <div className="ability-box ability-box-right">
+            <p className='charSheetNum'>Mod<br /> +{setAbilityMod(dexNum)}</p>
+            </div>
           </button>
+
+          {/* Constitution Score */}
           <button type="button" data-toggle="modal" data-target='#' className="btn conBox">
-            <p className='charSheetNum'>Con<br />{parsedChar.con}<br />Mod: {setAbilityMod(conNum)}</p>
+          <div className="ability-box">
+            <p className='charSheetNum'>Con<br />{parsedChar.con}</p>
+            </div>
+            <div className="ability-box ability-box-right">
+            <p className='charSheetNum'>Mod<br /> +{setAbilityMod(conNum)}</p>
+            </div>
           </button>
+
+          {/* Wisdom Score */}
           <button type="button" data-toggle="modal" data-target='#' className="btn wisBox">
-            <p className='charSheetNum'>Wis<br />{parsedChar.wis}<br />Mod: {setAbilityMod(wisNum)}</p>
+          <div className="ability-box">
+            <p className='charSheetNum'>Wis<br />{parsedChar.wis}</p>
+            </div>
+            <div className="ability-box ability-box-right">
+            <p className='charSheetNum'>Mod<br /> +{setAbilityMod(wisNum)}</p>
+            </div>
           </button>
+
+          {/* Charisma Score */}
           <button type="button" data-toggle="modal" data-target='#' className="btn charBox">
-            <p className='charSheetNum'>Char<br />{parsedChar.cha}<br />Mod: {setAbilityMod(chaNum)}</p>
+          <div className="ability-box">
+            <p className='charSheetNum'>Cha<br />{parsedChar.cha}</p>
+            </div>
+            <div className="ability-box ability-box-right">
+            <p className='charSheetNum'>Mod<br /> +{setAbilityMod(chaNum)}</p>
+            </div>
           </button>
         </div>
         <div

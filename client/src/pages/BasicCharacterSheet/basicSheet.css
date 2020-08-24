@@ -1,3 +1,17 @@
+.ability-box {
+  width: 50%;
+  float: left;
+}
+
+.ability-box-right {
+  border-left-style: solid;
+  border-left-width: 1px;
+}
+
+.charSheetNum {
+  font-size: 24px;
+}
+
 .charSheetContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
