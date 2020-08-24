@@ -94,15 +94,15 @@ function BasicCharacterSheet() {
             </a>
           </li>
         </ul>
-        <div className="greeting">
+        <div className="w-100 greeting">
 
-          <h2>Hail {parsedChar.c_name}, the {parsedChar.race} {parsedChar.characterClass}!</h2>
+          <h2 id="medText">Hail {parsedChar.c_name}, the {parsedChar.race} {parsedChar.characterClass}!</h2>
 
         </div>
 
         {/* EDIT CHARACTER BUTTON */}
-        <button onClick={() => {
-        }} className="editBtn">EDIT</button>
+        {/* <button onClick={() => {
+        }} className="editBtn">EDIT</button> */}
 
         <button type="button" data-toggle="modal" data-target='#init' className="btn initBox">
 
