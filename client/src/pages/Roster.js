@@ -71,7 +71,7 @@ function Roster() {
   console.log(charState);
   return (
     <div>    
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="row my-3">
         <CharacterCreateBtn />
       </div>
