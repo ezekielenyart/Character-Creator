@@ -4,12 +4,13 @@ import CharacterCreateBtn from "../components/CreateCharacterBtn";
 import { useHistory } from "react-router-dom";
 import characterAPI from "../utils/characterAPI";
 import CharacterContext from "../utils/CharacterContext";
-
+import Navbar from '../components/Navbar'
 function Card({ character, onClick }) {
   const parsedChars = JSON.parse(character.characterData);
 
   return (
     <div>
+  
       <img value={character._id} src={"images/download.png"} alt="Character"></img>
       <button
         className="btn-primary rosterCharBtn"
@@ -70,7 +71,8 @@ function Roster() {
 
   console.log(charState);
   return (
-    <div>
+    <div>    
+      <Navbar />
       <div className="row my-3">
         <CharacterCreateBtn />
       </div>

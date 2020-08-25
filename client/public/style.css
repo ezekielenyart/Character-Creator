@@ -458,3 +458,9 @@ color: antiquewhite
     font-size: 25px;
     color: rgb(41, 31, 31);
 }
+.navbar {
+    background-color: black;
+    color: white;
+    height: 50px;
+    width: 100%
+}
