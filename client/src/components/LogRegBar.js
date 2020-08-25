@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import "./../pages/BasicCharacterSheet/basicSheet.css";
 
 function LogRegBar() {
   const location = useLocation();

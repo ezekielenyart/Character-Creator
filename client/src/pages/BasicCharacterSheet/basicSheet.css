@@ -80,8 +80,8 @@
   color: antiquewhite;
 }
 .greeting {
-  grid-area: 2 / 1 / 3 / 3;  
-  font-size: 35px;
+  grid-area: 2 / 1 / 3 / 6;  
+  font-size: 45px;
   font-weight: 900;
   text-align: center;
   /* padding:40px; */
@@ -255,4 +255,26 @@ margin-bottom: 10px;
 
 .charSheetNum:hover, .charSheetNum:focus, a:hover, button:hover {
   color: #FBC000; 
+}
+
+.welcomeMessage {
+  color: #FBC000; 
+}
+
+.titleText {
+  text-shadow: 2px 2px 5px #FBC000;
+  border-style: outset;
+  padding: 10px;
+}
+
+#bigText {
+  font-size: 50px;
+}
+
+#medText {
+  font-size: 45px;
+}
+
+.loginBtn {
+  
 }

@@ -21,6 +21,7 @@ function RaceModal({ race, setCharacterRace, setRaceSubrace, handleWizView }) {
       // Displays the base racial speed.
       setSpeed(res.data.speed);
       // Used to display a list of ability bonuses.
+      console.log(res.data.ability_bonuses)
       setAbilityBonus(res.data.ability_bonuses);
       // Text description of alignment options.
       setAlignment(res.data.alignment);

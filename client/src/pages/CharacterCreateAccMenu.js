@@ -49,10 +49,11 @@ function CharacterCreateAccMenu() {
       deception: deception,
       intimidation: intimidation,
       performance: performance,
-      persuasion: persuasion
+      persuasion: persuasion,
 
-,
-
+      hitDie: hitDie,
+      maxHp: maxHp,
+      currentHp: currentHp,
       lvl: lvl
     }
     characterAPI.createCharacter(_id, char)
@@ -80,8 +81,8 @@ function CharacterCreateAccMenu() {
       setBackgroundDisplay("anim");
       return
     } else if (backgroundDisplay === "anim") {
-      createCharacterDB()
-      pageHistory.push("/roster")
+      pageHistory.push("/roster");
+      createCharacterDB();
       return
     }
   }
@@ -95,6 +96,8 @@ function CharacterCreateAccMenu() {
   const [int, setInt] = useState(1);
   const [wis, setWis] = useState(1);
   const [cha, setCha] = useState(1);
+
+  const [hitDie, setHitDie] = useState(6);
 
   const [athletics, setAthletics] = useState(false);
   const [acrobatics, setAcrobatics] = useState(false);
@@ -124,6 +127,8 @@ function CharacterCreateAccMenu() {
     gender: "",
   })
   const [lvl, setLvl] = useState(1);
+  const [maxHp, setMaxHp] = useState(1);
+  const [currentHp, setCurrentHp] = useState(1);
 
   useEffect(() => {
     API.getClasses().then((res) => {
@@ -180,7 +185,7 @@ function CharacterCreateAccMenu() {
 
               <AbilityScoreModal name="Strength" score={str} setScore={setStr} />
               <AbilityScoreModal name="Dexterity" score={dex} setScore={setDex} />
-              <AbilityScoreModal name="Constitution" score={con} setScore={setCon} />
+              <AbilityScoreModal name="Constitution" score={con} setScore={setCon}/>
               <AbilityScoreModal name="Intelligence" score={int} setScore={setInt} />
               <AbilityScoreModal name="Wisdom" score={wis} setScore={setWis} />
               <AbilityScoreModal name="Charisma" score={cha} setScore={setCha} />
@@ -235,6 +240,10 @@ function CharacterCreateAccMenu() {
               {classes.map((DNDclass) => (
                 <ClassModal
                   key={`${DNDclass.index}ID`}
+                  con={con}
+                  setHitDie={setHitDie}
+                  setMaxHp={setMaxHp}
+                  setCurrentHp={setCurrentHp}
                   handleWizView={handleWizView}
                   DNDclass={DNDclass}
                   characterClass={DNDclass}
