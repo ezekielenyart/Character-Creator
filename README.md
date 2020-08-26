@@ -56,9 +56,9 @@ The above copyright notice and this permission notice shall be included in all c
   ## <a id='Questions' style='color:white;'>Questions - Contact Me</a>
   <img style='width:150px' src='https://avatars0.githubusercontent.com/u/66106134?v=4'>
 
-  GitHub Username: ezekielenyart
+  GitHub Username: ezekieleverest
 
-  Github Profile: <a href='https://github.com/ezekielenyart'>https://github.com/ezekielenyart</a>
+  Github Profile: <a href='https://github.com/ezekieleverest'>https://github.com/ezekieleverest</a>
 
   <!-- Email: zekejeverest@gmail.com -->
 
