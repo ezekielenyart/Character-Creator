@@ -7,7 +7,7 @@
 
   This project was co-created by:
   <hr>
-  GitHub Username: ezekielenyart <br>Github Profile: <a href='https://github.com/ezekielenyart'>https://github.com/ezekielenyart</a>
+  GitHub Username: ezekieleverest <br>Github Profile: <a href='https://github.com/ezekieleverest'>https://github.com/ezekieleverest</a>
   <hr>
   GitHub Username: Techno-mage <br>Github Profile: <a href='https://github.com/Techno-mage'>https://github.com/Techno-mage</a>
   <hr>
