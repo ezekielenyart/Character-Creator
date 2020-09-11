@@ -1,11 +1,11 @@
-# Character Creator
+# HeroCraft
   ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
   ## Description
   An application that allows users to easily create and store characters for roleplaying games that can be referenced later.
 
   Application can be found at http://murmuring-cove-64228.herokuapp.com/
 
-  This project was co-created by:
+  This application was co-created by:
   <hr>
   GitHub Username: ezekieleverest <br>Github Profile: <a href='https://github.com/ezekieleverest'>https://github.com/ezekieleverest</a>
   <hr>
