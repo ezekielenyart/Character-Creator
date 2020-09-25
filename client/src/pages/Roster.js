@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
+import characterAPI from "../utils/characterAPI";
 import UserContext from "../utils/UserContext";
 import CharacterCreateBtn from "../components/CreateCharacterBtn";
 import { useHistory } from "react-router-dom";
-import characterAPI from "../utils/characterAPI";
 import CharacterContext from "../utils/CharacterContext";
 import Navbar from '../components/Navbar'
+
 function Card({ character, onClick }) {
   const parsedChars = JSON.parse(character.characterData);
 

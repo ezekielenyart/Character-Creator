@@ -16,9 +16,10 @@ if (process.env.NODE_ENV === "production") {
 // Catch all route to redirect unmanaged routes back to the react app.
 // THIS OPTION IS NOT SEO OPTIMIZED
 // THIS ROUTE SENDS ALL SAVED LINKS TO THE ROOT
-app.get('/*', function (req, res) {
-  res.redirect('/')
-});
+
+// app.get('/*', function (req, res) {
+//   res.redirect('/')
+// });
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
